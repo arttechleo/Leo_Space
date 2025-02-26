@@ -234,7 +234,7 @@ class MultiVideoScene {
             },
             {
                 id: 'screen10',
-                src: './videos/_I Wandered Lonely as a Cloud_ by William Wordsworth.mp4',
+                src: './videos/IWanderedLonelyasaCloud_by WilliamWordsworth.mp4',
                 title: "Classical Poem in Mixed and Virtual Reality",
                 about: "Wordsworth’s I Wandered Lonely as a Cloud reimagined for the immersive age. With interactive scrolling and AI-generated skyboxes, this project brings poetry off the page and into a dreamlike Mixed and Virtual Reality world. It’s literature, but make it sci-fi.",
                 url: "./project6.html"
