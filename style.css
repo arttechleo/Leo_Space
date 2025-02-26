@@ -28,20 +28,24 @@
     width: 120%;
     height: 120%;
     z-index: 1;
-    pointer-events: none; /* Container remains non-interactive */
+    pointer-events: none;
+    /* Container remains non-interactive */
 }
 
 #three-canvas {
     position: relative;
     width: 120%;
     height: 120%;
-    pointer-events: auto; /* Enable click events on the canvas */
-    cursor: default; /* Default cursor */
+    pointer-events: auto;
+    /* Enable click events on the canvas */
+    cursor: default;
+    /* Default cursor */
 }
 
 /* Add hover state for screens */
 #three-canvas:hover {
-    cursor: pointer; /* Change cursor on hoverable elements */
+    cursor: pointer;
+    /* Change cursor on hoverable elements */
 }
 
 /* to prevent scrolling on specific page */
@@ -55,7 +59,8 @@ html:has(body[data-current-page="index"]) {
     width: 100vw;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -77,16 +82,26 @@ html, body {
 /* Specific styles for project9.html */
 html.project9-page,
 body.project9-page {
-    height: 100%;            /* Keep full height */
-    margin: 0;              /* Keep zero margin */
-    padding: 0;             /* Keep zero padding */
-    font-family: 'NeueMontreal-Regular';  /* Keep same font */
-    line-height: 1.6;       /* Keep same line height */
-    background-color: white; /* Change to white background */
-    flex-direction: column; /* Keep column direction */
-    align-items: center;    /* Keep centered alignment */
-    justify-content: center; /* Keep centered justification */
-    text-align: center;     /* Keep centered text */
+    height: 100%;
+    /* Keep full height */
+    margin: 0;
+    /* Keep zero margin */
+    padding: 0;
+    /* Keep zero padding */
+    font-family: 'NeueMontreal-Regular';
+    /* Keep same font */
+    line-height: 1.6;
+    /* Keep same line height */
+    background-color: white;
+    /* Change to white background */
+    flex-direction: column;
+    /* Keep column direction */
+    align-items: center;
+    /* Keep centered alignment */
+    justify-content: center;
+    /* Keep centered justification */
+    text-align: center;
+    /* Keep centered text */
 }
 
 .video {
@@ -104,20 +119,23 @@ body.project9-page {
     align-items: center;
     flex-direction: column;
 }
+
 .grid {
     display: grid;
     grid-template-columns: repeat(5, 250px);
     grid-template-rows: repeat(5, 250px);
     gap: 10px;
     /* Temporary to hide the grid */
-    margin-top: 20px; 
+    margin-top: 20px;
 }
+
 .grid-item {
     width: 250px;
     height: 250px;
     perspective: 1000px;
     background-color: transparent;
 }
+
 .grid-item a {
     display: block;
     width: 100%;
@@ -125,14 +143,17 @@ body.project9-page {
     transform-style: preserve-3d;
     transition: transform 0.5s;
 }
+
 .grid-item:hover a {
     transform: rotateX(-45deg);
 }
+
 .grid-item iframe {
     width: 100%;
     height: 100%;
     border-radius: 10px;
 }
+
 .blank {
     background-color: transparent;
 }
@@ -141,25 +162,30 @@ body.project9-page {
 nav {
     position: sticky;
     top: 0;
-    z-index: 1000; /* Ensure it stays on top of other content */
+    z-index: 1000;
+    /* Ensure it stays on top of other content */
     margin-bottom: 20px;
     margin-top: 0px;
     width: 100%;
-    background-color: #f4f4f4; /* Optional, for a consistent background */
+    background-color: #f4f4f4;
+    /* Optional, for a consistent background */
 }
 
 nav ul {
     list-style-type: none;
     display: flex;
-    justify-content: center; /* Align links to the left */
+    justify-content: center;
+    /* Align links to the left */
     gap: 50px;
     width: 100%;
-    padding: 0; /* Remove any default padding */
+    padding: 0;
+    /* Remove any default padding */
 }
 
 nav ul li {
     margin-top: 20px;
-    margin-right: 10px; /* Control the space between links */
+    margin-right: 10px;
+    /* Control the space between links */
 }
 
 nav ul li a {
@@ -202,7 +228,8 @@ nav ul li a {
     text-align: center;
     padding: 10px 0px;
     background-color: #f4f4f4;
-    position: relative; /* Ensure the content is above the canvas */
+    position: relative;
+    /* Ensure the content is above the canvas */
     width: 100%;
     /* height: 100vh; */
     z-index: 1;
@@ -231,9 +258,9 @@ nav ul li a {
     margin-bottom: 5px;
     max-width: 45vw;
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
     font-family: 'NeueMontreal-Regular';
-    
+
     /* white-space: nowrap; */
 }
 
@@ -296,218 +323,221 @@ nav ul li a {
 
 
 /* Projects Section */
-.projects-title
-{
-    font-size: 7rem;
-    /* color: #666; */
+.projects-title {
+    font-size: clamp(3.5rem, 7vw, 7rem); /* Responsive font size */
     color: black;
     margin-bottom: 5px;
-    max-width: 35vw;
-    margin-left: 33.5vw;
-    margin-right: auto; 
+    max-width: min(600px, 50vw); /* Responsive max width */
+    margin-left: calc(36vw);  /* Responsive positioning */
+    margin-right: auto;
     font-family: 'NeueMontreal-Medium';
-    /* text-align: left; */
     margin-top: 50px;
 }
 
-  .projects-par
-  {
+.projects-par {
     font-size: 1.2rem;
     /* color: #666; */
     color: black;
     margin-bottom: 5px;
     max-width: 40vw;
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
     font-family: 'NeueMontreal-Regular';
     text-align: left;
-    margin-top: 0px; 
-  }
+    margin-top: 0px;
+}
 
-
-
+/* Projects Page */
 .button-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items: center;
+    align-items: center; /* Center the buttons */
+    width: 100%;
   }
   
   .button-link {
     display: block;
     position: relative;
     z-index: 10;
+    transition: all 0.3s ease;
   }
   
   .hover-image {
+    /* Fixed height, auto width to maintain aspect ratio */
+    height: 200px;
     width: 400px;
-    height: 200px;
-    background-size: contain;
+    background-size: contain; /* This keeps aspect ratio */
     background-repeat: no-repeat;
-    background-position: center;
-    transition: opacity 0.3s ease;
-    margin-left: 2vw;
+    background-position: center; /* Center the image */
+    transition: all 0.3s ease;
   }
 
-
-  /* Specific project classes */
-  .project1 {
+/* Specific project classes */
+.project1 {
     background-image: url('./project1.svg');
-  }
-  
-  .project1:hover {
+}
+
+.project1:hover {
     background-image: url('./project1-hover.svg');
-    width: 900px;
-    height: 200px;
-    margin-left: 32vw;
-    
-  }
-  
-  .project2 {
+    height: 200px; /* Keep height consistent */
+    width: min(900px, 70vw); /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+}
+
+.project2 {
     background-image: url('./project2.svg');
-  }
-  
-  .project2:hover {
+}
+
+.project2:hover {
     background-image: url('./project2-hover.svg');
-    width: 900px;
-    height: 200px;
-    margin-left: 32vw;
-  }
-  
-  .project3 {
+    height: 200px; /* Keep height consistent */
+    width: min(900px, 70vw); /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+}
+
+.project3 {
     background-image: url('./project3.svg');
-  }
-  
-  .project3:hover {
+}
+
+.project3:hover {
     background-image: url('./project3-hover.svg');
-    width: 900px;
-    height: 200px;
-    margin-left: 32vw;
-  }
+    height: 200px; /* Keep height consistent */
+    width: min(900px, 70vw); /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+}
 
-  .project4 {
+
+.project4 {
     background-image: url('./project4.svg');
-  }
-  
-  .project4:hover {
+}
+
+.project4:hover {
     background-image: url('./project4-hover.svg');
-    width: 900px;
-    height: 200px;
-    margin-left: 32vw;
-  }
+    height: 200px; /* Keep height consistent */
+    width: min(900px, 70vw); /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+}
 
-  .project5 {
+.project5 {
     background-image: url('./project5.svg');
-  }
-  
-  .project5:hover {
+}
+
+.project5:hover {
     background-image: url('./project5-hover.svg');
-    width: 900px;
-    height: 200px;
-    margin-left: 32vw;
-  }
+    height: 200px; /* Keep height consistent */
+    width: min(900px, 70vw); /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+}
 
-  .project6 {
+.project6 {
     background-image: url('./project6.svg');
-  }
-  
-  .project6:hover {
+}
+
+.project6:hover {
     background-image: url('./project6-hover.svg');
-    width: 900px;
-    height: 200px;
-    margin-left: 32vw;
-  }
+    height: 200px; /* Keep height consistent */
+    width: min(900px, 70vw); /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+}
 
-  .project7 {
+.project7 {
     background-image: url('./project7.svg');
-  }
-  
-  .project7:hover {
+}
+
+.project7:hover {
     background-image: url('./project7-hover.svg');
-    width: 900px;
-    height: 200px;
-    margin-left: 32vw;
-  }
+    height: 200px; /* Keep height consistent */
+    width: min(900px, 70vw); /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+}
 
-  .project8 {
+.project8 {
     background-image: url('./project8.svg');
-  }
-  
-  .project8:hover {
+}
+
+.project8:hover {
     background-image: url('./project8-hover.svg');
-    width: 900px;
-    height: 200px;
-    margin-left: 32vw;
-  }
+    height: 200px; /* Keep height consistent */
+    width: min(900px, 70vw); /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+}
 
-  .project9 {
+.project9 {
     background-image: url('./project9.svg');
-  }
-  
-  .project9:hover {
+}
+
+.project9:hover {
     background-image: url('./project9-hover.svg');
-    width: 900px;
-    height: 200px;
-    margin-left: 32vw;
-  }
+    height: 200px; /* Keep height consistent */
+    width: min(900px, 70vw); /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+}
 
-  .project10 {
+.project10 {
     background-image: url('./project10.svg');
-  }
-  
-  .project10:hover {
+}
+
+.project10:hover {
     background-image: url('./project10-hover.svg');
-    width: 900px;
-    height: 200px;
-    margin-left: 32vw;
-  }
+    height: 200px; /* Keep height consistent */
+    width: min(900px, 70vw); /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+}
 
-  .project11 {
+.project11 {
     background-image: url('./project11.svg');
-  }
-  
-  .project11:hover {
+}
+
+.project11:hover {
     background-image: url('./project11-hover.svg');
-    width: 900px;
-    height: 200px;
-    margin-left: 32vw;
-  }
+    height: 200px; /* Keep height consistent */
+    width: min(900px, 70vw); /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+}
 
-  .project12 {
+.project12 {
     background-image: url('./project12.svg');
-  }
-  
-  .project12:hover {
-    background-image: url('./project12-hover.svg');
-    width: 900px;
-    height: 200px;
-    margin-left: 32vw;
-  }
+}
 
-  .gif-container {
-    max-width: 500px; /* Adjust as needed */
-    margin: 0 auto;   /* Center the container */
+.project12:hover {
+    background-image: url('./project12-hover.svg');
+    height: 200px; /* Keep height consistent */
+    width: min(900px, 70vw); /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+}
+
+.gif-container {
+    max-width: 500px;
+    /* Adjust as needed */
+    margin: 0 auto;
+    /* Center the container */
 }
 
 .gif-image {
-    width: 100%;      /* Make image responsive */
-    height: auto;     /* Maintain aspect ratio */
-    display: block;   /* Remove bottom spacing */
-    border-radius: 8px; /* Optional: rounded corners */
+    width: 100%;
+    /* Make image responsive */
+    height: auto;
+    /* Maintain aspect ratio */
+    display: block;
+    /* Remove bottom spacing */
+    border-radius: 8px;
+    /* Optional: rounded corners */
 }
 
 .projects-section {
     position: relative;
     width: 100%;
-    height: 50vh; 
-    overflow-y: scroll; 
+    height: 50vh;
+    overflow-y: scroll;
     overflow-x: hidden;
-    scrollbar-width: none; 
-    
+    scrollbar-width: none;
+
 }
 
 .projects-section::-webkit-scrollbar {
-    display: none; /* Hide scrollbar in Chrome, Safari */
+    display: none;
+    /* Hide scrollbar in Chrome, Safari */
 }
 
 .stack-container {
@@ -520,17 +550,21 @@ nav ul li a {
 
 .project-block {
     position: relative;
-    margin: 20px auto; /* Spacing between cards */
-    width: 80%; /* Adjust width as needed */
+    margin: 20px auto;
+    /* Spacing between cards */
+    width: 80%;
+    /* Adjust width as needed */
     opacity: 0.5;
-    transform: scale(0.95); /* Slightly scale down inactive cards */
+    transform: scale(0.95);
+    /* Slightly scale down inactive cards */
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 1;
 }
 
 .project-block.active {
     opacity: 1;
-    transform: scale(1); /* Scale up active card */
+    transform: scale(1);
+    /* Scale up active card */
     z-index: 2;
 }
 
@@ -545,17 +579,19 @@ nav ul li a {
 }
 
 .card-text {
-    display: none; /* Initially hidden */
+    display: none;
+    /* Initially hidden */
     font-size: 42px;
 }
 
 
 .project-link {
     display: block;
-    text-decoration: none; /* Remove underline from links */
-  }
-  
-  .medium-button {
+    text-decoration: none;
+    /* Remove underline from links */
+}
+
+.medium-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -568,22 +604,22 @@ nav ul li a {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
+}
 
-  .medium-button img {
+.medium-button img {
     width: 40px;
     height: 40px;
     margin-right: 10px;
-  }
+}
 
-  .medium-button:hover {
+.medium-button:hover {
     /* background-color: #fcfcfc; */
     /* border-color: #000000;
     border: 5px; */
-  }
+}
 
 
-  /* About Me */
+/* About Me */
 
 
 /* Adjust the stacking order using z-index */
@@ -620,7 +656,7 @@ img {
 .text-content h2 {
     margin: 10px 0;
     opacity: 1;
- 
+
 }
 
 .text-content p {
@@ -743,8 +779,10 @@ footer {
 }
 
 .footer-container {
-    max-width: 1200px; /* Keeps the content width manageable */
-    margin: 0 auto; /* Center the content */
+    max-width: 1200px;
+    /* Keeps the content width manageable */
+    margin: 0 auto;
+    /* Center the content */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -763,8 +801,10 @@ footer {
 }
 
 .footer-container-projects {
-    max-width: 1200px; /* Keeps the content width manageable */
-    margin: 0 auto; /* Center the content */
+    max-width: 1200px;
+    /* Keeps the content width manageable */
+    margin: 0 auto;
+    /* Center the content */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -782,10 +822,11 @@ footer {
 }
 
 .footer-social a:hover {
-    color: #007BFF; /* Optional hover color */
+    color: #007BFF;
+    /* Optional hover color */
 }
 
-.footer-nav{
+.footer-nav {
     margin-bottom: 20px;
 }
 
@@ -794,7 +835,7 @@ footer {
     color: black;
     text-decoration: none;
     font-size: 1rem;
-    
+
 }
 
 .footer-nav a:hover {
@@ -821,8 +862,7 @@ footer {
 
 /* PROJECTS pages */
 
-.title
-{
+.title {
     font-size: 2.5rem;
     background: black;
     font-family: 'NeueMontreal-Medium';
@@ -845,53 +885,68 @@ footer {
     margin-bottom: 100px;
 }
 
-.project-paragraph
-{
-  max-width:40%;
-  margin-left: 30%;
-  flex-direction: column;
-  display: block;
-  white-space: wrap;
-  text-align: justify;
+.project-paragraph {
+    max-width: 40%;
+    margin-left: 30%;
+    flex-direction: column;
+    display: block;
+    white-space: wrap;
+    text-align: justify;
 }
 
-.image-page
-{
+.image-page {
     width: 300px;
     height: 500px;
 }
 
-.image-page1
-{
-    width:300px;
+.image-page1 {
+    width: 300px;
 }
 
 .image-gallery {
     display: flex;
-    flex-direction: row; /* Arrange images horizontally */
-    gap: 20px; /* Add spacing between images */
-    height: auto; /* Automatically adjust height based on content */
-    width: fit-content; /* Adjust width dynamically to fit content */
-    overflow-x: auto; /* Enable horizontal scrolling if content overflows */
-    overflow-y: hidden; /* Prevent vertical overflow */
-    padding: 10px; /* Add padding around the gallery */
-    margin: 20px auto; /* Center the gallery horizontally */
-   
+    flex-direction: row;
+    /* Arrange images horizontally */
+    gap: 20px;
+    /* Add spacing between images */
+    height: auto;
+    /* Automatically adjust height based on content */
+    width: fit-content;
+    /* Adjust width dynamically to fit content */
+    overflow-x: auto;
+    /* Enable horizontal scrolling if content overflows */
+    overflow-y: hidden;
+    /* Prevent vertical overflow */
+    padding: 10px;
+    /* Add padding around the gallery */
+    margin: 20px auto;
+    /* Center the gallery horizontally */
+
 }
 
 /* Nanome Image Gallery */
 .image-gallery-nanome {
     display: flex;
-    flex-direction: column; /* Stack images vertically */
-    gap: 20px; /* Add spacing between images */
-    height: 400px; /* Fixed height for the scrollable area */
-    width: auto; /* Adjust the width to fit your layout */
-    overflow-y: auto; /* Enable vertical scrolling */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    padding: 10px; /* Add padding around the gallery */
-    margin: 20px auto; /* Center the gallery horizontally */
-    scroll-behavior: smooth; /* Enable smooth scrolling */
+    flex-direction: column;
+    /* Stack images vertically */
+    gap: 20px;
+    /* Add spacing between images */
+    height: 400px;
+    /* Fixed height for the scrollable area */
+    width: auto;
+    /* Adjust the width to fit your layout */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+    padding: 10px;
+    /* Add padding around the gallery */
+    margin: 20px auto;
+    /* Center the gallery horizontally */
+    scroll-behavior: smooth;
+    /* Enable smooth scrolling */
 }
+
 /* Nanome Image Gallery */
 
 .image-gallery img {
@@ -905,58 +960,81 @@ img:hover {
     transform: scale(1.1);
     border: 3px;
     border-radius: 10px;
-} 
+}
 
 .youtube-video {
-    max-width: 100%; /* Responsive scaling */
-    border: none;    /* Remove iframe border */
-    border-radius: 15px; /* Optional rounded corners */
-  }
-
-  .video-container {
-    width: 800px; /* Set desired width in pixels */
-    height: 450px; /* Set desired height in pixels */
-    margin: 0 auto; /* Center the container (optional) */
-    overflow: hidden; /* Prevent content overflow */
-  }
-
-  .video-container iframe {
-    width: 100%; /* Match container's width */
-    height: 100%; /* Match container's height */
-    border: none; /* Remove border */
-  }
-
-  .video-container-volu {
-    width: auto; /* Automatically adjust width */
-    height: auto; /* Automatically adjust height */
-    margin: 0 auto; /* Center the container */
-    overflow: hidden; /* Prevent content overflow */
+    max-width: 100%;
+    /* Responsive scaling */
+    border: none;
+    /* Remove iframe border */
     border-radius: 15px;
-  }
-  
-  .video-container-volu video {
-    width: auto; /* Stretch the video to fit the container */
-    height: auto; /* Maintain aspect ratio */
-    display: center; /* Remove inline spacing */
-  }
+    /* Optional rounded corners */
+}
 
-  .video-container-volu-large {
-    width: auto; /* Automatically adjust width */
-    height: auto; /* Automatically adjust height */
-    margin: 0 auto; /* Center the container */
-    overflow: hidden; /* Prevent content overflow */
-    border-radius: 15px;
-  }
-  
-  .video-container-volu-large video {
-    width: 850px; /* Stretch the video to fit the container */
-    height: auto; /* Maintain aspect ratio */
-    display: center; /* Remove inline spacing */
-    border-radius: 15px;
-  }
+.video-container {
+    width: 800px;
+    /* Set desired width in pixels */
+    height: 450px;
+    /* Set desired height in pixels */
+    margin: 0 auto;
+    /* Center the container (optional) */
+    overflow: hidden;
+    /* Prevent content overflow */
+}
 
-.model-viewer
-{
+.video-container iframe {
+    width: 100%;
+    /* Match container's width */
+    height: 100%;
+    /* Match container's height */
+    border: none;
+    /* Remove border */
+}
+
+.video-container-volu {
+    width: auto;
+    /* Automatically adjust width */
+    height: auto;
+    /* Automatically adjust height */
+    margin: 0 auto;
+    /* Center the container */
+    overflow: hidden;
+    /* Prevent content overflow */
+    border-radius: 15px;
+}
+
+.video-container-volu video {
+    width: auto;
+    /* Stretch the video to fit the container */
+    height: auto;
+    /* Maintain aspect ratio */
+    display: center;
+    /* Remove inline spacing */
+}
+
+.video-container-volu-large {
+    width: auto;
+    /* Automatically adjust width */
+    height: auto;
+    /* Automatically adjust height */
+    margin: 0 auto;
+    /* Center the container */
+    overflow: hidden;
+    /* Prevent content overflow */
+    border-radius: 15px;
+}
+
+.video-container-volu-large video {
+    width: 850px;
+    /* Stretch the video to fit the container */
+    height: auto;
+    /* Maintain aspect ratio */
+    display: center;
+    /* Remove inline spacing */
+    border-radius: 15px;
+}
+
+.model-viewer {
     width: 100%;
     height: 500px;
     display: block;
@@ -965,54 +1043,59 @@ img:hover {
 
 .scg-button {
     display: inline-block;
-    background-color: #000; /* Black background */
-    color: #fff; /* White text */
+    background-color: #000;
+    /* Black background */
+    color: #fff;
+    /* White text */
     text-decoration: none;
     font-size: 16px;
     font-family: Arial, sans-serif;
     padding: 10px 20px;
-    border: 2px solid #000; /* Black border */
-    border-radius: 5px; /* Rounded corners */
+    border: 2px solid #000;
+    /* Black border */
+    border-radius: 5px;
+    /* Rounded corners */
     text-align: center;
-    transition: all 0.3s ease; /* Smooth transition */
-  }
+    transition: all 0.3s ease;
+    /* Smooth transition */
+}
 
 .scg-button:hover {
     background-color: white;
     color: black;
     border: 2px solid #000;
-  }
+}
 
-  /* Video Gallery */
-  .gallery-container {
+/* Video Gallery */
+.gallery-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-  }
+}
 
-  .video-gallery {
+.video-gallery {
     display: flex;
     overflow-x: scroll;
     gap: 15px;
     padding: 10px;
     scroll-behavior: smooth;
-  }
+}
 
-  .video-gallery::-webkit-scrollbar {
+.video-gallery::-webkit-scrollbar {
     height: 8px;
-  }
+}
 
-  .video-gallery::-webkit-scrollbar-thumb {
+.video-gallery::-webkit-scrollbar-thumb {
     background-color: #888;
     border-radius: 4px;
-  }
+}
 
-  .video-gallery::-webkit-scrollbar-track {
+.video-gallery::-webkit-scrollbar-track {
     background-color: #f5f5f5;
-  }
+}
 
-  .video-item {
+.video-item {
     flex: 0 0 auto;
     width: 300px;
     height: 200px;
@@ -1020,19 +1103,19 @@ img:hover {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+}
 
-  .video-item video {
+.video-item video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+}
 
-  .controls {
+.controls {
     margin-top: 20px;
-  }
+}
 
-  .controls button {
+.controls button {
     background-color: #007BFF;
     color: #fff;
     border: none;
@@ -1041,11 +1124,81 @@ img:hover {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+}
+
+.controls button:hover {
+    background-color: #0056b3;
+}
+
+/* Media queries for fine-tuning */
+@media (max-width: 1200px) {
+
+    .projects-title {
+        margin-left: calc(30vw);
+        max-width: min(550px, 60vw);
+    }
+
+    .hover-image {
+      /* Slightly smaller on smaller screens */
+      height: 180px;
+      width: 360px;
+    }
+    
+    .project1:hover, .project2:hover, .project3:hover, .project4:hover,
+    .project5:hover, .project6:hover, .project7:hover, .project8:hover, 
+    .project9:hover, .project10:hover, .project11:hover, .project12:hover {
+      height: 180px;
+      width: min(800px, 75vw);
+      transform: translateX(min(250px, 18vw));
+    }
+  }
+  
+  @media (max-width: 768px) {
+
+    .projects-title {
+        margin-left: calc(20vw);
+        max-width: min(450px, 70vw);
+        margin-top: 30px;
+    }
+
+    .hover-image {
+      height: 160px;
+      width: 320px;
+    }
+    
+    .project1:hover, .project2:hover, .project3:hover, .project4:hover,
+    .project5:hover, .project6:hover, .project7:hover, .project8:hover, 
+    .project9:hover, .project10:hover, .project11:hover, .project12:hover {
+      height: 160px;
+      width: min(700px, 80vw);
+      transform: translateX(min(150px, 15vw));
+    }
+  }
+  
+  @media (max-width: 576px) {
+
+    .projects-title {
+        margin-left: calc(10vw);
+        max-width: min(350px, 80vw);
+        margin-top: 25px;
+        font-size: clamp(2.5rem, 8vw, 3.5rem); /* Smaller font on mobile */
+    }
+
+    .hover-image {
+      height: 140px;
+      width: 280px;
+    }
+    
+    .project1:hover, .project2:hover, .project3:hover, .project4:hover,
+    .project5:hover, .project6:hover, .project7:hover, .project8:hover, 
+    .project9:hover, .project10:hover, .project11:hover, .project12:hover {
+      height: 140px;
+      width: min(500px, 85vw);
+      transform: translateX(min(80px, 10vw));
+    }
   }
 
-  .controls button:hover {
-    background-color: #0056b3;
-  }
+
 
 @media (max-width: 768px) {
 
@@ -1108,7 +1261,8 @@ iframe {
 .text-content h1 {
     margin-bottom: 10px;
     color: #333;
-    position: relative; /* Ensure the content is above the canvas */
+    position: relative;
+    /* Ensure the content is above the canvas */
 
 }
 
