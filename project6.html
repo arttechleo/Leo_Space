@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="project9-page">
+
+<head style="background-color:white">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poem MR</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="project-style.css"> -->
+</head>
+
+<body style="background-color:white">
+  <!-- Navigation -->
+  <nav style="background-color:white">
+    <div class="menu-icon" id="menu-icon">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section with Project Overview -->
+  <header class="hero" style="background-color:white">
+
+    <div class="hero-content" style="background-color:white">
+      <img src="./images/poemxr/daffodils.jpg" alt="Project Hero Image" class="hero-image">
+      <p class="title">Design Engineer</p>
+      <div class="skills-overview-projects">
+        <span>Mixed & Virtual Reality</span> | <span>Three.js</span> | <span>Blender</span> |
+        <span>Skybox AI</span>  | <span>Meta Quest 3</span>
+      </div>
+
+
+      <h2>About the project</h2>
+      <p class="project-paragraph">
+        Poem MR is an immersive mixed reality experience that brings the classical poem I Wandered Lonely as a Cloud by William Wordsworth into a virtual space. 
+        This project was designed as an interactive demonstration of mr.js, a newly developed framework by Michael Gutensohn, Laurent Baumann, and Hannah Bollar. 
+        mr.js enables designers and developers to craft mixed reality websites optimized for Meta and Apple Vision Pro platforms.
+        As a Design Engineer, I collaborated closely with Laurent Baumann to conceptualize and build the experience, contributing to various aspects of the project lifecycle, including ideation, 3D design, mesh modeling, AI-generated skybox creation, and iterative testing. 
+        Our goal was to push the boundaries of mr.js and showcase platform's potential in storytelling through interactive spatial environments.
+      </p>
+    </div>
+  </header>
+
+
+  
+  <!-- <img src="./images/article_chair.gif" alt="Project Hero Image" class="image-page"> -->
+  <!-- <video width="500" height="600" autoplay loop style="border-radius: 15px; overflow: hidden;">
+    <source src="./images/scg/scg_scan.mp4" type="video/mp4">
+  </video> -->
+
+  <div class="video-container">
+    <iframe 
+      class="youtube-video"
+      src="https://www.youtube.com/embed/Nb5_dX4yZZA?si=U9dGUPo8XnAuAfX0" 
+      title="YouTube video"
+      allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Main Project Content with Alternate Layouts -->
+  <main class="project-content" style="background-color:white">
+    <!-- Step-by-Step Process Section -->
+    <section class="project-section">
+      <div class="text-left">
+        <h3>Challenge</h3>
+        <p class="project-paragraph"> The main challenge was designing an interactive, scrollable website that not only showcased the current advancements of mr.js but did so in a visually compelling and engaging way. 
+          Because mr.js is still evolving, limitations in interaction and experience design meant that the environments had to be lightweight yet immersive. 
+          The project needed to strike a balance between visual fidelity and performance optimization for WebXR.
+          Additionally, the interactive environment had to align seamlessly with the narrative of Wordsworth’s poem. 
+          This required careful selection of visual elements to convey the poem’s emotions and imagery effectively within the technical constraints of a web-based mixed reality experience. 
+        </p>
+      </div>
+      
+      <div class="gif-container">
+        <img src="./images/poemxr/scroll.gif" alt="Description of the GIF" class="gif-image">
+    </div>
+
+    </div>
+
+      <div class="text-left">
+        <h3>Deliverables</h3>
+        <p class="project-paragraph"> 
+          AI-generated skyboxes combined with simple 3D geometry to create various imaginary landscapes inspired by the poem’s settings. 
+          A scrolling mechanism that triggered environmental changes, allowing users to feel as if they were journeying through the poet’s vision. 
+          A lightweight yet visually rich scene, designed to maintain smooth performance on mixed reality headsets. 
+      </div>
+  
+    </section>
+ 
+  
+
+  <div class="text-left">
+    <h3>Process</h3>
+    <p class="project-paragraph">AI-Generated Skyboxes: Using Blockadelabs.com’s Skybox AI software, I experimented with various prompts to generate skybox candidates that visually matched different sections of the poem.
+      These skyboxes helped create a sense of vastness and movement, reinforcing the poem’s themes of wandering and reflection. Integration with mr.js: A dedicated class and element for skyboxes (<a href="https://docs.mrjs.io/doc/mr-skybox/">mr-skybox</a>) was implemented within mr.js to efficiently manage background transitions. 
+      3D Scene Creation: I modeled and textured the primary 3D environment—a serene island with swaying daffodils—using Blender. The scene was optimized for real-time rendering in WebXR, with a focus on efficient geometry and texture compression.
+      Flythrough Animation: The 3D island was strategically positioned and animated to create a smooth flythrough experience, guiding users through different segments of the poem. 
+      The initial prototype was tested locally using a headset connected via a local network. 
+      The project was later deployed on render.com for cloud-based testing, ensuring smooth performance across different MR devices.
+    </div>
+
+    <div class="image-gallery-nanome">
+      <div class="image-scroll-container">
+      <img src="./images/poemxr/skybox1.jpg" alt="Image 1">
+      <img src="./images/poemxr/skybox2.jpg" alt="Image 1">
+      <img src="./images/poemxr/skydome01.jpg" alt="Image 1">
+      <img src="./images/poemxr/skydome02.jpg" alt="Image 1">
+    </div>
+    </div>
+
+<div class="text-left">
+  <h3>Achievements</h3>
+  <img src="./images/nanome/" alt="" class="image-page1">
+  <p class="project-paragraph"> The capabilities of mr.js for WebXR development. JavaScript and three.js for creating interactive 3D experiences on the web. 
+    The potential of AI-generated skyboxes for immersive scene-building. WebXR optimization techniques, including best practices for 3D modeling and exporting assets in Blender.
+    Poem MR serves as both an artistic exploration and a technical case study in interactive web-based mixed reality experiences. 
+    This project reinforced the importance of lightweight yet impactful storytelling in spatial computing, paving the way for future experiments in immersive poetry visualization.
+    To read more about my collaboration with Volumetrics.io follow here: <a href="project4.html">Mixed Reality Aquarium</a>.  
+</div>
+
+<img src="./images/poemxr/redheart.jpg" alt="Project Hero Image" class="hero-image">
+<!-- 
+  <div class="gallery-container">
+    <h3>Gallery of Prototypes</h3>
+    <div class="video-gallery" id="videoGallery">
+      <div class="video-item">
+        <video autoplay muted loop>
+          <source src="./images/synesthesia/prototype1-trimmed.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item">
+        <video autoplay muted loop>
+          <source src="./images/synesthesia/prototype2-trimmed.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item">
+        <video autoplay muted loop>
+          <source src="./images/synesthesia/prototype3-trimmed.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item">
+        <video autoplay muted loop>
+          <source src="./images/synesthesia/prototype4-trimme.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+   
+  <div class="text-left">
+    <h3>Prototyping Interactions</h3>
+    <img src="./images/nanome/" alt="" class="image-page1">
+    <p class="project-paragraph">User's interaction inside Virtual Reality was a significant key to a successful embodiment into a synesthete. The team experimented hard in search for an ideal human to computer input in VR such that the user discovers the ability to see like a synesthete. 
+  </div>
+   
+  <div class="text-left">
+    <h3>Experience Walkthrough</h3>
+    <img src="./images/nanome/" alt="" class="image-page1">
+    <p class="project-paragraph">Video showcasing the project in production. In this video, real life user interactions and emotions from the experience are captured. Some of the users were later interviewed on their understanding of synesthesia and feelings they had while being a synesthete for couple of minutes in Virtual Reality. </p>
+  </div>
+
+  <div class="video-container" >
+    <iframe 
+      class="youtube-video"
+      src="https://www.youtube.com/embed/kdPIONlJzoM" 
+      title="YouTube video"
+      allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div> -->
+
+  </main>
+</body>
+
+<div footer-projects style="background-color:white">
+  <div class="footer-container-projects" style="background-color:white" >
+ <!-- Navigation Links -->
+            <div class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+      <div class="footer-copyright">
+          <p>© 2025. All Rights Reserved.</p>
+          <p>Website developed by Leo Danenkov.</p>
+          <p>Email with inquiries to ledanenkov@gmail.com</p>
+          <p>spatialme.xyz</p>
+      </div>
+  </div>
+</footer>
+
+
+<script type="module" src="app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+    <script src="app.js"></script>
+
+</html>

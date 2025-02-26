@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structural Color Gallery</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="project-style.css"> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="menu-icon" id="menu-icon">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section with Project Overview -->
+  <header class="hero">
+
+    <div class="hero-content">
+      <img src="./images/scg.png" alt="Project Hero Image" class="hero-image">
+      <p class="title">Experience Engineer</p>
+      <div class="skills-overview-projects">
+        <span>Blender</span> | <span>Photogrammetry</span> | <span>Three.js</span> |
+        <span>HTML</span> | <span>CSS</span>
+      </div>
+
+
+      <h2>About the project</h2>
+      <p class="project-paragraph">Structural Color Gallery debuted its early opening in 2024 to a wonderful exhibition
+        of Megumi Nagai Night Trees. The audience met the new event with love and gratitude.
+        The space was redesigned to highlight works of the artist. Old trees from around Brooklyn were collected and
+        placed as a decoration set for this exhibit. The doors were open to the public from January 2024 to June 2024.
+        While the exhbition was running, my collegue who at the time lived in New York, had an opportunity to archive
+        the exhbition space with a 3D scanner and mobile based 3D capturing software.
+        The goal of the project was to preserve the exhibition space using 3D scanning techniques and create an online
+        space for visiting the digital replica of the event.
+      </p>
+    </div>
+  </header>
+
+  <!-- <img src="./images/article_chair.gif" alt="Project Hero Image" class="image-page"> -->
+  <video width="500" height="600" autoplay loop style="border-radius: 15px; overflow: hidden;">
+    <source src="./images/scg/scg_scan.mp4" type="video/mp4">
+  </video>
+
+  <!-- Main Project Content with Alternate Layouts -->
+  <main class="project-content">
+
+    <!-- Step-by-Step Process Section -->
+    <section class="project-section">
+      <div class="text-left">
+        <h3>Process</h3>
+        <img src="./images/scg/matterport.png" alt="Artec Leo Scanner" class="image-page1">
+        <p class="project-paragraph">Capturing of the exhibition space was done with a Matterport 3D scanner. The
+          processed data outputs: 360 footage, lidar data (.e57), and photogrammetry.
+          Additionaly, mobile scanning was used for some of the smaller elements in the space. Processing the data the
+          team found out incostistencies in the model representations. Using Blender to close holes and clean up the
+          data
+          yielded better results. Later optimizing the scans and decimating the meshes, the team was able to produce
+          web-ready models for display.
+        </p>
+      </div>
+      <!-- <img src="image1.jpg" alt="Research Process Image" class="project-image right"> -->
+
+      <div class="text-left">
+        <h3>Spatial Web Experience</h3>
+        <img src="./images/scg/three.png" alt="Artec Leo Scanner" class="image-page1">
+        <p class="project-paragraph"> Building a spatial web experience required experimenting with three.js camera navigation. There were different options for User Input: scroll-based camera dolly-in/dolly-out, third-person movement, point&click navigation. 
+          Testing different navigation approaches the team decided to pursue third-person character navigation style since it was more accessible to the user. Below in the carousel there are recorded research outcomes with the camera movement the team tested.  
+        </p>
+      </div>
+
+    </section>
+
+
+    <div class="image-gallery">
+      <img src="./images/scg/map.gif" alt="Image 1">
+      <img src="./images/scg/orbit.gif" alt="Image 1">
+      <img src="./images/scg/scroll.gif" alt="Image 1">
+    </div>
+
+    <p class="project-paragraph">Another research for this project was optimization of the experience. Starting with mesh decimation, 
+      user input redesign, and raycasting optimization the team dived deep into making the project more accessible to other users. Most of the optimization issues 
+      were in 3D models. The scans had a lot of polygons and stuttered the experience on load. Loading times were tragic without optimization. To tackle this, I researched best 
+      optimzation techniques for Web and published an article on medium. 
+    </p>
+    <a href="https://medium.com/@ledanenkov/3d-mesh-and-assets-optimization-in-blender-for-webxr-and-three-js-projects-355f4e01c16a" class="medium-button" target="_blank" rel="noopener noreferrer">
+      <img src="./images/scg/medium.png" alt="Medium Logo">
+      Visit Medium
+    </a>
+
+    <!-- Design Process Section with Alternate Layout -->
+    <section class="project-section alternate-layout">
+      <!-- <img src="image2.jpg" alt="Design Process Image" class="project-image left"> -->
+      <div class="text-right">
+        <h3>Project Showcase</h3>
+        <p class="project-paragraph"> I've had a lot of fun working on this project and learned much about Web design and 3D programming. Structural Color Gallery officially published this project on their website. Everyone can access the project through the link below. 
+        </p>
+
+        <a href="https://www.structuralcolorgallery.com/virtual-tour" class="scg-button" target="_blank" rel="noopener noreferrer">
+          Visit Gallery
+        </a>
+      </div>
+    </section>
+
+
+    <!-- Final Outcome Section with Full Width Layout -->
+    <!-- <section class="project-section full-width">
+      <h3>Final Outcome</h3>
+      <img src="final-outcome.jpg" alt="Final Project Image" class="project-image full">
+      <p class="project-paragraph">Summarize the completed project, its impact, and any feedback from stakeholders or
+        users. Mention the overall reception and any measurable results, like user engagement metrics.</p>
+    </section> -->
+
+    <!-- Interactive Video Section -->
+    <!-- <section class="video-section">
+      <h3>Interactive Demonstration</h3>
+      <iframe src="https://www.youtube.com/embed/example_video" title="Project Video" frameborder="0"
+        allowfullscreen></iframe>
+    </section> -->
+  </main>
+</body>
+
+<footer-projects>
+  <div class="footer-container-projects">
+ <!-- Navigation Links -->
+            <div class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+      <div class="footer-copyright">
+          <p>© 2025. All Rights Reserved.</p>
+          <p>Website developed by Leo Danenkov.</p>
+          <p>Email with inquiries to ledanenkov@gmail.com</p>
+          <p>spatialme.xyz</p>
+      </div>
+  </div>
+</footer>
+
+<script type="module" src="app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+    <script src="app.js"></script>
+
+</html>

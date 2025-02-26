@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="index-page" data-current-page="index">
+  
+
+    <!-- Hamburger Menu and Navigation -->
+    <nav>
+        <div class="menu-icon" id="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+  <!-- Three.js Canvas Overlay - Moved to top -->
+  <!-- <div id="canvas-overlay">
+    <canvas id="three-canvas"></canvas>
+</div> -->
+
+<div id="canvas-overlay">
+    <canvas id="three-canvas" style="cursor: pointer;"></canvas>
+</div>
+
+    <!-- Main Content -->
+    <header>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Hello, I am Leo</h1>
+            <p class="hero-subtext">
+                3D Designer crafting User Experiences and Digital Spaces for VR&AR
+            </p>
+            <!-- Skills Overview -->
+            <div class="skills-overview">
+                <span>Three.js</span> | <span>Blender</span> | <span>3Ds Max + Corona</span> | <span>Nerfs & Gaussian Splatting</span> | <span>WebXR</span>
+            </div>
+            <!-- Social Buttons -->
+            <div class="hero-buttons">
+                <a href="https://www.linkedin.com/in/leodanenkov/" class="button"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:ledanenkov@gmail.com" class="button"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://github.com/arttechleo" class="button"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </section>
+    </header>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <!-- Navigation Links -->
+            <!-- <div class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/leodanenkov/" class="button"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:ledanenkov@gmail.com" class="button"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://github.com/arttechleo" class="button"><i class="fab fa-github"></i> GitHub</a>
+            </div> -->
+            <!-- Copyright Notice -->
+            <div class="footer-copyright">
+                <p>© 2025. All Rights Reserved.</p>
+                <p>Website developed by Leo Danenkov.</p>
+                <p>Email with inquiries to ledanenkov@gmail.com</p>
+                <p>spatialme.xyz</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  nav {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  
+  #nav-links {
+    display: flex;
+    list-style: none;
+  }
+  
+  #nav-links li {
+    margin: 0 10px;
+  }
+  
+  #nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+
+  /* Hamburger menu styles */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+  
+  /* Hero Section */
+  .hero {
+    position: relative;
+    text-align: center;
+  }
+  
+  .hero-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+  }
+  
+  .hero h1, .hero h2 {
+    margin-bottom: 10px;
+  }
+  
+  /* Project Content */
+  .project-content {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+  }
+  
+  /* Project Sections with Alternate Layouts */
+  .project-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .project-image {
+    max-width: 45%;
+    height: auto;
+    margin: 0 20px;
+  }
+  
+  .project-section.full-width {
+    text-align: center;
+  }
+  
+  .project-section.alternate-layout .project-image.left {
+    order: 1;
+  }
+  
+  .project-section.alternate-layout .text-right {
+    order: 2;
+    text-align: right;
+  }
+  
+  .project-section .text-left {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .project-section .text-right {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  /* Full Width Image */
+  .project-image.full {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Video Section */
+  .video-section {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .video-section iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+  }
+  

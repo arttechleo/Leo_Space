@@ -1,0 +1,1162 @@
+@font-face {
+    font-family: 'NeueMontreal-Regular';
+    src: url(./fonts/neuemonreal/PPNeueMontreal-Book.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'NeueMontreal-Medium';
+    src: url(./fonts/neuemonreal/PPNeueMontreal-Medium.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'NeueMontreal-Bold';
+    src: url(./fonts/neuemonreal/PPNeueMontreal-Bold.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'NeueMontreal-Italic';
+    src: url(./fonts/neuemonreal/PPNeueMontreal-Italic.otf) format('opentype');
+}
+
+
+/* Make the canvas overlay the entire screen */
+#canvas-overlay {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -17%);
+    width: 120%;
+    height: 120%;
+    z-index: 1;
+    pointer-events: none; /* Container remains non-interactive */
+}
+
+#three-canvas {
+    position: relative;
+    width: 120%;
+    height: 120%;
+    pointer-events: auto; /* Enable click events on the canvas */
+    cursor: default; /* Default cursor */
+}
+
+/* Add hover state for screens */
+#three-canvas:hover {
+    cursor: pointer; /* Change cursor on hoverable elements */
+}
+
+/* to prevent scrolling on specific page */
+html:has(body[data-current-page="index"]) {
+    overflow: hidden;
+}
+
+.index-page {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'NeueMontreal-Regular';
+    /* overflow-y: auto;
+    overflow-x: hidden; */
+
+    /* overflow: hidden; */
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+/* Specific styles for project9.html */
+html.project9-page,
+body.project9-page {
+    height: 100%;            /* Keep full height */
+    margin: 0;              /* Keep zero margin */
+    padding: 0;             /* Keep zero padding */
+    font-family: 'NeueMontreal-Regular';  /* Keep same font */
+    line-height: 1.6;       /* Keep same line height */
+    background-color: white; /* Change to white background */
+    flex-direction: column; /* Keep column direction */
+    align-items: center;    /* Keep centered alignment */
+    justify-content: center; /* Keep centered justification */
+    text-align: center;     /* Keep centered text */
+}
+
+.video {
+    width: 100vw;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Video Grid */
+.grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 250px);
+    grid-template-rows: repeat(5, 250px);
+    gap: 10px;
+    /* Temporary to hide the grid */
+    margin-top: 20px; 
+}
+.grid-item {
+    width: 250px;
+    height: 250px;
+    perspective: 1000px;
+    background-color: transparent;
+}
+.grid-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+.grid-item:hover a {
+    transform: rotateX(-45deg);
+}
+.grid-item iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.blank {
+    background-color: transparent;
+}
+
+/* Navigation styles */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top of other content */
+    margin-bottom: 20px;
+    margin-top: 0px;
+    width: 100%;
+    background-color: #f4f4f4; /* Optional, for a consistent background */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center; /* Align links to the left */
+    gap: 50px;
+    width: 100%;
+    padding: 0; /* Remove any default padding */
+}
+
+nav ul li {
+    margin-top: 20px;
+    margin-right: 10px; /* Control the space between links */
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    font-family: 'NeueMontreal-Regular';
+}
+
+/* Hamburger menu styles */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* Media (Image or Video) Styles */
+.media {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    filter: drop-shadow(5px 5px 5px #dadada);
+    /* Optional: Adds rounded corners */
+}
+
+/* Hero Section Styles */
+.hero {
+    text-align: center;
+    padding: 10px 0px;
+    background-color: #f4f4f4;
+    position: relative; /* Ensure the content is above the canvas */
+    width: 100%;
+    /* height: 100vh; */
+    z-index: 1;
+
+}
+
+.hero h1 {
+    font-size: 5.5rem;
+    font-family: 'NeueMontreal-Medium';
+    /* background: linear-gradient(to right, #8a8a8a, #c0c0c0); */
+    background: #000;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 15px;
+    margin-bottom: -20px;
+    word-spacing: 0.1em;
+    /* Control space between words */
+    line-height: 1.1;
+    /* Control space between lines */
+}
+
+.hero-subtext {
+    font-size: 1.4rem;
+    /* color: #666; */
+    color: black;
+    margin-bottom: 5px;
+    max-width: 45vw;
+    margin-left: auto;
+    margin-right: auto; 
+    font-family: 'NeueMontreal-Regular';
+    
+    /* white-space: nowrap; */
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.hero-buttons .button {
+    padding: 10px 5px;
+    /* background-color: #007BFF; */
+    color: black;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.hero-buttons .button i {
+    margin-right: 8px;
+}
+
+.hero-buttons .button:hover {
+    /* background-color: #0056b3; */
+    text-decoration: underline;
+}
+
+
+/* Skills Overview */
+.skills-overview {
+    font-size: 1.2rem;
+    /* color: #444; */
+    color: #000;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    font-family: 'NeueMontreal-Regular';
+}
+
+.skills-overview-projects {
+    font-size: 1.2rem;
+    /* color: #444; */
+    color: #000;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    font-family: 'NeueMontreal-Regular';
+}
+
+/* Social Buttons */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    font-family: 'NeueMontreal-Regular';
+}
+
+
+/* Projects Section */
+.projects-title
+{
+    font-size: 7rem;
+    /* color: #666; */
+    color: black;
+    margin-bottom: 5px;
+    max-width: 35vw;
+    margin-left: 33.5vw;
+    margin-right: auto; 
+    font-family: 'NeueMontreal-Medium';
+    /* text-align: left; */
+    margin-top: 50px;
+}
+
+  .projects-par
+  {
+    font-size: 1.2rem;
+    /* color: #666; */
+    color: black;
+    margin-bottom: 5px;
+    max-width: 40vw;
+    margin-left: auto;
+    margin-right: auto; 
+    font-family: 'NeueMontreal-Regular';
+    text-align: left;
+    margin-top: 0px; 
+  }
+
+
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .button-link {
+    display: block;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .hover-image {
+    width: 400px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: opacity 0.3s ease;
+    margin-left: 2vw;
+  }
+
+
+  /* Specific project classes */
+  .project1 {
+    background-image: url('./project1.svg');
+  }
+  
+  .project1:hover {
+    background-image: url('./project1-hover.svg');
+    width: 900px;
+    height: 200px;
+    margin-left: 32vw;
+    
+  }
+  
+  .project2 {
+    background-image: url('./project2.svg');
+  }
+  
+  .project2:hover {
+    background-image: url('./project2-hover.svg');
+    width: 900px;
+    height: 200px;
+    margin-left: 32vw;
+  }
+  
+  .project3 {
+    background-image: url('./project3.svg');
+  }
+  
+  .project3:hover {
+    background-image: url('./project3-hover.svg');
+    width: 900px;
+    height: 200px;
+    margin-left: 32vw;
+  }
+
+  .project4 {
+    background-image: url('./project4.svg');
+  }
+  
+  .project4:hover {
+    background-image: url('./project4-hover.svg');
+    width: 900px;
+    height: 200px;
+    margin-left: 32vw;
+  }
+
+  .project5 {
+    background-image: url('./project5.svg');
+  }
+  
+  .project5:hover {
+    background-image: url('./project5-hover.svg');
+    width: 900px;
+    height: 200px;
+    margin-left: 32vw;
+  }
+
+  .project6 {
+    background-image: url('./project6.svg');
+  }
+  
+  .project6:hover {
+    background-image: url('./project6-hover.svg');
+    width: 900px;
+    height: 200px;
+    margin-left: 32vw;
+  }
+
+  .project7 {
+    background-image: url('./project7.svg');
+  }
+  
+  .project7:hover {
+    background-image: url('./project7-hover.svg');
+    width: 900px;
+    height: 200px;
+    margin-left: 32vw;
+  }
+
+  .project8 {
+    background-image: url('./project8.svg');
+  }
+  
+  .project8:hover {
+    background-image: url('./project8-hover.svg');
+    width: 900px;
+    height: 200px;
+    margin-left: 32vw;
+  }
+
+  .project9 {
+    background-image: url('./project9.svg');
+  }
+  
+  .project9:hover {
+    background-image: url('./project9-hover.svg');
+    width: 900px;
+    height: 200px;
+    margin-left: 32vw;
+  }
+
+  .project10 {
+    background-image: url('./project10.svg');
+  }
+  
+  .project10:hover {
+    background-image: url('./project10-hover.svg');
+    width: 900px;
+    height: 200px;
+    margin-left: 32vw;
+  }
+
+  .project11 {
+    background-image: url('./project11.svg');
+  }
+  
+  .project11:hover {
+    background-image: url('./project11-hover.svg');
+    width: 900px;
+    height: 200px;
+    margin-left: 32vw;
+  }
+
+  .project12 {
+    background-image: url('./project12.svg');
+  }
+  
+  .project12:hover {
+    background-image: url('./project12-hover.svg');
+    width: 900px;
+    height: 200px;
+    margin-left: 32vw;
+  }
+
+  .gif-container {
+    max-width: 500px; /* Adjust as needed */
+    margin: 0 auto;   /* Center the container */
+}
+
+.gif-image {
+    width: 100%;      /* Make image responsive */
+    height: auto;     /* Maintain aspect ratio */
+    display: block;   /* Remove bottom spacing */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+.projects-section {
+    position: relative;
+    width: 100%;
+    height: 50vh; 
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    scrollbar-width: none; 
+    
+}
+
+.projects-section::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome, Safari */
+}
+
+.stack-container {
+    position: relative;
+    overflow-y: scroll;
+    /* height: 100vh;  */
+    padding-top: 200px;
+    margin-bottom: 0;
+}
+
+.project-block {
+    position: relative;
+    margin: 20px auto; /* Spacing between cards */
+    width: 80%; /* Adjust width as needed */
+    opacity: 0.5;
+    transform: scale(0.95); /* Slightly scale down inactive cards */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+}
+
+.project-block.active {
+    opacity: 1;
+    transform: scale(1); /* Scale up active card */
+    z-index: 2;
+}
+
+.text-container {
+    position: sticky;
+    margin-bottom: 0%;
+    align-self: start;
+
+    font-size: 1.5rem;
+    color: #333;
+    z-index: 5;
+}
+
+.card-text {
+    display: none; /* Initially hidden */
+    font-size: 42px;
+}
+
+
+.project-link {
+    display: block;
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  .medium-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .medium-button img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  .medium-button:hover {
+    /* background-color: #fcfcfc; */
+    /* border-color: #000000;
+    border: 5px; */
+  }
+
+
+  /* About Me */
+
+
+/* Adjust the stacking order using z-index */
+.project-block.project-1 {
+    z-index: 1;
+}
+
+.project-block.project-2 {
+    z-index: 2;
+}
+
+.project-block.project-3 {
+    z-index: 3;
+}
+
+.project-block.project-4 {
+    z-index: 4;
+}
+
+
+.media-container {
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    width: 50%;
+    height: 50%;
+}
+
+.text-content h1,
+.text-content h2 {
+    margin: 10px 0;
+    opacity: 1;
+ 
+}
+
+.text-content p {
+    margin-bottom: 20px;
+    opacity: 1;
+}
+
+.read-more-btn {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Resume Content Styling */
+.resume-content {
+    margin-top: 40px;
+    text-align: left;
+    /* Serif typeface for resume */
+    line-height: 1.3;
+
+    margin-left: 50px;
+}
+
+/* Resume Item Header (Company, Position, Date) */
+.resume-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.resume-pubs {
+    display: flex;
+    justify-content: space-between;
+    font-weight: normal;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.company-name {
+    flex: 1;
+    text-align: left;
+}
+
+.position {
+    flex: 1;
+    text-align: center;
+}
+
+.date {
+    flex: 1;
+    text-align: right;
+    margin-right: 40px;
+}
+
+.date-pubs {
+    flex: 1;
+    text-align: right;
+    font-weight: bold;
+    margin-right: 40px;
+}
+
+/* Bullet Points */
+ul {
+    margin-top: 0;
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Section Headers */
+h3 {
+    margin-top: 40px;
+    margin-bottom: 0px;
+    font-size: 1.5rem;
+}
+
+/* Smaller headers */
+h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.download-btn:hover {
+    background-color: #218838;
+}
+
+/* Footer Section */
+footer {
+    background-color: #f4f4f4;
+    color: black;
+    padding: 45vh 0;
+    width: 100%;
+    height: 40vh;
+    box-sizing: border-box;
+    font-family: 'NeueMontreal-Regular';
+}
+
+.footer-container {
+    max-width: 1200px; /* Keeps the content width manageable */
+    margin: 0 auto; /* Center the content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 250px;
+}
+
+.footer-projects {
+    background-color: #f4f4f4;
+    color: black;
+    padding: 0vh 0;
+    width: 100%;
+    height: 0vh;
+    box-sizing: border-box;
+    font-family: 'NeueMontreal-Regular';
+}
+
+.footer-container-projects {
+    max-width: 1200px; /* Keeps the content width manageable */
+    margin: 0 auto; /* Center the content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.footer-social a {
+    margin: 0 20px;
+    color: black;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    color: #007BFF; /* Optional hover color */
+}
+
+.footer-nav{
+    margin-bottom: 20px;
+}
+
+.footer-nav a {
+    margin: 0px 15px;
+    color: black;
+    text-decoration: none;
+    font-size: 1rem;
+    
+}
+
+.footer-nav a:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright p {
+    margin: 10px 0;
+    font-size: 0.9rem;
+    color: black;
+    margin-top: 0px;
+}
+
+.back-to-top a {
+    color: black;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.back-to-top a:hover {
+    text-decoration: underline;
+}
+
+
+/* PROJECTS pages */
+
+.title
+{
+    font-size: 2.5rem;
+    background: black;
+    font-family: 'NeueMontreal-Medium';
+    /* background: linear-gradient(to right, #8a8a8a, #c0c0c0); */
+    /* background: #F1665C; */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    word-spacing: 0.1em;
+    /* Control space between words */
+    line-height: 1.1;
+    /* Control space between lines */
+}
+
+.skills-overview-projects {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    margin-bottom: 100px;
+}
+
+.project-paragraph
+{
+  max-width:40%;
+  margin-left: 30%;
+  flex-direction: column;
+  display: block;
+  white-space: wrap;
+  text-align: justify;
+}
+
+.image-page
+{
+    width: 300px;
+    height: 500px;
+}
+
+.image-page1
+{
+    width:300px;
+}
+
+.image-gallery {
+    display: flex;
+    flex-direction: row; /* Arrange images horizontally */
+    gap: 20px; /* Add spacing between images */
+    height: auto; /* Automatically adjust height based on content */
+    width: fit-content; /* Adjust width dynamically to fit content */
+    overflow-x: auto; /* Enable horizontal scrolling if content overflows */
+    overflow-y: hidden; /* Prevent vertical overflow */
+    padding: 10px; /* Add padding around the gallery */
+    margin: 20px auto; /* Center the gallery horizontally */
+   
+}
+
+/* Nanome Image Gallery */
+.image-gallery-nanome {
+    display: flex;
+    flex-direction: column; /* Stack images vertically */
+    gap: 20px; /* Add spacing between images */
+    height: 400px; /* Fixed height for the scrollable area */
+    width: auto; /* Adjust the width to fit your layout */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    padding: 10px; /* Add padding around the gallery */
+    margin: 20px auto; /* Center the gallery horizontally */
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+/* Nanome Image Gallery */
+
+.image-gallery img {
+    width: 500;
+    height: 400px;
+    border: 3px;
+    border-radius: 10px;
+}
+
+img:hover {
+    transform: scale(1.1);
+    border: 3px;
+    border-radius: 10px;
+} 
+
+.youtube-video {
+    max-width: 100%; /* Responsive scaling */
+    border: none;    /* Remove iframe border */
+    border-radius: 15px; /* Optional rounded corners */
+  }
+
+  .video-container {
+    width: 800px; /* Set desired width in pixels */
+    height: 450px; /* Set desired height in pixels */
+    margin: 0 auto; /* Center the container (optional) */
+    overflow: hidden; /* Prevent content overflow */
+  }
+
+  .video-container iframe {
+    width: 100%; /* Match container's width */
+    height: 100%; /* Match container's height */
+    border: none; /* Remove border */
+  }
+
+  .video-container-volu {
+    width: auto; /* Automatically adjust width */
+    height: auto; /* Automatically adjust height */
+    margin: 0 auto; /* Center the container */
+    overflow: hidden; /* Prevent content overflow */
+    border-radius: 15px;
+  }
+  
+  .video-container-volu video {
+    width: auto; /* Stretch the video to fit the container */
+    height: auto; /* Maintain aspect ratio */
+    display: center; /* Remove inline spacing */
+  }
+
+  .video-container-volu-large {
+    width: auto; /* Automatically adjust width */
+    height: auto; /* Automatically adjust height */
+    margin: 0 auto; /* Center the container */
+    overflow: hidden; /* Prevent content overflow */
+    border-radius: 15px;
+  }
+  
+  .video-container-volu-large video {
+    width: 850px; /* Stretch the video to fit the container */
+    height: auto; /* Maintain aspect ratio */
+    display: center; /* Remove inline spacing */
+    border-radius: 15px;
+  }
+
+.model-viewer
+{
+    width: 100%;
+    height: 500px;
+    display: block;
+    margin: 0 auto;
+}
+
+.scg-button {
+    display: inline-block;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    padding: 10px 20px;
+    border: 2px solid #000; /* Black border */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center;
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+
+.scg-button:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #000;
+  }
+
+  /* Video Gallery */
+  .gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .video-gallery {
+    display: flex;
+    overflow-x: scroll;
+    gap: 15px;
+    padding: 10px;
+    scroll-behavior: smooth;
+  }
+
+  .video-gallery::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .video-gallery::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+
+  .video-gallery::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+  }
+
+  .video-item {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 200px;
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .video-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .controls {
+    margin-top: 20px;
+  }
+
+  .controls button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .controls button:hover {
+    background-color: #0056b3;
+  }
+
+@media (max-width: 768px) {
+
+    /* Hide menu by default on small screens */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        right: 20px;
+        top: 60px;
+        background-color: white;
+        border: 1px solid #ccc;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    nav ul li a {
+        padding: 10px;
+        display: block;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    nav ul.show-menu {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        /* Reduce font size */
+        line-height: 1.1;
+        /* Decrease space between lines */
+    }
+
+}
+
+/* Media container for image or video */
+.media-container {
+    margin-bottom: 30px;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Text Content */
+.text-content h1 {
+    margin-bottom: 10px;
+    color: #333;
+    position: relative; /* Ensure the content is above the canvas */
+
+}
+
+.text-content h2 {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.text-content p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+#read-more-btn {
+    padding: 10px 20px;
+    margin-bottom: 25px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#read-more-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Button to Redirect to Project */
+.project-button {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.project-button:hover {
+    background-color: #218838;
+}
+
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+        /* Further reduce font size */
+        line-height: 1;
+        /* Tighten line spacing */
+    }
+}

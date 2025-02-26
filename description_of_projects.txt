@@ -1,0 +1,78 @@
+  setupVideos() {
+        const videoSources = [
+            { 
+                id: 'screen1', 
+                src: './videos/ScholarlyVRDemo.mp4',
+                title: "Scholarly VR",
+                about: "Ever wished academic papers were less… paper-y? Scholarly VR lets professors and students step inside research itself, turning dense concepts into immersive 3D experiences. Because if knowledge is power, why not make it feel like a superpower?"
+            },
+            { 
+                id: 'screen2', 
+                src: './videos/5CEOMoleculeDemoWebXR.mp4',
+                title: "Molecules WebXR",
+                about: "Science just got a glow-up. This WebXR demo brings molecular structures to life in a 3D space, making chemistry feel less like a textbook headache and more like a futuristic science fair where you can poke atoms for fun."
+            },
+            { 
+                id: 'screen3', 
+                src: './videos/Piano_Train_Installation.mp4',
+                title: "Piano Bar - Cybernetics and Human Knowing",
+                about: "A game, an AI, and a piano walk into a bar... and only one of them never loses. This interactive installation features a massive wall projection, an 88-key piano as a controller, and an AI that’s out to prove humans are overrated at playing with colors. Are you up for the challenge? (Spoiler: the AI thinks you’re not.)"
+            },
+            { 
+                id: 'screen4', 
+                src: './videos/WizardofOzVRSoundscapeProject.mp4',
+                title: "4'33'' - Soundscapes in VR",
+                about: "What if silence wasn’t empty but full of hidden stories? Inspired by John Cage’s 4'33'', this VR experience lets you explore soundscapes from everyday life—your apartment, your city, maybe even the weird noise your fridge makes at night. It’s a concert, but the world is the composer."
+            },
+            { 
+                id: 'screen5', 
+                src: './videos/MemoryGameXR.mp4',
+                title: "Memory Game WebXR",
+                about: "A Mixed Reality memory game that turns brain training into an interactive adventure. Designed for caregiving facilities, this game uses hand-tracking and point-and-click mechanics to flip cards, find matches, and prove that your memory is sharper than you think (or at least sharper than the AI’s)."
+            },
+            { 
+                id: 'screen6', 
+                src: './videos/Structural Color Gallery Experience Recording.mp4',
+                title: "SCG - Archival 3D Website",
+                about: "An art exhibition you don’t have to leave your house for. This Web3D experience transports you into a 3D-scanned gallery, letting you explore artist Megumi Nagai’s work as if you were there—minus the risk of knocking over a sculpture."
+            },
+            { 
+                id: 'screen7', 
+                src: './videos/mrjs - from web to spatial web.mp4',
+                title: "mr.js - WebXR three.js library",
+                about: "Building for the web is cool. Building for the immersive web is cooler. mr.js is an open-source WebXR library that helps designers and developers bring Mixed Reality to the browser—because why settle for flat when you can build inside the web?"
+            },
+            { 
+                id: 'screen8', 
+                src: './videos/Invisible_Labor.mp4',
+                title: "Invisible Labour MR",
+                about: "Ever feel like no one sees all the work you do? This Mixed Reality experience dives into the hidden struggles of labor and self-advocacy, giving voice (and visuals) to the effort we put in behind the scenes. Spoiler alert: hard work deserves to be noticed, even in MR."
+            },
+            { 
+                id: 'screen9', 
+                src: './videos/GGJ-21_ Blown Away (Gameplay).mp4',
+                title: "Blown Away VR",
+                about: "Ever wanted to move through VR using just your breath? This experimental game lets you explore digital worlds by controlling airflow—kind of like a virtual meditation session, but with way more floating. Just don’t hyperventilate."
+            },
+            { 
+                id: 'screen10', 
+                src: './videos/_I Wandered Lonely as a Cloud_ by William Wordsworth.mp4',
+                title: "Classical Poem in Mixed and Virtual Reality",
+                about: "Wordsworth’s I Wandered Lonely as a Cloud reimagined for the immersive age. With interactive scrolling and AI-generated skyboxes, this project brings poetry off the page and into a dreamlike Mixed and Virtual Reality world. It’s literature, but make it sci-fi."
+            },
+            { 
+                id: 'screen11', 
+                src: './videos/Talegraph Trailer.mp4',
+                title: "Futuristic Metaverse Trailer - 2018",
+                about: "Back in 2018, we asked: what if freelancing happened inside the metaverse? This concept trailer imagined a future where we complete tasks in VR, collaborate in digital spaces, and somehow still have too many Zoom meetings. A glimpse into the future of remote work—before it was cool."
+            },
+            { 
+                id: 'screen12', 
+                src: './videos/Synesthesia VR Experience.mp4',
+                title: "Synesthesia VR",
+                about: "Ever wondered what it’s like to hear colors? This VR experience puts you in the mind of a synesthete, where sounds and colors blend into one. Inspired by Bauhaus aesthetics and Kandinsky’s paintings, it’s part game, part art experiment, and all kinds of trippy!"
+            }
+        ];
+
+        videoSources.forEach(this.createVideoResources.bind(this));
+    }
