@@ -94,68 +94,79 @@ class MultiVideoScene {
 
 
     setupLighting() {
-        // Cool white with slight blue tint (more blue than red/green)
-        const coldWhite = 0xE1E6FF;  // or try 0xD6E4FF for even cooler
-
-        // Ambient light with cool temperature
-        const ambientLight = new THREE.AmbientLight(coldWhite, 0.8);
-
-        // Directional light with same cool temperature
-        const directionalLight = new THREE.DirectionalLight(coldWhite, 1);
-        directionalLight.position.set(3, 5, 5);
+        // Cool white with slight blue tint
+        const coldWhite = 0xE1E6FF;
+        
+        // Ambient light - keep as is, but slightly lower intensity for more contrast
+        const ambientLight = new THREE.AmbientLight(coldWhite, 0.55);
+        
+        // Main directional light - adjust position for better angle
+        const directionalLight = new THREE.DirectionalLight(coldWhite, 0.9);
+        // Position more from front-right-top for better definition
+        directionalLight.position.set(4, 6, 8);
         directionalLight.castShadow = true;
-
-        // Optional: Add a very subtle blue rim light for enhanced cold effect
-        const rimLight = new THREE.DirectionalLight(0x6699FF, 0.3);
-        rimLight.position.set(-5, 3, -5);
-
-        this.scene.add(ambientLight, directionalLight, rimLight);
+        
+        // Improve shadow quality if needed
+        directionalLight.shadow.mapSize.width = 2048;
+        directionalLight.shadow.mapSize.height = 2048;
+        
+        // Rim light - reposition for better edge highlighting
+        const rimLight = new THREE.DirectionalLight(0x6699FF, 0.4);
+        rimLight.position.set(-6, 2, -4);
+        
+        // Add a subtle fill light from opposite side
+        const fillLight = new THREE.DirectionalLight(coldWhite, 0.3);
+        fillLight.position.set(-3, 1, 6);
+        
+        this.scene.add(ambientLight, directionalLight, rimLight, fillLight);
         this.disposables.add(ambientLight);
         this.disposables.add(directionalLight);
         this.disposables.add(rimLight);
+        this.disposables.add(fillLight);
     }
 
 
     setupUI() {
         try {
             const template = `
-            <div class="video-info-panel" style="
-                opacity: 0;
-                position: fixed;
-                padding: 20px;
-                color: black;
-                border-radius: 8px;
-                max-width: 320px;
-                transform: translateY(10px);
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                z-index: 1000;
-                backdrop-filter: blur(10px);
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-                pointer-events: none;
-                font-family: 'NeueMontreal-Bold';
-            ">
-                <h3 class="title" style="
-                    margin: 0 0 10px 0;
-                    font-size: 18px;
-                    font-weight: 600;
-                    color: rgb(0, 0, 0);
-                    opacity: 1;
-                    text-shadow: 0 0 0 #000;
-                "></h3>
-                <p class="description" style="
-                    margin: 0;
-                    font-size: 14px;
-                    line-height: 1.6;
-                    opacity: 0.9;
-                    font-family: 'NeueMontreal-Medium';
-                "></p>
-            </div>
-        `;
+    <div class="video-info-panel" style="
+        opacity: 0;
+        position: fixed;
+        padding: 20px;
+        color: black;
+        border-radius: 8px;
+        max-width: 320px;
+        transform: translateY(10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        pointer-events: none;
+        font-family: 'NeueMontreal-Medium';
+        ">
+    <h3 class="title" style="
+        margin: 0 0 10px 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: rgb(0, 0, 0);
+        opacity: 1;
+        text-shadow: 0 0 0 #000;
+        letter-spacing: 1.5px;
+    "></h3>
+    <p class="description" style="
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.6;
+        opacity: 0.9;
+        font-family: 'NeueMontreal-Medium';
+    "></p>
+</div>
+`;
 
             const panel = document.createElement('div');
             panel.innerHTML = template;
             this.uiPanel = panel.firstElementChild;
-            
+
             // Only append to document.body if it exists
             if (document.body) {
                 document.body.appendChild(this.uiPanel);
@@ -261,11 +272,11 @@ class MultiVideoScene {
     createVideoResources({ id, src, title, about, url }) {
         try {
             const video = document.createElement("video");
-            
+
             video.addEventListener('error', (e) => {
                 console.error(`Error loading video ${id}:`, video.error);
             });
-            
+
             video.addEventListener('loadeddata', () => {
                 console.log(`Video ${id} loaded successfully`);
             });
@@ -304,25 +315,25 @@ class MultiVideoScene {
 
     handleClick(event) {
         event.preventDefault(); // Prevent any default behavior
-        
+
         // Update mouse position first
         this.updateMousePosition(event);
-        
+
         // Start videos
         this.startVideos();
-    
+
         // Check for screen clicks
         this.raycaster.setFromCamera(this.mouse, this.camera);
         const intersects = this.raycaster.intersectObjects(this.screenMeshes);
-    
+
         if (intersects.length > 0) {
             const screenMesh = intersects[0].object;
             const screenId = screenMesh.userData.screenId;
             const info = this.projectInfo.get(screenId);
-            
+
             console.log('Screen clicked:', screenId); // Debug log
             console.log('Project info:', info); // Debug log
-            
+
             if (info && info.url) {
                 console.log('Navigating to:', info.url); // Debug log
                 try {
@@ -466,7 +477,7 @@ class MultiVideoScene {
         }
     }
 
-  
+
     handleMouseMove = (event) => {
         this.updateMousePosition(event);
         this.lastMouseEvent = event;
@@ -474,10 +485,10 @@ class MultiVideoScene {
 
     handleClick = (event) => {
         event.preventDefault();
-        
+
         // Update mouse position first
         this.updateMousePosition(event);
-        
+
         // Start videos
         this.startVideos();
 
@@ -489,10 +500,10 @@ class MultiVideoScene {
             const screenMesh = intersects[0].object;
             const screenId = screenMesh.userData.screenId;
             const info = this.projectInfo.get(screenId);
-            
+
             console.log('Screen clicked:', screenId);
             console.log('Project info:', info);
-            
+
             if (info && info.url) {
                 console.log('Navigating to:', info.url);
                 try {
@@ -507,7 +518,7 @@ class MultiVideoScene {
     // Update cursor style when hovering over screens
     checkIntersection() {
         if (!this.lastMouseEvent) return;
-        
+
         this.raycaster.setFromCamera(this.mouse, this.camera);
         const intersects = this.raycaster.intersectObjects(this.screenMeshes);
 
@@ -566,49 +577,49 @@ class MultiVideoScene {
         this.renderer.render(this.scene, this.camera);
     }
 
-// Update the removeEventListeners method
-removeEventListeners() {
-    window.removeEventListener("resize", this.handleResize);
-    document.removeEventListener("mousemove", this.handleMouseMove);
-    
-    const canvas = document.getElementById('three-canvas');
-    if (canvas) {
-        canvas.removeEventListener("click", this.handleClick);
-        canvas.removeEventListener("touchend", this.handleClick);
-    }
-}
+    // Update the removeEventListeners method
+    removeEventListeners() {
+        window.removeEventListener("resize", this.handleResize);
+        document.removeEventListener("mousemove", this.handleMouseMove);
 
-
-   // Cleanup cursor style on dispose
-   dispose() {
-    document.body.style.cursor = 'default';  // Reset cursor
-    // ... rest of dispose method remains the same
-    this.disposed = true;
-    
-    if (this.animationFrameId) {
-        cancelAnimationFrame(this.animationFrameId);
+        const canvas = document.getElementById('three-canvas');
+        if (canvas) {
+            canvas.removeEventListener("click", this.handleClick);
+            canvas.removeEventListener("touchend", this.handleClick);
+        }
     }
 
-    this.removeEventListeners();
-    
-    this.disposables.forEach(disposable => {
-        if (disposable?.dispose) disposable.dispose();
-    });
-    this.disposables.clear();
 
-    this.videos.forEach(video => {
-        video.pause();
-        video.src = '';
-        video.load();
-        video.remove();
-    });
+    // Cleanup cursor style on dispose
+    dispose() {
+        document.body.style.cursor = 'default';  // Reset cursor
+        // ... rest of dispose method remains the same
+        this.disposed = true;
 
-    if (this.uiPanel) {
-        this.uiPanel.remove();
+        if (this.animationFrameId) {
+            cancelAnimationFrame(this.animationFrameId);
+        }
+
+        this.removeEventListeners();
+
+        this.disposables.forEach(disposable => {
+            if (disposable?.dispose) disposable.dispose();
+        });
+        this.disposables.clear();
+
+        this.videos.forEach(video => {
+            video.pause();
+            video.src = '';
+            video.load();
+            video.remove();
+        });
+
+        if (this.uiPanel) {
+            this.uiPanel.remove();
+        }
+
+        sceneInstance = null;
     }
-
-    sceneInstance = null;
-}
 
     // Modify setupBackground to return a Promise
     setupBackground() {
@@ -651,6 +662,7 @@ removeEventListeners() {
     }
 
     async init() {
+
         try {
             // Setup background first
             await this.setupBackground();
@@ -690,7 +702,4 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeScene);
 } else {
     initializeScene();
-}
-
-
-
+};

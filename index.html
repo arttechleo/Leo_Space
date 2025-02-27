@@ -10,6 +10,32 @@
 <body class="index-page" data-current-page="index">
   
 
+<!-- Loading Screen -->
+<div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; z-index: 9999; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+    <div class="scan-line" style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: rgba(255, 255, 255, 0.3); z-index: 100; animation: scan 8s linear infinite;"></div>
+    <div class="crt-effect" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%); background-size: 100% 4px; z-index: 50; pointer-events: none; opacity: 0.15;"></div>
+    
+    <div class="svg-container" id="svg-container">
+        <!-- English Hello -->
+        <svg viewBox="0 0 1068 352" xmlns="http://www.w3.org/2000/svg" class="active" id="hello-en">
+          <!-- SVG path will be loaded via JavaScript -->
+        </svg>
+      </div>
+      
+      <!-- Russian Привет (optional) -->
+      <!-- <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" id="hello-ru" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease;"> -->
+        <!-- SVG path will be loaded via JavaScript -->
+      </svg>
+      
+      <!-- French Bonjour (optional) -->
+      <!-- <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" id="hello-fr" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease;"> -->
+        <!-- SVG path will be loaded via JavaScript -->
+      </svg>
+    </div>
+    <!-- <div id="progress" style="color: #fff; font-size: 18px; letter-spacing: 2px; text-align: center;">Loading... 0%</div>
+    <div id="language-indicator" style="color: #fff; font-size: 14px; letter-spacing: 2px; text-align: center; margin-top: 20px; opacity: 0.7;">English</div> -->
+  </div>
+
     <!-- Hamburger Menu and Navigation -->
     <nav>
         <div class="menu-icon" id="menu-icon">
@@ -68,5 +94,6 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
     <script src="app.js"></script>
+    <script src="loading-screen.js"></script>
 </body>
 </html>

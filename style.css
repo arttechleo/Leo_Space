@@ -70,7 +70,8 @@ body {
 
     /* overflow: hidden; */
     line-height: 1.6;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
+    background-color: white;
     /* display: flex; */
     flex-direction: column;
     align-items: center;
@@ -78,6 +79,7 @@ body {
     text-align: center;
 
 }
+
 
 /* Specific styles for project9.html */
 html.project9-page,
@@ -167,7 +169,8 @@ nav {
     margin-bottom: 20px;
     margin-top: 0px;
     width: 100%;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
+    background-color: white;
     /* Optional, for a consistent background */
 }
 
@@ -227,7 +230,8 @@ nav ul li a {
 .hero {
     text-align: center;
     padding: 10px 0px;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
+    background-color: white;
     position: relative;
     /* Ensure the content is above the canvas */
     width: 100%;
@@ -324,14 +328,27 @@ nav ul li a {
 
 /* Projects Section */
 .projects-title {
-    font-size: clamp(3.5rem, 7vw, 7rem); /* Responsive font size */
+    font-size: clamp(3.5rem, 7vw, 7rem);
     color: black;
     margin-bottom: 5px;
-    max-width: min(600px, 50vw); /* Responsive max width */
-    margin-left: calc(36vw);  /* Responsive positioning */
-    margin-right: auto;
-    font-family: 'NeueMontreal-Medium';
+    position: relative;
+    /* Position relative for better control */
+    left: 50%;
+    /* Start from center */
+    transform: translateX(-50%);
+    /* Center the title itself */
+    width: fit-content;
+    /* Let content determine width */
     margin-top: 50px;
+    font-family: 'NeueMontreal-Medium';
+    /* Custom offset - adjust this to move from center */
+    --title-offset: 0%;
+    /* Default - perfectly centered */
+}
+
+/* Apply the custom offset */
+.projects-title {
+    transform: translateX(calc(-50% + var(--title-offset)));
 }
 
 .projects-par {
@@ -352,26 +369,29 @@ nav ul li a {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items: center; /* Center the buttons */
+    align-items: center;
+    /* Center the buttons */
     width: 100%;
-  }
-  
-  .button-link {
+}
+
+.button-link {
     display: block;
     position: relative;
     z-index: 10;
     transition: all 0.3s ease;
-  }
-  
-  .hover-image {
+}
+
+.hover-image {
     /* Fixed height, auto width to maintain aspect ratio */
     height: 200px;
     width: 400px;
-    background-size: contain; /* This keeps aspect ratio */
+    background-size: contain;
+    /* This keeps aspect ratio */
     background-repeat: no-repeat;
-    background-position: center; /* Center the image */
+    background-position: center;
+    /* Center the image */
     transition: all 0.3s ease;
-  }
+}
 
 /* Specific project classes */
 .project1 {
@@ -380,9 +400,12 @@ nav ul li a {
 
 .project1:hover {
     background-image: url('./project1-hover.svg');
-    height: 200px; /* Keep height consistent */
-    width: min(900px, 70vw); /* Responsive width with max value */
-    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+    height: 200px;
+    /* Keep height consistent */
+    width: min(900px, 70vw);
+    /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw));
+    /* Responsive transform with max value */
 }
 
 .project2 {
@@ -391,9 +414,12 @@ nav ul li a {
 
 .project2:hover {
     background-image: url('./project2-hover.svg');
-    height: 200px; /* Keep height consistent */
-    width: min(900px, 70vw); /* Responsive width with max value */
-    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+    height: 200px;
+    /* Keep height consistent */
+    width: min(900px, 70vw);
+    /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw));
+    /* Responsive transform with max value */
 }
 
 .project3 {
@@ -402,9 +428,12 @@ nav ul li a {
 
 .project3:hover {
     background-image: url('./project3-hover.svg');
-    height: 200px; /* Keep height consistent */
-    width: min(900px, 70vw); /* Responsive width with max value */
-    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+    height: 200px;
+    /* Keep height consistent */
+    width: min(900px, 70vw);
+    /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw));
+    /* Responsive transform with max value */
 }
 
 
@@ -414,9 +443,12 @@ nav ul li a {
 
 .project4:hover {
     background-image: url('./project4-hover.svg');
-    height: 200px; /* Keep height consistent */
-    width: min(900px, 70vw); /* Responsive width with max value */
-    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+    height: 200px;
+    /* Keep height consistent */
+    width: min(900px, 70vw);
+    /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw));
+    /* Responsive transform with max value */
 }
 
 .project5 {
@@ -425,9 +457,12 @@ nav ul li a {
 
 .project5:hover {
     background-image: url('./project5-hover.svg');
-    height: 200px; /* Keep height consistent */
-    width: min(900px, 70vw); /* Responsive width with max value */
-    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+    height: 200px;
+    /* Keep height consistent */
+    width: min(900px, 70vw);
+    /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw));
+    /* Responsive transform with max value */
 }
 
 .project6 {
@@ -436,9 +471,12 @@ nav ul li a {
 
 .project6:hover {
     background-image: url('./project6-hover.svg');
-    height: 200px; /* Keep height consistent */
-    width: min(900px, 70vw); /* Responsive width with max value */
-    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+    height: 200px;
+    /* Keep height consistent */
+    width: min(900px, 70vw);
+    /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw));
+    /* Responsive transform with max value */
 }
 
 .project7 {
@@ -447,9 +485,12 @@ nav ul li a {
 
 .project7:hover {
     background-image: url('./project7-hover.svg');
-    height: 200px; /* Keep height consistent */
-    width: min(900px, 70vw); /* Responsive width with max value */
-    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+    height: 200px;
+    /* Keep height consistent */
+    width: min(900px, 70vw);
+    /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw));
+    /* Responsive transform with max value */
 }
 
 .project8 {
@@ -458,9 +499,12 @@ nav ul li a {
 
 .project8:hover {
     background-image: url('./project8-hover.svg');
-    height: 200px; /* Keep height consistent */
-    width: min(900px, 70vw); /* Responsive width with max value */
-    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+    height: 200px;
+    /* Keep height consistent */
+    width: min(900px, 70vw);
+    /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw));
+    /* Responsive transform with max value */
 }
 
 .project9 {
@@ -469,9 +513,12 @@ nav ul li a {
 
 .project9:hover {
     background-image: url('./project9-hover.svg');
-    height: 200px; /* Keep height consistent */
-    width: min(900px, 70vw); /* Responsive width with max value */
-    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+    height: 200px;
+    /* Keep height consistent */
+    width: min(900px, 70vw);
+    /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw));
+    /* Responsive transform with max value */
 }
 
 .project10 {
@@ -480,9 +527,12 @@ nav ul li a {
 
 .project10:hover {
     background-image: url('./project10-hover.svg');
-    height: 200px; /* Keep height consistent */
-    width: min(900px, 70vw); /* Responsive width with max value */
-    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+    height: 200px;
+    /* Keep height consistent */
+    width: min(900px, 70vw);
+    /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw));
+    /* Responsive transform with max value */
 }
 
 .project11 {
@@ -491,9 +541,12 @@ nav ul li a {
 
 .project11:hover {
     background-image: url('./project11-hover.svg');
-    height: 200px; /* Keep height consistent */
-    width: min(900px, 70vw); /* Responsive width with max value */
-    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+    height: 200px;
+    /* Keep height consistent */
+    width: min(900px, 70vw);
+    /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw));
+    /* Responsive transform with max value */
 }
 
 .project12 {
@@ -502,9 +555,12 @@ nav ul li a {
 
 .project12:hover {
     background-image: url('./project12-hover.svg');
-    height: 200px; /* Keep height consistent */
-    width: min(900px, 70vw); /* Responsive width with max value */
-    transform: translateX(min(250px, 20vw)); /* Responsive transform with max value */
+    height: 200px;
+    /* Keep height consistent */
+    width: min(900px, 70vw);
+    /* Responsive width with max value */
+    transform: translateX(min(250px, 20vw));
+    /* Responsive transform with max value */
 }
 
 .gif-container {
@@ -680,78 +736,131 @@ img {
 }
 
 /* Resume Content Styling */
-.resume-content {
-    margin-top: 40px;
-    text-align: left;
-    /* Serif typeface for resume */
-    line-height: 1.3;
-
-    margin-left: 50px;
+.resume-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
 }
 
-/* Resume Item Header (Company, Position, Date) */
-.resume-header {
+.resume-header h2 {
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.resume-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.resume-content h3 {
+    margin: 18px 0 10px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.resume-item {
+    margin-bottom: 16px;
+}
+
+.resume-item .resume-header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    align-items: baseline;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.company-name {
     font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-right: auto;
+}
+
+.position {
+    font-style: italic;
+    margin-right: 15px;
+}
+
+.date,
+.date-pubs {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.resume-item ul {
+    margin: 5px 0 0 0;
+    /* Remove left margin */
+    padding-left: 20px;
+    /* Control bullet indentation with padding instead */
+    text-align: left;
+    /* Ensure text is left-aligned */
+}
+
+.resume-item li {
+    margin-bottom: 5px;
+    list-style-position: outside;
 }
 
 .resume-pubs {
     display: flex;
     justify-content: space-between;
-    font-weight: normal;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
-.company-name {
-    flex: 1;
-    text-align: left;
+/* Contact Links */
+.printer-sound {
+    display: none;
 }
 
-.position {
-    flex: 1;
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.hello-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5rem;
+    color: #000;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.printing-status {
+    font-size: 0.8rem;
     text-align: center;
+    margin-top: 20px;
+    height: 20px;
+    color: #333;
 }
 
-.date {
-    flex: 1;
-    text-align: right;
-    margin-right: 40px;
-}
-
-.date-pubs {
-    flex: 1;
-    text-align: right;
-    font-weight: bold;
-    margin-right: 40px;
-}
-
-/* Bullet Points */
-ul {
-    margin-top: 0;
-    margin-left: 20px;
-    list-style-type: disc;
-}
-
-ul li {
-    margin-bottom: 10px;
-}
-
-/* Section Headers */
-h3 {
-    margin-top: 40px;
-    margin-bottom: 0px;
-    font-size: 1.5rem;
-}
-
-/* Smaller headers */
-h4 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
 
 .download-btn {
     display: inline-block;
@@ -769,7 +878,8 @@ h4 {
 
 /* Footer Section */
 footer {
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
+    background-color: white;
     color: black;
     padding: 45vh 0;
     width: 100%;
@@ -791,7 +901,8 @@ footer {
 }
 
 .footer-projects {
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
+    background-color: white;
     color: black;
     padding: 0vh 0;
     width: 100%;
@@ -1130,7 +1241,399 @@ img:hover {
     background-color: #0056b3;
 }
 
+/* LOADING SCREEN */
+
+.loading-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Container for your SVG */
+.svg-container {
+    width: 80%;
+    max-width: 600px;
+    height: 200px;
+    margin-bottom: 60px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for SVG paths */
+.svg-path {
+    stroke: #fff;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.svg-container svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
+.svg-container svg.active {
+    opacity: 1;
+}
+
+.progress {
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.language-indicator {
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0.7;
+}
+
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 100;
+    animation: scan 8s linear infinite;
+}
+
+@keyframes scan {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: 100vh;
+    }
+}
+
+.crt-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    z-index: 50;
+    pointer-events: none;
+    opacity: 0.15;
+}
+
+
+/* Printer Experience Styles */
+.printer-experience {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0 40px;
+}
+
+.printer-container {
+    position: relative;
+    width: 450px;
+    max-width: 100%;
+    height: 300px;
+    margin: 20px auto;
+    perspective: 600px;
+}
+
+.printer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    background-image: url("./printer.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.printer-interaction-area {
+    position: absolute;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 30px;
+    z-index: 5;
+    background-color: #9c2b2b;
+    /* Green printer button color */
+    border-radius: 5px;
+    border: 2px solid #661a1a;
+    box-shadow:
+        0 4px 0 #661a1a,
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.printer-interaction-area::after {
+    content: "PRINT";
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: 1px;
+  }
+  
+  .printer-interaction-area:hover {
+    background-color: #b83434;
+  }
+  
+  .printer-interaction-area:active {
+    transform: translateX(-50%) translateY(3px);
+    box-shadow:
+        0 1px 0 #661a1a,
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  }
+
+.paper-slot {
+    width: 80%;
+    height: 5px;
+    position: absolute;
+    top: 100px;
+    /* Adjust based on actual printer image */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.printed-paper {
+    position: absolute;
+    top: 105px;
+    /* Adjust based on actual printer image */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45vw;
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 10;
+    max-height: 0;
+    overflow: hidden;
+    transform-origin: top center;
+}
+
+.printed-paper.printing {
+    display: block;
+    animation: printPaper 4s forwards;
+}
+
+@keyframes printPaper {
+    0% {
+        max-height: 0;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    10% {
+        max-height: 95px;
+        transform: translateX(-50%) translateY(0) rotate(0.5deg);
+    }
+
+    20% {
+        transform: translateX(-50%) translateY(10px) rotate(-0.3deg);
+    }
+
+    30% {
+        max-height: 200px;
+        transform: translateX(-50%) translateY(20px) rotate(0.2deg);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(40px) rotate(-0.4deg);
+    }
+
+    50% {
+        max-height: 400px;
+        transform: translateX(-50%) translateY(70px) rotate(0.3deg);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(100px) rotate(-0.2deg);
+    }
+
+    70% {
+        max-height: 600px;
+        transform: translateX(-50%) translateY(130px) rotate(0.4deg);
+    }
+
+    80% {
+        transform: translateX(-50%) translateY(160px) rotate(-0.3deg);
+    }
+
+    90% {
+        max-height: 900px;
+        transform: translateX(-50%) translateY(190px) rotate(0.2deg);
+    }
+
+    100% {
+        max-height: 1600px;
+        transform: translateX(-50%) translateY(220px) rotate(0deg);
+    }
+}
+
+.resume-header {
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.resume-header h2 {
+    margin-bottom: 5px;
+}
+
+.resume-content {
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.resume-content h3 {
+    margin: 10px 0 5px;
+}
+
+.section {
+    margin-bottom: 15px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #D7D2BB;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.contact-link:hover {
+    background-color: #B6B191;
+}
+
+.printer-sound {
+    display: none;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.hello-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5rem;
+    color: #000;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.printing-status {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 10px;
+    height: 20px;
+    color: #333;
+}
+
+/* Mobile Responsiveness for Printer */
+@media (max-width: 500px) {
+    .printer-container {
+        width: 90%;
+        height: 240px;
+    }
+
+    .printed-paper {
+        width: 85%;
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .contact-link {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+}
+
+
+
 /* Media queries for fine-tuning */
+
+@media (min-width: 1201px) {
+    .projects-title {
+        --title-offset: 0%;
+        /* Centered on medium-large screens */
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .projects-title {
+        --title-offset: -5%;
+        /* Move 5% left from center on medium screens */
+    }
+}
+
 @media (max-width: 1200px) {
 
     .projects-title {
@@ -1139,64 +1642,112 @@ img:hover {
     }
 
     .hover-image {
-      /* Slightly smaller on smaller screens */
-      height: 180px;
-      width: 360px;
+        /* Slightly smaller on smaller screens */
+        height: 180px;
+        width: 360px;
     }
-    
-    .project1:hover, .project2:hover, .project3:hover, .project4:hover,
-    .project5:hover, .project6:hover, .project7:hover, .project8:hover, 
-    .project9:hover, .project10:hover, .project11:hover, .project12:hover {
-      height: 180px;
-      width: min(800px, 75vw);
-      transform: translateX(min(250px, 18vw));
+
+    .project1:hover,
+    .project2:hover,
+    .project3:hover,
+    .project4:hover,
+    .project5:hover,
+    .project6:hover,
+    .project7:hover,
+    .project8:hover,
+    .project9:hover,
+    .project10:hover,
+    .project11:hover,
+    .project12:hover {
+        height: 180px;
+        width: min(800px, 75vw);
+        transform: translateX(min(250px, 18vw));
     }
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
 
     .projects-title {
-        margin-left: calc(20vw);
-        max-width: min(450px, 70vw);
+        --title-offset: -10%;
+        /* Move 10% left from center on small screens */
         margin-top: 30px;
     }
 
     .hover-image {
-      height: 160px;
-      width: 320px;
+        height: 160px;
+        width: 320px;
     }
-    
-    .project1:hover, .project2:hover, .project3:hover, .project4:hover,
-    .project5:hover, .project6:hover, .project7:hover, .project8:hover, 
-    .project9:hover, .project10:hover, .project11:hover, .project12:hover {
-      height: 160px;
-      width: min(700px, 80vw);
-      transform: translateX(min(150px, 15vw));
+
+    .project1:hover,
+    .project2:hover,
+    .project3:hover,
+    .project4:hover,
+    .project5:hover,
+    .project6:hover,
+    .project7:hover,
+    .project8:hover,
+    .project9:hover,
+    .project10:hover,
+    .project11:hover,
+    .project12:hover {
+        height: 160px;
+        width: min(700px, 80vw);
+        transform: translateX(min(150px, 15vw));
     }
-  }
-  
-  @media (max-width: 576px) {
+
+    .printer-container {
+        width: 90%;
+        height: 240px;
+    }
+
+    .printed-paper {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .resume-item .resume-header {
+        flex-direction: column;
+    }
+
+    .company-name,
+    .position,
+    .date {
+        margin-bottom: 3px;
+    }
+
+}
+
+@media (max-width: 576px) {
 
     .projects-title {
-        margin-left: calc(10vw);
-        max-width: min(350px, 80vw);
+        --title-offset: 15%;
+        /* Move 15% left from center on mobile */
         margin-top: 25px;
-        font-size: clamp(2.5rem, 8vw, 3.5rem); /* Smaller font on mobile */
+        font-size: clamp(2.5rem, 12vw, 3.5rem);
     }
 
     .hover-image {
-      height: 140px;
-      width: 280px;
+        height: 140px;
+        width: 280px;
     }
-    
-    .project1:hover, .project2:hover, .project3:hover, .project4:hover,
-    .project5:hover, .project6:hover, .project7:hover, .project8:hover, 
-    .project9:hover, .project10:hover, .project11:hover, .project12:hover {
-      height: 140px;
-      width: min(500px, 85vw);
-      transform: translateX(min(80px, 10vw));
+
+    .project1:hover,
+    .project2:hover,
+    .project3:hover,
+    .project4:hover,
+    .project5:hover,
+    .project6:hover,
+    .project7:hover,
+    .project8:hover,
+    .project9:hover,
+    .project10:hover,
+    .project11:hover,
+    .project12:hover {
+        height: 140px;
+        width: min(500px, 85vw);
+        transform: translateX(min(80px, 10vw));
     }
-  }
+}
 
 
 
