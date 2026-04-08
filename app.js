@@ -1327,6 +1327,9 @@ function initScrollObserver(scene) {
                 // scene._currentZoomState = idx;  // zoom disabled — re-enable with camera animations below
                 overviewLeft = false;
 
+                renderer.domElement.style.pointerEvents = 'none';
+                document.getElementById('canvas-container')?.classList.add('inactive');
+
                 spatialLeft?.classList.add('faded');
                 spatialRight?.classList.add('faded');
 
@@ -1379,6 +1382,9 @@ function initScrollObserver(scene) {
                     currentZoomIndex = -1;
                     scene._currentZoomState = 'overview';
                     overviewLeft = true;
+
+                    renderer.domElement.style.pointerEvents = 'auto';
+                    document.getElementById('canvas-container')?.classList.remove('inactive');
 
                     spatialLeft?.classList.remove('faded');
                     spatialRight?.classList.remove('faded');

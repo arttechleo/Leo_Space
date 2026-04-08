@@ -742,6 +742,9 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
     opacity: 0.28;
 }
 
+/* ── Canvas inactive when project sections scroll over it ── */
+#canvas-container.inactive { pointer-events: none; }
+
 /* ── VIGNETTE during zoom ── */
 #canvas-container.zooming::before {
     content: '';
