@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herald Examiner MR · Leo Danenkov</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="project-style.css">
+</head>
+
+<body class="project-detail-page project-page">
+  <!-- Navigation -->
+  <nav class="nav-pill">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="contact.html">Resume</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="page-label">MIXED REALITY</span>
+      <p class="title">2024</p>
+      <div class="skills-overview-projects skills-tags">
+        <span>QUEST 3</span> | <span>UNITY</span> | <span>COMPUTER VISION</span> |
+        <span>SENTIS</span> | <span>MR</span>
+      </div>
+      <h1>Herald Examiner MR</h1>
+      <h2>Computer Vision as a Narrative System</h2>
+    </div>
+  </header>
+
+  <!-- Main Project Content -->
+  <main class="project-content project-page-content">
+    <section class="project-section">
+
+      <div class="text-left">
+        <h3>Overview</h3>
+        <p class="project-paragraph">
+          What happens when computer vision starts narrating the physical world? Herald Examiner MR is a mixed
+          reality prototype where detected objects become anchors for storytelling. Built for Meta Quest 3 using
+          Unity and Unity Sentis, the experience transforms the user's environment into a dynamic, time-shifting
+          narrative space.
+        </p>
+      </div>
+
+      <!-- Video placeholder -->
+      <div class="video-wrapper">
+        <div class="video-container">
+          <!-- TODO: add YouTube embed ID -->
+          <iframe class="youtube-video" src="" title="Herald Examiner MR"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <div class="text-left">
+        <h3>Concept</h3>
+        <p class="project-paragraph">
+          Set inside the historic Herald Examiner Building &mdash; now home to ASU's Emerging Media campus &mdash;
+          the experience explores how AI perception can reinterpret reality. Real-world objects are detected and
+          transformed into narrative artifacts: a laptop becomes a 1926 newsroom typewriter, a book becomes a
+          March 1926 Herald Examiner newspaper, and the physical space becomes a living archive across time.
+          The user moves through three eras: 1926, the 1960s, and the present day. Each transition reshapes the
+          environment through visual tone, sound, and embodiment.
+        </p>
+      </div>
+
+      <div class="text-left">
+        <h3>Interaction Design</h3>
+        <p class="project-paragraph">
+          The system uses computer vision as the core interaction layer. Objects are detected in real time,
+          bounding boxes become spatial anchors, and virtual content attaches directly to physical context.
+          Embodiment cues reinforce presence: historical wristwatches per era, spatial narration with subtitles,
+          and passthrough filters shifting time periods. The result is a system where the world itself becomes
+          the interface.
+        </p>
+      </div>
+
+      <div class="text-left">
+        <h3>Key Innovation</h3>
+        <div class="skills-overview-projects skills-tags">
+          <span>Computer vision as a storytelling trigger, not just utility</span>
+          <span>Physical environment reinterpreted as a narrative canvas</span>
+          <span>Seamless blending of AI detection + spatial anchoring</span>
+          <span>Time travel conveyed through perception shifts, not UI</span>
+        </div>
+      </div>
+
+      <div class="text-left">
+        <h3>Technical Highlights</h3>
+        <p class="project-paragraph">
+          Unity + Meta Quest 3 mixed reality passthrough. Real-time object detection with Unity Sentis. Spatial
+          anchoring from 2D bounding boxes &rarr; 3D world space. Dynamic passthrough styling across 1920s, 1960s,
+          and modern eras. Spatial audio narration with subtitles. Performance-aware anchoring system.
+        </p>
+      </div>
+
+      <div class="text-left">
+        <h3>AI-Assisted Workflow</h3>
+        <p class="project-paragraph">
+          Design concepts translated into dev prompts via ChatGPT and Claude. Prompts executed in-engine via
+          Cursor. Scripts and tools generated directly inside Unity. Narration generated with ElevenLabs.
+          Unity console feedback loop used to refine systems. Goal: move toward a fully automated iteration
+          loop between AI and engine.
+        </p>
+      </div>
+
+      <div class="text-left">
+        <h3>Key Technical Insight</h3>
+        <p class="project-paragraph">
+          Attaching CGI to moving detected objects caused major instability &mdash; bounding boxes update every
+          frame, introducing jitter and performance spikes. Conclusion: static object anchoring is significantly
+          more reliable for narrative experiences on-device.
+        </p>
+      </div>
+
+      <div class="text-left">
+        <h3>Research Direction</h3>
+        <p class="project-paragraph">
+          If AI can understand our environment, can it turn reality into a story? Next step: AI-directed
+          volumetric actors via Gaussian Splatting, moving through real space and interacting dynamically
+          with detected objects.
+        </p>
+      </div>
+
+      <div class="text-left">
+        <a href="https://lnkd.in/guu4FtTX" target="_blank" rel="noopener" class="read-more-btn">Experience the prototype &rarr;</a>
+      </div>
+
+      <div class="text-left">
+        <h3>Acknowledgment</h3>
+        <p class="project-paragraph">
+          Special thanks to Dilmer Valecillos for guidance on integrating Unity Sentis with Meta XR.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <div class="project-nav">
+    <a class="project-nav-prev" href="project-synesthesia.html">&larr; Spatial Synesthesia</a>
+    <a class="project-nav-next" href="project3.html">Molecules WebXR &rarr;</a>
+  </div>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Copyright Notice -->
+            <div class="footer-copyright">
+                <p>&#169; 2026. All Rights Reserved.</p>
+                <p>Website developed by Leo Danenkov.</p>
+                <p>Email with inquiries to ledanenkov@gmail.com</p>
+                <p>spatialme.xyz</p>
+            </div>
+        </div>
+    </footer>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
