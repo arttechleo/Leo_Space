@@ -146,10 +146,10 @@
   scene.add(splat);
   // Rotation range: looping swing around a center angle
   const DEG = Math.PI / 180;
-  const ROT_CENTER = 135 * DEG; // center of swing
-  const ROT_SWING = 20 * DEG; // +/-20deg from center
-  const ROT_MIN = ROT_CENTER - ROT_SWING; // 115deg
-  const ROT_MAX = ROT_CENTER + ROT_SWING; // 155deg
+  const ROT_CENTER = 240 * DEG; // was 135
+  const ROT_SWING = 20 * DEG; // keep +/-20deg
+  const ROT_MIN = ROT_CENTER - ROT_SWING; // 220deg
+  const ROT_MAX = ROT_CENTER + ROT_SWING; // 260deg
 
   let baseRotY = ROT_MIN;
   let rotDir = 1; // 1 = going right, -1 = going left
