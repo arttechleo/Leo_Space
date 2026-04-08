@@ -2296,6 +2296,14 @@ body:not(.index-page) p {
     margin: 0 0 1.4em;
 }
 
+body:not(.index-page) .footer-copyright p {
+    font-size: 11px;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    letter-spacing: 0.01em;
+}
+
 body:not(.index-page) h2 {
     font-size: clamp(1.2rem, 2vw, 1.6rem);
     font-weight: 600;
