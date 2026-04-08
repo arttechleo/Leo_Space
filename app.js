@@ -823,7 +823,7 @@ const PROJECT_DISPLAY = [
         title: 'Spatial Synesthesia',
         description:
             'A gaze-driven mixed reality experience where eye-dwell on Kandinsky painting regions solos instruments and shifts passthrough color. Perception as interface.',
-        videoUrl: '',
+        videoUrl: 'https://www.youtube.com/embed/66hFXR_sxr0',
         projectUrl: 'project-synesthesia.html',
         tags: ['VISION PRO', 'visionOS', 'RealityKit', 'Eye Tracking']
     },
@@ -835,7 +835,7 @@ const PROJECT_DISPLAY = [
         title: 'Herald Examiner MR',
         description:
             'A mixed reality prototype where computer vision detects real-world objects and transforms them into narrative anchors across three historical eras. Built for Meta Quest 3.',
-        videoUrl: '',
+        videoUrl: 'https://www.youtube.com/embed/dYqZd54enW0',
         projectUrl: 'project-herald.html',
         tags: ['QUEST 3', 'Unity', 'Computer Vision', 'Sentis', 'MR']
     },
@@ -847,7 +847,7 @@ const PROJECT_DISPLAY = [
         title: 'World Labs → UE Pipeline',
         description:
             'A greybox-to-photorealistic pipeline for Unreal Engine 5 using World Labs Marble AI. Blockouts become cinematic film sets in minutes — built for virtual production workflows.',
-        videoUrl: '',
+        videoUrl: 'https://www.youtube.com/embed/IFVzCY6aNYU',
         projectUrl: 'project-worldlabs.html',
         tags: ['UNREAL ENGINE 5', 'AI', 'Virtual Production', 'World Labs']
     },
