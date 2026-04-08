@@ -1334,12 +1334,18 @@ function initScrollObserver(scene) {
         landDot.className = 'scroll-progress-dot active';
         landDot.dataset.index = '-1';
         landDot.dataset.label = 'Home';
+        landDot.addEventListener('click', () => {
+            document.getElementById('section-landing')?.scrollIntoView({ behavior: 'smooth' });
+        });
         progressEl.appendChild(landDot);
         PROJECT_DISPLAY.forEach((proj, i) => {
             const dot = document.createElement('div');
             dot.className = 'scroll-progress-dot';
             dot.dataset.index = String(i);
             dot.dataset.label = proj.title;
+            dot.addEventListener('click', () => {
+                document.getElementById('section-project-' + i)?.scrollIntoView({ behavior: 'smooth' });
+            });
             progressEl.appendChild(dot);
         });
         updateProgressDot(currentZoomIndex);
