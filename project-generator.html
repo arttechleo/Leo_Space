@@ -336,7 +336,7 @@
         <iframe id="preview-frame" title="Generated project preview" sandbox="allow-scripts allow-same-origin"></iframe>
       </div>
       <div style="text-align: center;">
-        <button type="button" class="btn-confirm-save" id="btn-confirm-save">Looks good — save project</button>
+        <button type="button" class="btn-confirm-save" id="btn-confirm-save">Looks good, save project</button>
       </div>
       <div class="save-instructions" id="save-instructions"></div>
     </section>
@@ -359,7 +359,7 @@
       var STORAGE_GITHUB = 'leo_github';
       var STORAGE_LINKEDIN = 'leo_linkedin';
       var STORAGE_API = 'leo_api_key';
-      var SYSTEM_PROMPT = 'You generate HTML content blocks for a portfolio project page. Output ONLY the inner HTML for the <main> element — no <html>, <head>, or <body> tags. Use these class names from project-style.css: .project-hero, .project-description, .project-paragraph, .video-wrapper, .project-tools. Include sections for: title, description, tools list, video embed (use the provided video URL in an iframe), and links to the GitHub and LinkedIn URLs provided.';
+      var SYSTEM_PROMPT = 'You generate HTML content blocks for a portfolio project page. Output ONLY the inner HTML for the <main> element, no <html>, <head>, or <body> tags. Use these class names from project-style.css: .project-hero, .project-description, .project-paragraph, .video-wrapper, .project-tools. Include sections for: title, description, tools list, video embed (use the provided video URL in an iframe), and links to the GitHub and LinkedIn URLs provided.';
 
       var form = document.getElementById('project-generator-form');
       var btnGenerate = document.getElementById('btn-generate');
