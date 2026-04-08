@@ -5,6 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About · Leo Danenkov</title>
   <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+  { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+  </script>
+  <script src="https://unpkg.com/@mkkellogg/gaussian-splats-3d@0.4.1/build/gaussian-splats-3d.umd.cjs"></script>
+  <style>
+    .about-splat-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 80px);
+      align-items: start;
+      padding: 60px 40px;
+    }
+
+    #splat-container {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .about-splat-layout {
+        grid-template-columns: 1fr;
+      }
+
+      #splat-container {
+        aspect-ratio: 4/3;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav class="nav-pill">
@@ -16,39 +47,46 @@
 
   <main>
     <span class="page-label">About</span>
-    <h1>Experience engineer<br>in spatial media.</h1>
 
-    <div class="section-divider"></div>
+    <div class="about-splat-layout">
+      <div class="about-splat-viewer" id="splat-container"></div>
 
-    <p>
-      I build mixed reality products, WebGL archives, and volumetric pipelines
-      where 3D performance and human clarity both matter. Recent work spans
-      Three.js WebXR at Volumetrics.io, digitization and Gaussian splatting
-      research at Article, and the Structural Color Gallery WebGL exhibition
-      (20 artworks, performance-tuned delivery, 20+ usability sessions).
-    </p>
+      <div class="about-splat-text">
+        <h1>Experience engineer<br>in spatial media.</h1>
 
-    <h2>Trajectory</h2>
-    <p>
-      Mixed Reality Product Designer at Nanome (VR molecular design),
-      VR Theatre technical lead at ACM SIGGRAPH 2022 (25-person team),
-      and VR locomotion research at Simon Fraser iSpace Lab. BA in
-      Interactive Arts and Technology (SFU, 2021); MA in Emerging Media
-      and Narrative Design at ASU (expected December 2026).
-    </p>
+        <div class="section-divider"></div>
 
-    <h2>Outside the headset</h2>
-    <p>
-      Rim-to-rim Grand Canyon in 8h59 with my dad; Vancouver mountain trails;
-      Chamonix skiing; quarterly Chicago family trips. I like ambitious,
-      efficient projects—whether in code or on a bike.
-    </p>
+        <p>
+          I build mixed reality products, WebGL archives, and volumetric pipelines
+          where 3D performance and human clarity both matter. Recent work spans
+          Three.js WebXR at Volumetrics.io, digitization and Gaussian splatting
+          research at Article, and the Structural Color Gallery WebGL exhibition
+          (20 artworks, performance-tuned delivery, 20+ usability sessions).
+        </p>
 
-    <div class="section-divider"></div>
+        <h2>Trajectory</h2>
+        <p>
+          Mixed Reality Product Designer at Nanome (VR molecular design),
+          VR Theatre technical lead at ACM SIGGRAPH 2022 (25-person team),
+          and VR locomotion research at Simon Fraser iSpace Lab. BA in
+          Interactive Arts and Technology (SFU, 2021); MA in Emerging Media
+          and Narrative Design at ASU (expected December 2026).
+        </p>
 
-    <p>
-      <a href="contact.html" class="contact-link-primary">View resume &amp; contact →</a>
-    </p>
+        <h2>Outside the headset</h2>
+        <p>
+          Rim-to-rim Grand Canyon in 8h59 with my dad; Vancouver mountain trails;
+          Chamonix skiing; quarterly Chicago family trips. I like ambitious,
+          efficient projects—whether in code or on a bike.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <p>
+          <a href="contact.html" class="contact-link-primary">View resume &amp; contact &#8594;</a>
+        </p>
+      </div>
+    </div>
   </main>
 
     <footer>
@@ -63,5 +101,23 @@
         </div>
     </footer>
 
+  <script type="module">
+    import * as GaussianSplats3D from 'https://unpkg.com/@mkkellogg/gaussian-splats-3d@0.4.1/build/gaussian-splats-3d.module.js';
+
+    const viewer = new GaussianSplats3D.Viewer({
+      cameraUp: [0, -1, 0],
+      initialCameraPosition: [0, -1, 5],
+      initialCameraLookAt: [0, -1, 0],
+      rootElement: document.getElementById('splat-container'),
+      selfDrivenMode: true,
+      useBuiltInControls: true,
+      autoResize: true
+    });
+
+    viewer.addSplatScene('splats/LeoCanyon.ply', {
+      splatAlphaRemovalThreshold: 5,
+      showLoadingUI: true
+    }).then(() => { viewer.start(); });
+  </script>
 </body>
 </html>
