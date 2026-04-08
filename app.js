@@ -1404,7 +1404,7 @@ function preloadProjects() {
                 ? `<iframe
                src="${project.videoUrl}${ytLoop}"
                frameborder="0"
-               allow="autoplay; fullscreen"
+               allow="autoplay *; fullscreen *"
                allowfullscreen>
              </iframe>`
                 : `<video
