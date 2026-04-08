@@ -144,9 +144,15 @@
   });
   splat.rotation.z = Math.PI;
   scene.add(splat);
-  // Clamp Y rotation to +/-120deg (240deg total)
-  const MAX_ROT = Math.PI * (120 / 180);
-  let baseRotY = Math.PI; // starting rotation
+  // Rotation range: start at 60deg, auto-progress to 180deg, drag allowed +/-20deg outside [0deg, 180deg]
+  const DEG = Math.PI / 180;
+  const ROT_MIN = -20 * DEG; // -20deg hard left limit
+  const ROT_MAX = 200 * DEG; // 200deg hard right limit (180deg + 20deg buffer)
+  const ROT_START = 60 * DEG; // start here on load
+  const ROT_TARGET = 180 * DEG; // auto-rotate stops here
+
+  let baseRotY = ROT_START;
+  let autoRotating = true;
   // Debug: log splat position, rotation, camera on load
   setTimeout(() => {
     console.log('=== SPLAT DEBUG ===');
@@ -165,7 +171,7 @@
   window.addEventListener('mousemove', e => {
     if (!isDragging) return;
     const delta = (e.clientX - prevX) * 0.005;
-    baseRotY = Math.max(Math.PI - MAX_ROT, Math.min(Math.PI + MAX_ROT, baseRotY + delta));
+    baseRotY = Math.max(ROT_MIN, Math.min(ROT_MAX, baseRotY + delta));
     splat.rotation.x += (e.clientY - prevY) * 0.005;
     prevX = e.clientX; prevY = e.clientY;
   });
@@ -185,9 +191,12 @@
   });
 
   renderer.setAnimationLoop(() => {
-    if (!isDragging) {
+    if (!isDragging && autoRotating) {
       baseRotY += 0.002;
-      if (baseRotY > Math.PI + MAX_ROT) baseRotY = Math.PI + MAX_ROT;
+      if (baseRotY >= ROT_TARGET) {
+        baseRotY = ROT_TARGET;
+        autoRotating = false;
+      }
     }
     splat.rotation.y = baseRotY;
     renderer.render(scene, camera);

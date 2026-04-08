@@ -5,6 +5,7 @@
 - About: adjust splat orientation, landscape canvas sizing, and scroll-driven camera push.
 - About: switch to full-width splat hero layout with bottom fade, corrected forward-facing rotation, and closer camera framing.
 - About: clamp horizontal splat rotation to a 240-degree range for both auto-rotation and drag input.
+- About: start splat Y rotation at 60deg, auto-rotate to 180deg, and clamp drag between -20deg and 200deg.
 
 ## 2026-04-03
 
