@@ -45,12 +45,22 @@
       margin: 0;
       padding: 0;
     }
-    .resume-bento-img {
-      display: block;
+    .resume-bento-placeholder {
       width: 100%;
       max-width: 1000px;
       margin: 0 auto;
+      height: 300px;
+      border: 1px dashed rgba(255,255,255,0.2);
       border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 14px;
+      text-align: center;
+    }
+    .resume-bento-placeholder code {
+      color: rgba(255,255,255,0.7);
     }
     .resume-proto-link {
       display: block;
@@ -132,11 +142,9 @@
     <span class="page-label">Resume · Available 2026</span>
     <h1>Let's build<br>spatial futures.</h1>
     <div class="resume-proto-wrap">
-      <img
-        src="./assets/resume-bento.png"
-        alt="Leo Danenkov - Resume"
-        class="resume-bento-img"
-      />
+      <div class="resume-bento-placeholder">
+        <p>⬆ Export bento from Figma as PNG → save as <code>assets/resume-bento.png</code></p>
+      </div>
       <a
         href="https://www.figma.com/proto/HZBhvC6hYVQTlEa9mTSLaF/Resume-Design_Documents?page-id=5053%3A2&node-id=6100-226&scaling=contain&content-scaling=fixed&starting-point-node-id=6100%3A226"
         target="_blank"
