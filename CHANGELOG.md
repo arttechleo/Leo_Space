@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-04-08
+
+- About: adjust splat orientation, landscape canvas sizing, and scroll-driven camera push.
+
 ## 2026-04-03
 
 - Site-wide Vision Pro / spatial-computing pass: single background `#f2f2f2` via `:root` tokens; SF Pro system stack on `html`/`body` and interior pages; index nav, canvas band (`60px` top offset), flanking columns, hero word land/scatter, short-style project cards with odd-`nth-child` alternation (scroll-progress outside `#scroll-content`), progress dots, zoom flash, canvas zoom vignette; `app.js` initializes Three only on `body.index-page`, rebuilds empty `#scroll-progress` with landing dot + 12.
