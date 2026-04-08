@@ -304,28 +304,28 @@ class MultiVideoScene {
                 id: 'screen3',
                 src: './videos/Piano_Train_Installation.mp4',
                 title: "Piano Bar - Cybernetics and Human Knowing",
-                about: "A game, an AI, and a piano walk into a bar... and only one of them never loses. This interactive installation features a massive wall projection, an 88-key piano as a controller, and an AI that’s out to prove humans are overrated at playing with colors. Are you up for the challenge? (Spoiler: the AI thinks you’re not.)",
+                about: "A game, an AI, and a piano walk into a bar... and only one of them never loses. This interactive installation features a massive wall projection, an 88-key piano as a controller, and an AI that's out to prove humans are overrated at playing with colors. Are you up for the challenge? (Spoiler: the AI thinks you're not.)",
                 url: "./project11.html"
             },
             {
                 id: 'screen4',
                 src: './videos/WizardofOzVRSoundscapeProject.mp4',
                 title: "4'33'' - Soundscapes in VR",
-                about: "What if silence wasn’t empty but full of hidden stories? Inspired by John Cage’s 4'33'', this VR experience lets you explore soundscapes from everyday life—your apartment, your city, maybe even the weird noise your fridge makes at night. It’s a concert, but the world is the composer.",
+                about: "What if silence wasn't empty but full of hidden stories? Inspired by John Cage's 4'33'', this VR experience lets you explore soundscapes from everyday life—your apartment, your city, maybe even the weird noise your fridge makes at night. It's a concert, but the world is the composer.",
                 url: "./project8.html"
             },
             {
                 id: 'screen5',
                 src: './videos/MemoryGameXR.mp4',
                 title: "Memory Game WebXR",
-                about: "A Mixed Reality memory game that turns brain training into an interactive adventure. Designed for caregiving facilities, this game uses hand-tracking and point-and-click mechanics to flip cards, find matches, and prove that your memory is sharper than you think (or at least sharper than the AI’s).",
+                about: "A Mixed Reality memory game that turns brain training into an interactive adventure. Designed for caregiving facilities, this game uses hand-tracking and point-and-click mechanics to flip cards, find matches, and prove that your memory is sharper than you think (or at least sharper than the AI's).",
                 url: "./project12.html"
             },
             {
                 id: 'screen6',
                 src: './videos/Structural Color Gallery Experience Recording.mp4',
                 title: "SCG - Archival 3D Website",
-                about: "An art exhibition you don’t have to leave your house for. This Web3D experience transports you into a 3D-scanned gallery, letting you explore artist Megumi Nagai’s work as if you were there—minus the risk of knocking over a sculpture.",
+                about: "An art exhibition you don't have to leave your house for. This Web3D experience transports you into a 3D-scanned gallery, letting you explore artist Megumi Nagai's work as if you were there—minus the risk of knocking over a sculpture.",
                 url: "./project2.html"
             },
             {
@@ -346,14 +346,14 @@ class MultiVideoScene {
                 id: 'screen9',
                 src: './videos/GGJ-21_ Blown Away (Gameplay).mp4',
                 title: "Blown Away VR",
-                about: "Ever wanted to move through VR using just your breath? This experimental game lets you explore digital worlds by controlling airflow—kind of like a virtual meditation session, but with way more floating. Just don’t hyperventilate.",
+                about: "Ever wanted to move through VR using just your breath? This experimental game lets you explore digital worlds by controlling airflow—kind of like a virtual meditation session, but with way more floating. Just don't hyperventilate.",
                 url: "./project4.html"
             },
             {
                 id: 'screen10',
                 src: './videos/IWanderedLonelyasaCloud_by WilliamWordsworth.mp4',
                 title: "Classical Poem in Mixed and Virtual Reality",
-                about: "Wordsworth’s I Wandered Lonely as a Cloud reimagined for the immersive age. With interactive scrolling and AI-generated skyboxes, this project brings poetry off the page and into a dreamlike Mixed and Virtual Reality world. It’s literature, but make it sci-fi.",
+                about: "Wordsworth's I Wandered Lonely as a Cloud reimagined for the immersive age. With interactive scrolling and AI-generated skyboxes, this project brings poetry off the page and into a dreamlike Mixed and Virtual Reality world. It's literature, but make it sci-fi.",
                 url: "./project6.html"
             },
             {
@@ -367,7 +367,7 @@ class MultiVideoScene {
                 id: 'screen12',
                 src: './videos/Synesthesia VR Experience.mp4',
                 title: "Synesthesia VR",
-                about: "Ever wondered what it’s like to hear colors? This VR experience puts you in the mind of a synesthete, where sounds and colors blend into one. Inspired by Bauhaus aesthetics and Kandinsky’s paintings, it’s part game, part art experiment, and all kinds of trippy!",
+                about: "Ever wondered what it's like to hear colors? This VR experience puts you in the mind of a synesthete, where sounds and colors blend into one. Inspired by Bauhaus aesthetics and Kandinsky's paintings, it's part game, part art experiment, and all kinds of trippy!",
                 url: "./project1.html"
             },
         ];
@@ -814,161 +814,161 @@ class MultiVideoScene {
    ════════════════════════════════════════════ */
 
 const PLATFORM_ICONS = {
-    ‘Home’:         `<svg width=”20” height=”20” viewBox=”0 0 20 20” fill=”none” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round” stroke-linejoin=”round”><path d=”M3 9 L10 3 L17 9 L17 17 L3 17 Z”/><rect x=”7” y=”13” width=”6” height=”4”/></svg>`,
-    ‘OCULUS GO’:    `<svg width=”20” height=”20” viewBox=”0 0 20 20” fill=”none” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round” stroke-linejoin=”round”><ellipse cx=”10” cy=”10” rx=”8” ry=”5.5”/><line x1=”10” y1=”4.5” x2=”10” y2=”15.5”/></svg>`,
-    ‘QUEST 1’:      `<svg width=”20” height=”20” viewBox=”0 0 20 20” fill=”none” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round” stroke-linejoin=”round”><rect x=”2” y=”6.5” width=”16” height=”7” rx=”3.5”/><circle cx=”7” cy=”10” r=”1.8”/><circle cx=”13” cy=”10” r=”1.8”/></svg>`,
-    ‘QUEST 2’:      `<svg width=”20” height=”20” viewBox=”0 0 20 20” fill=”none” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round” stroke-linejoin=”round”><rect x=”1.5” y=”7” width=”17” height=”6” rx=”3”/><circle cx=”7” cy=”10” r=”2.1”/><circle cx=”13” cy=”10” r=”2.1”/><line x1=”1.5” y1=”10” x2=”4.9” y2=”10”/><line x1=”15.1” y1=”10” x2=”18.5” y2=”10”/></svg>`,
-    ‘QUEST PRO’:    `<svg width=”20” height=”20” viewBox=”0 0 20 20” fill=”none” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round” stroke-linejoin=”round”><path d=”M2 10 L4.5 7 L15.5 7 L18 10 L15.5 13 L4.5 13 Z”/><circle cx=”7.5” cy=”10” r=”1.8”/><circle cx=”12.5” cy=”10” r=”1.8”/></svg>`,
-    ‘QUEST 3’:      `<svg width=”20” height=”20” viewBox=”0 0 20 20” fill=”none” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round” stroke-linejoin=”round”><rect x=”1” y=”7.5” width=”18” height=”5” rx=”2”/><ellipse cx=”7” cy=”10” rx=”2.5” ry=”1.8”/><ellipse cx=”13” cy=”10” rx=”2.5” ry=”1.8”/></svg>`,
-    ‘3D’:           `<svg width=”20” height=”20” viewBox=”0 0 20 20” fill=”none” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round” stroke-linejoin=”round”><path d=”M10 2 L18 6.5 L18 13.5 L10 18 L2 13.5 L2 6.5 Z”/><path d=”M2 6.5 L10 11 L18 6.5”/><line x1=”10” y1=”11” x2=”10” y2=”18”/></svg>`,
-    ‘WEBXR’:        `<svg width=”20” height=”20” viewBox=”0 0 20 20” fill=”none” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round”><circle cx=”10” cy=”10” r=”8”/><path d=”M2 10 Q6 7.5 10 10 Q14 12.5 18 10”/><ellipse cx=”10” cy=”10” rx=”3.5” ry=”8”/></svg>`,
-    ‘INSTALLATION’: `<svg width=”20” height=”20” viewBox=”0 0 20 20” fill=”none” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round” stroke-linejoin=”round”><rect x=”2” y=”3” width=”16” height=”11” rx=”1.5”/><line x1=”7” y1=”14” x2=”5” y2=”18”/><line x1=”13” y1=”14” x2=”15” y2=”18”/><line x1=”4” y1=”18” x2=”16” y2=”18”/></svg>`,
+    'Home':         '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 L10 3 L17 9 L17 17 L3 17 Z"/><rect x="7" y="13" width="6" height="4"/></svg>',
+    'OCULUS GO':    '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="10" cy="10" rx="8" ry="5.5"/><line x1="10" y1="4.5" x2="10" y2="15.5"/></svg>',
+    'QUEST 1':      '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6.5" width="16" height="7" rx="3.5"/><circle cx="7" cy="10" r="1.8"/><circle cx="13" cy="10" r="1.8"/></svg>',
+    'QUEST 2':      '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="7" width="17" height="6" rx="3"/><circle cx="7" cy="10" r="2.1"/><circle cx="13" cy="10" r="2.1"/><line x1="1.5" y1="10" x2="4.9" y2="10"/><line x1="15.1" y1="10" x2="18.5" y2="10"/></svg>',
+    'QUEST PRO':    '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10 L4.5 7 L15.5 7 L18 10 L15.5 13 L4.5 13 Z"/><circle cx="7.5" cy="10" r="1.8"/><circle cx="12.5" cy="10" r="1.8"/></svg>',
+    'QUEST 3':      '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7.5" width="18" height="5" rx="2"/><ellipse cx="7" cy="10" rx="2.5" ry="1.8"/><ellipse cx="13" cy="10" rx="2.5" ry="1.8"/></svg>',
+    '3D':           '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2 L18 6.5 L18 13.5 L10 18 L2 13.5 L2 6.5 Z"/><path d="M2 6.5 L10 11 L18 6.5"/><line x1="10" y1="11" x2="10" y2="18"/></svg>',
+    'WEBXR':        '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10" cy="10" r="8"/><path d="M2 10 Q6 7.5 10 10 Q14 12.5 18 10"/><ellipse cx="10" cy="10" rx="3.5" ry="8"/></svg>',
+    'INSTALLATION': '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="16" height="11" rx="1.5"/><line x1="7" y1="14" x2="5" y2="18"/><line x1="13" y1="14" x2="15" y2="18"/><line x1="4" y1="18" x2="16" y2="18"/></svg>',
 };
 
 const PROJECT_DISPLAY = [
     {
         index: 0,
-        year: ‘2018’,
-        number: ‘01’,
-        platform: ‘OCULUS GO’,
-        title: ‘Futuristic Metaverse Trailer (2018)’,
+        year: '2018',
+        number: '01',
+        platform: 'OCULUS GO',
+        title: 'Futuristic Metaverse Trailer (2018)',
         description:
-            ‘Speculative short imagining freelance work inside the metaverse—tasks, collaboration, and the humor of early remote-work futures.’,
-        videoUrl: ‘https://www.youtube.com/embed/cwTM4ci1i84’,
-        projectUrl: ‘project9.html’,
-        tags: [‘OCULUS GO’, ‘VR’, ‘Trailer’, ‘Concept’]
+            'Speculative short imagining freelance work inside the metaverse—tasks, collaboration, and the humor of early remote-work futures.',
+        videoUrl: 'https://www.youtube.com/embed/cwTM4ci1i84',
+        projectUrl: 'project9.html',
+        tags: ['OCULUS GO', 'VR', 'Trailer', 'Concept']
     },
     {
         index: 1,
-        year: ‘2021’,
-        number: ‘02’,
-        platform: ‘QUEST 1’,
-        title: ‘Synesthesia VR’,
+        year: '2021',
+        number: '02',
+        platform: 'QUEST 1',
+        title: 'Synesthesia VR',
         description:
-            ‘A VR experience embodying a synesthete\u2019s perception of sound as color, grounded in Kandinsky and Bauhaus. Built in Unity with a painterly, interactive audiovisual language.’,
-        videoUrl: ‘https://www.youtube.com/embed/OqJXfS4G-cE’,
-        projectUrl: ‘project1.html’,
-        tags: [‘QUEST 1’, ‘Unity’, ‘VR’, ‘UX Design’]
+            'A VR experience embodying a synesthete\u2019s perception of sound as color, grounded in Kandinsky and Bauhaus. Built in Unity with a painterly, interactive audiovisual language.',
+        videoUrl: 'https://www.youtube.com/embed/OqJXfS4G-cE',
+        projectUrl: 'project1.html',
+        tags: ['QUEST 1', 'Unity', 'VR', 'UX Design']
     },
     {
         index: 2,
-        year: ‘2023’,
-        number: ‘03’,
-        platform: ‘QUEST 1’,
-        title: “4’33\u2019\u2019 \u2014 Soundscapes in VR”,
+        year: '2023',
+        number: '03',
+        platform: 'QUEST 1',
+        title: "4'33\u2019\u2019 \u2014 Soundscapes in VR",
         description:
-            ‘A Cage-inspired VR study of everyday soundscapes\u2014from home to city\u2014treating silence and ambience as compositional material.’,
-        videoUrl: ‘https://www.youtube.com/embed/Zp0g3Y7vn_8’,
-        projectUrl: ‘project8.html’,
-        tags: [‘QUEST 1’, ‘VR’, ‘Audio’, ‘Installation’]
+            'A Cage-inspired VR study of everyday soundscapes\u2014from home to city\u2014treating silence and ambience as compositional material.',
+        videoUrl: 'https://www.youtube.com/embed/Zp0g3Y7vn_8',
+        projectUrl: 'project8.html',
+        tags: ['QUEST 1', 'VR', 'Audio', 'Installation']
     },
     {
         index: 3,
-        year: ‘2024’,
-        number: ‘04’,
-        platform: ‘QUEST 2’,
-        title: ‘Invisible Labour MR’,
+        year: '2024',
+        number: '04',
+        platform: 'QUEST 2',
+        title: 'Invisible Labour MR',
         description:
-            ‘Mixed reality piece surfacing unseen emotional and physical labor. Uses presence and juxtaposition to advocate for recognition and care.’,
-        videoUrl: ‘https://www.youtube.com/embed/-3eBUV7rLAA’,
-        projectUrl: ‘project7.html’,
-        tags: [‘QUEST 2’, ‘MR’, ‘Art’, ‘Social’]
+            'Mixed reality piece surfacing unseen emotional and physical labor. Uses presence and juxtaposition to advocate for recognition and care.',
+        videoUrl: 'https://www.youtube.com/embed/-3eBUV7rLAA',
+        projectUrl: 'project7.html',
+        tags: ['QUEST 2', 'MR', 'Art', 'Social']
     },
     {
         index: 4,
-        year: ‘2023’,
-        number: ‘05’,
-        platform: ‘QUEST 2’,
-        title: ‘Blown Away VR’,
+        year: '2023',
+        number: '05',
+        platform: 'QUEST 2',
+        title: 'Blown Away VR',
         description:
-            ‘Experimental locomotion using breath control to move through surreal spaces. A playful study in embodied input and comfort in VR.’,
-        videoUrl: ‘https://www.youtube.com/embed/YkhsBu1dw0Y’,
-        projectUrl: ‘project4.html’,
-        tags: [‘QUEST 2’, ‘VR’, ‘Gameplay’, ‘Experiment’]
+            'Experimental locomotion using breath control to move through surreal spaces. A playful study in embodied input and comfort in VR.',
+        videoUrl: 'https://www.youtube.com/embed/YkhsBu1dw0Y',
+        projectUrl: 'project4.html',
+        tags: ['QUEST 2', 'VR', 'Gameplay', 'Experiment']
     },
     {
         index: 5,
-        year: ‘2023’,
-        number: ‘06’,
-        platform: ‘QUEST 2’,
-        title: ‘Scholarly VR’,
+        year: '2023',
+        number: '06',
+        platform: 'QUEST 2',
+        title: 'Scholarly VR',
         description:
-            ‘Turns dense research into explorable 3D spaces so students and faculty can inhabit ideas instead of only reading them.’,
-        videoUrl: ‘https://www.youtube.com/embed/hrvmM2Cxiho’,
-        projectUrl: ‘project10.html’,
-        tags: [‘QUEST 2’, ‘VR’, ‘EdTech’, ‘Research’]
+            'Turns dense research into explorable 3D spaces so students and faculty can inhabit ideas instead of only reading them.',
+        videoUrl: 'https://www.youtube.com/embed/hrvmM2Cxiho',
+        projectUrl: 'project10.html',
+        tags: ['QUEST 2', 'VR', 'EdTech', 'Research']
     },
     {
         index: 6,
-        year: ‘2025’,
-        number: ‘07’,
-        platform: ‘QUEST PRO’,
-        title: ‘Molecules WebXR’,
+        year: '2025',
+        number: '07',
+        platform: 'QUEST PRO',
+        title: 'Molecules WebXR',
         description:
-            ‘WebXR molecular visualization that makes chemistry tangible in the headset. Designed for clarity, scale, and classroom-ready interaction in the browser.’,
-        videoUrl: ‘https://www.youtube.com/embed/Q-V5EQ-FBMc’,
-        projectUrl: ‘project3.html’,
-        tags: [‘QUEST PRO’, ‘WebXR’, ‘Education’, ‘Three.js’]
+            'WebXR molecular visualization that makes chemistry tangible in the headset. Designed for clarity, scale, and classroom-ready interaction in the browser.',
+        videoUrl: 'https://www.youtube.com/embed/Q-V5EQ-FBMc',
+        projectUrl: 'project3.html',
+        tags: ['QUEST PRO', 'WebXR', 'Education', 'Three.js']
     },
     {
         index: 7,
-        year: ‘2024’,
-        number: ‘08’,
-        platform: ‘QUEST 3’,
-        title: ‘Classical Poem in MR / VR’,
+        year: '2024',
+        number: '08',
+        platform: 'QUEST 3',
+        title: 'Classical Poem in MR / VR',
         description:
-            ‘Wordsworth\u2019s \u201cI Wandered Lonely as a Cloud\u201d reimagined as a spatial narrative with scrolling poetry and AI-assisted skyboxes. Literature as an explorable environment.’,
-        videoUrl: ‘https://www.youtube.com/embed/Nb5_dX4yZZA’,
-        projectUrl: ‘project6.html’,
-        tags: [‘QUEST 3’, ‘MR’, ‘VR’, ‘Story’]
+            'Wordsworth\u2019s \u201cI Wandered Lonely as a Cloud\u201d reimagined as a spatial narrative with scrolling poetry and AI-assisted skyboxes. Literature as an explorable environment.',
+        videoUrl: 'https://www.youtube.com/embed/Nb5_dX4yZZA',
+        projectUrl: 'project6.html',
+        tags: ['QUEST 3', 'MR', 'VR', 'Story']
     },
     {
         index: 8,
-        year: ‘2024’,
-        number: ‘09’,
-        platform: ‘QUEST 3’,
-        title: ‘mr.js \u2014 WebXR library’,
+        year: '2024',
+        number: '09',
+        platform: 'QUEST 3',
+        title: 'mr.js \u2014 WebXR library',
         description:
-            ‘Open-source WebXR layer for building mixed reality on the web with familiar three.js patterns. Focused on designer-friendly components and rapid spatial prototyping.’,
-        videoUrl: ‘./images/volumetrics/fish_on_page.mp4’,
-        projectUrl: ‘project5.html’,
-        tags: [‘QUEST 3’, ‘WebXR’, ‘Open Source’, ‘JavaScript’]
+            'Open-source WebXR layer for building mixed reality on the web with familiar three.js patterns. Focused on designer-friendly components and rapid spatial prototyping.',
+        videoUrl: './images/volumetrics/fish_on_page.mp4',
+        projectUrl: 'project5.html',
+        tags: ['QUEST 3', 'WebXR', 'Open Source', 'JavaScript']
     },
     {
         index: 9,
-        year: ‘2024’,
-        number: ‘10’,
-        platform: ‘3D’,
-        title: ‘SCG Archival 3D Website’,
+        year: '2024',
+        number: '10',
+        platform: '3D',
+        title: 'SCG Archival 3D Website',
         description:
-            ‘WebGL archive of Structural Color Gallery: a navigable 3D scan of the exhibition with twenty artworks. Performance-tuned delivery and usability sessions with 20+ participants.’,
-        videoUrl: ‘./images/scg/scg_scan.mp4’,
-        projectUrl: ‘project2.html’,
-        tags: [‘3D’, ‘Three.js’, ‘WebGL’, ‘UX Research’]
+            'WebGL archive of Structural Color Gallery: a navigable 3D scan of the exhibition with twenty artworks. Performance-tuned delivery and usability sessions with 20+ participants.',
+        videoUrl: './images/scg/scg_scan.mp4',
+        projectUrl: 'project2.html',
+        tags: ['3D', 'Three.js', 'WebGL', 'UX Research']
     },
     {
         index: 10,
-        year: ‘2025’,
-        number: ‘11’,
-        platform: ‘WEBXR’,
-        title: ‘Memory Game WebXR’,
+        year: '2025',
+        number: '11',
+        platform: 'WEBXR',
+        title: 'Memory Game WebXR',
         description:
-            ‘Hand-tracked memory cards for caregiving settings: approachable mechanics, clear feedback, and sessions designed for repeated play.’,
-        videoUrl: ‘https://www.youtube.com/embed/F2fcI6bCOhs’,
-        projectUrl: ‘project12.html’,
-        tags: [‘WEBXR’, ‘WebXR’, ‘Hand Tracking’, ‘Health’]
+            'Hand-tracked memory cards for caregiving settings: approachable mechanics, clear feedback, and sessions designed for repeated play.',
+        videoUrl: 'https://www.youtube.com/embed/F2fcI6bCOhs',
+        projectUrl: 'project12.html',
+        tags: ['WEBXR', 'WebXR', 'Hand Tracking', 'Health']
     },
     {
         index: 11,
-        year: ‘2024’,
-        number: ‘12’,
-        platform: ‘INSTALLATION’,
-        title: ‘Piano Bar \u2014 Cybernetics installation’,
+        year: '2024',
+        number: '12',
+        platform: 'INSTALLATION',
+        title: 'Piano Bar \u2014 Cybernetics installation',
         description:
-            ‘Wall-scale projection, live piano, and an AI opponent in a color-matching duel\u2014half game, half cybernetic performance.’,
-        videoUrl: ‘https://www.youtube.com/embed/bEsWqgApTyw’,
-        projectUrl: ‘project11.html’,
-        tags: [‘INSTALLATION’, ‘AI’, ‘Projection’]
+            'Wall-scale projection, live piano, and an AI opponent in a color-matching duel\u2014half game, half cybernetic performance.',
+        videoUrl: 'https://www.youtube.com/embed/bEsWqgApTyw',
+        projectUrl: 'project11.html',
+        tags: ['INSTALLATION', 'AI', 'Projection']
     }
 ];
 
