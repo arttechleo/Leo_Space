@@ -160,7 +160,8 @@ nav.nav-pill a.active {
     top: 60px;
     left: 0;
     width: 100vw;
-    height: calc(85vh - 60px);
+    height: calc(106vh - 60px);
+    max-height: 95vh;
     z-index: 0;
     pointer-events: none;
     background: transparent;
@@ -275,7 +276,7 @@ nav.nav-pill a.active {
 /* ── SCROLL CONTENT ── */
 #scroll-content {
     position: relative;
-    margin-top: 60vh;
+    margin-top: calc(95vh - 60px);
     z-index: 10;
     background: var(--bg);
 }
@@ -1607,7 +1608,7 @@ footer {
 }
 
 img:hover {
-    transform: scale(1.1);
+    transform: none;
     border: 3px;
     border-radius: 10px;
 }

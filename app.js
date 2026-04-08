@@ -817,68 +817,8 @@ class MultiVideoScene {
 const PROJECT_DISPLAY = [
     {
         index: 0,
-        year: '2024',
+        year: '2025',
         number: '01',
-        platform: 'INSTALLATION',
-        title: 'Piano Bar — Cybernetics installation',
-        description:
-            'Wall-scale projection, live piano, and an AI opponent in a color-matching duel—half game, half cybernetic performance.',
-        videoUrl: 'https://www.youtube.com/embed/bEsWqgApTyw',
-        projectUrl: 'project11.html',
-        tags: ['INSTALLATION', 'AI', 'Projection']
-    },
-    {
-        index: 1,
-        year: '2025',
-        number: '02',
-        platform: 'WEBXR',
-        title: 'Memory Game WebXR',
-        description:
-            'Hand-tracked memory cards for caregiving settings: approachable mechanics, clear feedback, and sessions designed for repeated play.',
-        videoUrl: 'https://www.youtube.com/embed/F2fcI6bCOhs',
-        projectUrl: 'project12.html',
-        tags: ['WEBXR', 'WebXR', 'Hand Tracking', 'Health']
-    },
-    {
-        index: 2,
-        year: '2024',
-        number: '03',
-        platform: '3D',
-        title: 'SCG Archival 3D Website',
-        description:
-            'WebGL archive of Structural Color Gallery: a navigable 3D scan of the exhibition with twenty artworks. Performance-tuned delivery and usability sessions with 20+ participants.',
-        videoUrl: './images/scg/scg_scan.mp4',
-        projectUrl: 'project2.html',
-        tags: ['3D', 'Three.js', 'WebGL', 'UX Research']
-    },
-    {
-        index: 3,
-        year: '2024',
-        number: '04',
-        platform: 'QUEST 3',
-        title: 'mr.js — WebXR library',
-        description:
-            'Open-source WebXR layer for building mixed reality on the web with familiar three.js patterns. Focused on designer-friendly components and rapid spatial prototyping.',
-        videoUrl: './images/volumetrics/fish_on_page.mp4',
-        projectUrl: 'project5.html',
-        tags: ['QUEST 3', 'WebXR', 'Open Source', 'JavaScript']
-    },
-    {
-        index: 4,
-        year: '2024',
-        number: '05',
-        platform: 'QUEST 3',
-        title: 'Classical Poem in MR / VR',
-        description:
-            'Wordsworth’s “I Wandered Lonely as a Cloud” reimagined as a spatial narrative with scrolling poetry and AI-assisted skyboxes. Literature as an explorable environment.',
-        videoUrl: 'https://www.youtube.com/embed/Nb5_dX4yZZA',
-        projectUrl: 'project6.html',
-        tags: ['QUEST 3', 'MR', 'VR', 'Story']
-    },
-    {
-        index: 5,
-        year: '2025',
-        number: '06',
         platform: 'QUEST PRO',
         title: 'Molecules WebXR',
         description:
@@ -888,33 +828,81 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST PRO', 'WebXR', 'Education', 'Three.js']
     },
     {
-        index: 6,
-        year: '2023',
-        number: '07',
-        platform: 'QUEST 2',
-        title: 'Scholarly VR',
+        index: 1,
+        year: '2024',
+        number: '02',
+        platform: 'QUEST 3',
+        title: 'mr.js — WebXR library',
         description:
-            'Turns dense research into explorable 3D spaces so students and faculty can inhabit ideas instead of only reading them.',
-        videoUrl: 'https://www.youtube.com/embed/hrvmM2Cxiho',
-        projectUrl: 'project10.html',
-        tags: ['QUEST 2', 'VR', 'EdTech', 'Research']
+            'Open-source WebXR layer for building mixed reality on the web with familiar three.js patterns. Focused on designer-friendly components and rapid spatial prototyping.',
+        videoUrl: './images/volumetrics/fish_on_page.mp4',
+        projectUrl: 'project5.html',
+        tags: ['QUEST 3', 'WebXR', 'Open Source', 'JavaScript']
+    },
+    {
+        index: 2,
+        year: '2021',
+        number: '03',
+        platform: 'QUEST 1',
+        title: 'Synesthesia VR',
+        description:
+            "A VR experience embodying a synesthete's perception of sound as color, grounded in Kandinsky and Bauhaus. Built in Unity with a painterly, interactive audiovisual language.",
+        videoUrl: 'https://www.youtube.com/embed/OqJXfS4G-cE',
+        projectUrl: 'project1.html',
+        tags: ['QUEST 1', 'Unity', 'VR', 'UX Design']
+    },
+    {
+        index: 3,
+        year: '2024',
+        number: '04',
+        platform: 'QUEST 3',
+        title: 'Classical Poem in MR / VR',
+        description:
+            "Wordsworth's \"I Wandered Lonely as a Cloud\" reimagined as a spatial narrative with scrolling poetry and AI-assisted skyboxes. Literature as an explorable environment.",
+        videoUrl: 'https://www.youtube.com/embed/Nb5_dX4yZZA',
+        projectUrl: 'project6.html',
+        tags: ['QUEST 3', 'MR', 'VR', 'Story']
+    },
+    {
+        index: 4,
+        year: '2020',
+        number: '05',
+        platform: 'INSTALLATION',
+        title: 'Piano Bar — Cybernetics installation',
+        description:
+            'Wall-scale projection, live piano, and an AI opponent in a color-matching duel—half game, half cybernetic performance.',
+        videoUrl: 'https://www.youtube.com/embed/bEsWqgApTyw',
+        projectUrl: 'project11.html',
+        tags: ['INSTALLATION', 'AI', 'Projection']
+    },
+    {
+        index: 5,
+        year: '2025',
+        number: '06',
+        platform: 'WEBXR',
+        title: 'Memory Game WebXR',
+        description:
+            'Hand-tracked memory cards for caregiving settings: approachable mechanics, clear feedback, and sessions designed for repeated play.',
+        videoUrl: 'https://www.youtube.com/embed/F2fcI6bCOhs',
+        projectUrl: 'project12.html',
+        tags: ['WEBXR', 'WebXR', 'Hand Tracking', 'Health']
+    },
+    {
+        index: 6,
+        year: '2024',
+        number: '07',
+        platform: '3D',
+        title: 'SCG Archival 3D Website',
+        description:
+            'WebGL archive of Structural Color Gallery: a navigable 3D scan of the exhibition with twenty artworks. Performance-tuned delivery and usability sessions with 20+ participants.',
+        videoUrl: './images/scg/scg_scan.mp4',
+        projectUrl: 'project2.html',
+        tags: ['3D', 'Three.js', 'WebGL', 'UX Research']
     },
     {
         index: 7,
-        year: '2023',
-        number: '08',
-        platform: 'QUEST 2',
-        title: 'Blown Away VR',
-        description:
-            'Experimental locomotion using breath control to move through surreal spaces. A playful study in embodied input and comfort in VR.',
-        videoUrl: 'https://www.youtube.com/embed/YkhsBu1dw0Y',
-        projectUrl: 'project4.html',
-        tags: ['QUEST 2', 'VR', 'Gameplay', 'Experiment']
-    },
-    {
-        index: 8,
         year: '2024',
-        number: '09',
+        number: '08',
         platform: 'QUEST 2',
         title: 'Invisible Labour MR',
         description:
@@ -924,28 +912,40 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 2', 'MR', 'Art', 'Social']
     },
     {
+        index: 8,
+        year: '2023',
+        number: '09',
+        platform: 'QUEST 2',
+        title: 'Scholarly VR',
+        description:
+            'Turns dense research into explorable 3D spaces so students and faculty can inhabit ideas instead of only reading them.',
+        videoUrl: 'https://www.youtube.com/embed/hrvmM2Cxiho',
+        projectUrl: 'project10.html',
+        tags: ['QUEST 2', 'VR', 'EdTech', 'Research']
+    },
+    {
         index: 9,
         year: '2023',
         number: '10',
+        platform: 'QUEST 2',
+        title: 'Blown Away VR',
+        description:
+            'Experimental locomotion using breath control to move through surreal spaces. A playful study in embodied input and comfort in VR.',
+        videoUrl: 'https://www.youtube.com/embed/YkhsBu1dw0Y',
+        projectUrl: 'project4.html',
+        tags: ['QUEST 2', 'VR', 'Gameplay', 'Experiment']
+    },
+    {
+        index: 10,
+        year: '2023',
+        number: '11',
         platform: 'QUEST 1',
-        title: "4'33’’ — Soundscapes in VR",
+        title: "4'33'' — Soundscapes in VR",
         description:
             'A Cage-inspired VR study of everyday soundscapes—from home to city—treating silence and ambience as compositional material.',
         videoUrl: 'https://www.youtube.com/embed/Zp0g3Y7vn_8',
         projectUrl: 'project8.html',
         tags: ['QUEST 1', 'VR', 'Audio', 'Installation']
-    },
-    {
-        index: 10,
-        year: '2021',
-        number: '11',
-        platform: 'QUEST 1',
-        title: 'Synesthesia VR',
-        description:
-            'A VR experience embodying a synesthete’s perception of sound as color, grounded in Kandinsky and Bauhaus. Built in Unity with a painterly, interactive audiovisual language.',
-        videoUrl: 'https://www.youtube.com/embed/OqJXfS4G-cE',
-        projectUrl: 'project1.html',
-        tags: ['QUEST 1', 'Unity', 'VR', 'UX Design']
     },
     {
         index: 11,
@@ -1014,7 +1014,7 @@ function buildProjectZooms() {
     });
 }
 
-const CANVAS_HEIGHT_VH_DESKTOP = 85;
+const CANVAS_HEIGHT_VH_DESKTOP = 106;
 const CANVAS_HEIGHT_VH_MOBILE = 52;
 
 let currentZoomIndex = -1;
