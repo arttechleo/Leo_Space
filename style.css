@@ -142,11 +142,15 @@ nav.nav-pill a {
     text-decoration: none;
     padding: 4px 14px;
     border-radius: var(--radius-pill);
-    transition: background 0.15s ease;
+    transition: background 150ms ease-out, transform 100ms ease-out;
 }
 
 nav.nav-pill a:hover {
     background: rgba(0, 0, 0, 0.05);
+}
+
+nav.nav-pill a:active {
+    transform: scale(0.97);
 }
 
 nav.nav-pill a.active {
@@ -585,6 +589,14 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
     border: 0.5px solid var(--border-strong);
     background: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(8px);
+    transition: border-color 150ms ease-out, transform 150ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .project-short-skill:hover {
+        transform: scale(1.02);
+        border-color: var(--text-secondary);
+    }
 }
 
 .project-short-skill--platform {
@@ -602,15 +614,19 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
     text-decoration: none;
     letter-spacing: -0.01em;
     width: fit-content;
-    transition: gap 0.2s ease;
+    transition: gap 150ms ease-out, color 150ms ease-out;
 }
 
 .project-short-cta:hover {
     gap: 14px;
 }
 
+.project-short-cta:active {
+    transform: scale(0.97);
+}
+
 .cta-arrow {
-    transition: transform 0.2s ease;
+    transition: transform 150ms ease-out;
 }
 
 .project-short-cta:hover .cta-arrow {
@@ -672,6 +688,7 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
     border-radius: 50%;
     background: currentColor;
     color: var(--text-primary);
+    transition: transform 150ms ease-out, opacity 150ms ease-out;
     opacity: 0.5;
     transition: opacity 0.25s ease;
     position: relative;
@@ -700,6 +717,7 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
 }
 
 .scroll-progress-dot:hover {
+    transform: scale(1.4);
     opacity: 0.8;
 }
 
@@ -829,6 +847,16 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
         font-size: 13px;
         padding: 4px 10px;
     }
+}
+
+/* ── MICRO-INTERACTIONS: page fade-in ── */
+@keyframes page-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+main {
+    animation: page-fade-in 400ms ease forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
