@@ -146,12 +146,12 @@
   scene.add(splat);
   // Rotation range: looping swing around a center angle
   const DEG = Math.PI / 180;
-  const ROT_CENTER = 60 * DEG; // inverted from 240
-  const ROT_SWING = 45 * DEG; // was 20, now +/-45deg
-  const ROT_MIN = ROT_CENTER - ROT_SWING; // 15deg
-  const ROT_MAX = ROT_CENTER + ROT_SWING; // 105deg
+  const ROT_CENTER = 180 * DEG; // dead center facing camera
+  const ROT_SWING = 25 * DEG; // tight +/-25deg - stays within visible splat content
+  const ROT_MIN = ROT_CENTER - ROT_SWING; // 155deg
+  const ROT_MAX = ROT_CENTER + ROT_SWING; // 205deg
 
-  let baseRotY = ROT_MIN;
+  let baseRotY = ROT_CENTER; // start centered, not at edge
   let rotDir = 1; // 1 = going right, -1 = going left
   let autoRotating = true;
   // Debug: log splat position, rotation, camera on load
@@ -205,7 +205,7 @@
 
   renderer.setAnimationLoop(() => {
     if (!isDragging && autoRotating) {
-      baseRotY += 0.004 * rotDir;
+      baseRotY += 0.0015 * rotDir;
       if (baseRotY >= ROT_MAX) { baseRotY = ROT_MAX; rotDir = -1; }
       if (baseRotY <= ROT_MIN) { baseRotY = ROT_MIN; rotDir = 1; }
     }

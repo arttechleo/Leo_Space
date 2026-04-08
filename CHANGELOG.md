@@ -10,6 +10,7 @@
 - About: use looping +/-20deg auto-swing around 135deg and disable auto-rotation after first scroll or drag interaction.
 - About: shift looping splat rotation center to 240deg while keeping a +/-20deg swing.
 - About: invert looping rotation center to 60deg and widen swing to +/-45deg.
+- About: center looping rotation at 180deg with tighter +/-25deg swing and slower cinematic auto-rotation speed.
 
 ## 2026-04-03
 
