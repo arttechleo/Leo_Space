@@ -9,6 +9,7 @@
 - About: shift rotation window +45deg and update scroll camera fly-in with capped 600px progression, right drift, and dynamic look-at.
 - About: use looping +/-20deg auto-swing around 135deg and disable auto-rotation after first scroll or drag interaction.
 - About: shift looping splat rotation center to 240deg while keeping a +/-20deg swing.
+- About: invert looping rotation center to 60deg and widen swing to +/-45deg.
 
 ## 2026-04-03
 
