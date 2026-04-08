@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node --check /Users/student/Documents/LeoPortfolio/app.js)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(grep -n '2025\\\\|2026' /Users/student/Documents/LeoPortfolio/index.html /Users/student/Documents/LeoPortfolio/about.html /Users/student/Documents/LeoPortfolio/research.html /Users/student/Documents/LeoPortfolio/contact.html /Users/student/Documents/LeoPortfolio/projects.html /Users/student/Documents/LeoPortfolio/project*.html)"
+    ]
+  }
+}

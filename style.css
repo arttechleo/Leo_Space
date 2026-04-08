@@ -1390,11 +1390,9 @@ img {
 
 /* Footer Section — global; applies to every page */
 footer {
-    background: rgba(255, 255, 255, 0.82);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border-top: 0.5px solid rgba(0, 0, 0, 0.10);
-    padding: 28px 0 36px;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 40px 0 32px;
     text-align: center;
     position: relative;
     z-index: 10;
@@ -1444,11 +1442,11 @@ footer {
 
 .footer-copyright p {
     font-family: -apple-system, sans-serif;
-    font-size: 0.7rem;
-    color: var(--text-secondary);
+    font-size: 12px;
+    color: var(--text-tertiary);
     line-height: 1.9;
     letter-spacing: -0.01em;
-    margin: 14px 0 0;
+    margin: 0;
     padding: 0;
 }
 
@@ -2189,7 +2187,12 @@ iframe {
 
     .contact-links {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+    }
+
+    .contact-link-pills {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .resume-pubs {
@@ -2297,7 +2300,7 @@ body:not(.index-page) .section-divider {
 .contact-links {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
     margin-top: 2em;
 }
 
@@ -2313,16 +2316,28 @@ body:not(.index-page) .section-divider {
     text-decoration: underline;
 }
 
+.contact-link-pills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
 .contact-link {
-    font-size: 0.88rem;
+    font-size: 13px;
     font-weight: 400;
+    letter-spacing: 0.06em;
     color: var(--text-secondary);
     text-decoration: none;
-    letter-spacing: -0.01em;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    transition: color 0.2s, border-color 0.2s;
 }
 
 .contact-link:hover {
-    color: var(--accent);
+    color: var(--text-primary);
+    border-color: var(--text-primary);
 }
 
 @media print {
