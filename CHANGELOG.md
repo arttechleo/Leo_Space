@@ -2,6 +2,7 @@
 
 ## 2026-04-08
 
+- Site: add black-and-white favicon (`faviconbw.png` at repo root, copied from `favicon/faviconbw.png`) and `<link rel="icon" type="image/png" href="/faviconbw.png" />` on all HTML pages plus project generator preview shell.
 - Core UX/UI (IT1): add `assets/resume-hero.png`, Emil design-eng agent skill under `.agents/skills/`, and symlink under `.claude/skills/`.
 - Resume (`contact.html`): add dark-mode overrides and a slide-in "View Interactive Resume" Figma prototype CTA near the hero heading.
 - Resume (`contact.html`): replace CTA with embedded first-slide Figma prototype hero frame on black background.

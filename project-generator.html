@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/faviconbw.png" />
   <title>Project generator</title>
   <link rel="stylesheet" href="style.css">
   <style>
@@ -413,6 +414,7 @@
       function buildPreviewSrcdoc(mainInner) {
         var baseHref = new URL('.', window.location.href).href.replace(/"/g, '&quot;');
         return '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">' +
+          '<link rel="icon" type="image/png" href="/faviconbw.png" />' +
           '<base href="' + baseHref + '">' +
           '<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="project-style.css"></head><body>' +
           mainInner +
