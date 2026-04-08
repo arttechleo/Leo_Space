@@ -12,6 +12,7 @@
 - Resume (`contact.html`): reduce Figma iframe zoom from 1.35 to 1.1 to restore more horizontal content while keeping full-bleed presentation.
 - Resume (`contact.html`): remove iframe transform scaling and run the embed at native scale with 90vh height while keeping `scale-down-width` in the Figma URL.
 - Resume (`contact.html`): switch hero iframe to direct Figma proto URL with `hide-ui=1` and `hotspot-hints=0`, using 100vw translate-centered breakout wrapper and matching 100vw iframe CSS.
+- Resume (`contact.html`): replace Figma iframe with static `resume-bento.png` hero image and add an interactive prototype CTA button for external Figma viewing.
 - About: adjust splat orientation, landscape canvas sizing, and scroll-driven camera push.
 - About: switch to full-width splat hero layout with bottom fade, corrected forward-facing rotation, and closer camera framing.
 - About: clamp horizontal splat rotation to a 240-degree range for both auto-rotation and drag input.
