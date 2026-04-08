@@ -817,128 +817,20 @@ class MultiVideoScene {
 const PROJECT_DISPLAY = [
     {
         index: 0,
-        year: '2018',
+        year: '2024',
         number: '01',
-        platform: 'OCULUS GO',
-        title: 'Futuristic Metaverse Trailer (2018)',
+        platform: 'INSTALLATION',
+        title: 'Piano Bar — Cybernetics installation',
         description:
-            'Speculative short imagining freelance work inside the metaverse—tasks, collaboration, and the humor of early remote-work futures.',
-        videoUrl: 'https://www.youtube.com/embed/cwTM4ci1i84',
-        projectUrl: 'project9.html',
-        tags: ['OCULUS GO', 'VR', 'Trailer', 'Concept']
+            'Wall-scale projection, live piano, and an AI opponent in a color-matching duel—half game, half cybernetic performance.',
+        videoUrl: 'https://www.youtube.com/embed/bEsWqgApTyw',
+        projectUrl: 'project11.html',
+        tags: ['INSTALLATION', 'AI', 'Projection']
     },
     {
         index: 1,
-        year: '2021',
+        year: '2025',
         number: '02',
-        platform: 'QUEST 1',
-        title: 'Synesthesia VR',
-        description:
-            'A VR experience embodying a synesthete\u2019s perception of sound as color, grounded in Kandinsky and Bauhaus. Built in Unity with a painterly, interactive audiovisual language.',
-        videoUrl: 'https://www.youtube.com/embed/OqJXfS4G-cE',
-        projectUrl: 'project1.html',
-        tags: ['QUEST 1', 'Unity', 'VR', 'UX Design']
-    },
-    {
-        index: 2,
-        year: '2023',
-        number: '03',
-        platform: 'QUEST 1',
-        title: "4'33\u2019\u2019 \u2014 Soundscapes in VR",
-        description:
-            'A Cage-inspired VR study of everyday soundscapes\u2014from home to city\u2014treating silence and ambience as compositional material.',
-        videoUrl: 'https://www.youtube.com/embed/Zp0g3Y7vn_8',
-        projectUrl: 'project8.html',
-        tags: ['QUEST 1', 'VR', 'Audio', 'Installation']
-    },
-    {
-        index: 3,
-        year: '2024',
-        number: '04',
-        platform: 'QUEST 2',
-        title: 'Invisible Labour MR',
-        description:
-            'Mixed reality piece surfacing unseen emotional and physical labor. Uses presence and juxtaposition to advocate for recognition and care.',
-        videoUrl: 'https://www.youtube.com/embed/-3eBUV7rLAA',
-        projectUrl: 'project7.html',
-        tags: ['QUEST 2', 'MR', 'Art', 'Social']
-    },
-    {
-        index: 4,
-        year: '2023',
-        number: '05',
-        platform: 'QUEST 2',
-        title: 'Blown Away VR',
-        description:
-            'Experimental locomotion using breath control to move through surreal spaces. A playful study in embodied input and comfort in VR.',
-        videoUrl: 'https://www.youtube.com/embed/YkhsBu1dw0Y',
-        projectUrl: 'project4.html',
-        tags: ['QUEST 2', 'VR', 'Gameplay', 'Experiment']
-    },
-    {
-        index: 5,
-        year: '2023',
-        number: '06',
-        platform: 'QUEST 2',
-        title: 'Scholarly VR',
-        description:
-            'Turns dense research into explorable 3D spaces so students and faculty can inhabit ideas instead of only reading them.',
-        videoUrl: 'https://www.youtube.com/embed/hrvmM2Cxiho',
-        projectUrl: 'project10.html',
-        tags: ['QUEST 2', 'VR', 'EdTech', 'Research']
-    },
-    {
-        index: 6,
-        year: '2025',
-        number: '07',
-        platform: 'QUEST PRO',
-        title: 'Molecules WebXR',
-        description:
-            'WebXR molecular visualization that makes chemistry tangible in the headset. Designed for clarity, scale, and classroom-ready interaction in the browser.',
-        videoUrl: 'https://www.youtube.com/embed/Q-V5EQ-FBMc',
-        projectUrl: 'project3.html',
-        tags: ['QUEST PRO', 'WebXR', 'Education', 'Three.js']
-    },
-    {
-        index: 7,
-        year: '2024',
-        number: '08',
-        platform: 'QUEST 3',
-        title: 'Classical Poem in MR / VR',
-        description:
-            'Wordsworth\u2019s \u201cI Wandered Lonely as a Cloud\u201d reimagined as a spatial narrative with scrolling poetry and AI-assisted skyboxes. Literature as an explorable environment.',
-        videoUrl: 'https://www.youtube.com/embed/Nb5_dX4yZZA',
-        projectUrl: 'project6.html',
-        tags: ['QUEST 3', 'MR', 'VR', 'Story']
-    },
-    {
-        index: 8,
-        year: '2024',
-        number: '09',
-        platform: 'QUEST 3',
-        title: 'mr.js \u2014 WebXR library',
-        description:
-            'Open-source WebXR layer for building mixed reality on the web with familiar three.js patterns. Focused on designer-friendly components and rapid spatial prototyping.',
-        videoUrl: './images/volumetrics/fish_on_page.mp4',
-        projectUrl: 'project5.html',
-        tags: ['QUEST 3', 'WebXR', 'Open Source', 'JavaScript']
-    },
-    {
-        index: 9,
-        year: '2024',
-        number: '10',
-        platform: '3D',
-        title: 'SCG Archival 3D Website',
-        description:
-            'WebGL archive of Structural Color Gallery: a navigable 3D scan of the exhibition with twenty artworks. Performance-tuned delivery and usability sessions with 20+ participants.',
-        videoUrl: './images/scg/scg_scan.mp4',
-        projectUrl: 'project2.html',
-        tags: ['3D', 'Three.js', 'WebGL', 'UX Research']
-    },
-    {
-        index: 10,
-        year: '2025',
-        number: '11',
         platform: 'WEBXR',
         title: 'Memory Game WebXR',
         description:
@@ -948,16 +840,124 @@ const PROJECT_DISPLAY = [
         tags: ['WEBXR', 'WebXR', 'Hand Tracking', 'Health']
     },
     {
-        index: 11,
+        index: 2,
         year: '2024',
-        number: '12',
-        platform: 'INSTALLATION',
-        title: 'Piano Bar \u2014 Cybernetics installation',
+        number: '03',
+        platform: '3D',
+        title: 'SCG Archival 3D Website',
         description:
-            'Wall-scale projection, live piano, and an AI opponent in a color-matching duel\u2014half game, half cybernetic performance.',
-        videoUrl: 'https://www.youtube.com/embed/bEsWqgApTyw',
-        projectUrl: 'project11.html',
-        tags: ['INSTALLATION', 'AI', 'Projection']
+            'WebGL archive of Structural Color Gallery: a navigable 3D scan of the exhibition with twenty artworks. Performance-tuned delivery and usability sessions with 20+ participants.',
+        videoUrl: './images/scg/scg_scan.mp4',
+        projectUrl: 'project2.html',
+        tags: ['3D', 'Three.js', 'WebGL', 'UX Research']
+    },
+    {
+        index: 3,
+        year: '2024',
+        number: '04',
+        platform: 'QUEST 3',
+        title: 'mr.js — WebXR library',
+        description:
+            'Open-source WebXR layer for building mixed reality on the web with familiar three.js patterns. Focused on designer-friendly components and rapid spatial prototyping.',
+        videoUrl: './images/volumetrics/fish_on_page.mp4',
+        projectUrl: 'project5.html',
+        tags: ['QUEST 3', 'WebXR', 'Open Source', 'JavaScript']
+    },
+    {
+        index: 4,
+        year: '2024',
+        number: '05',
+        platform: 'QUEST 3',
+        title: 'Classical Poem in MR / VR',
+        description:
+            'Wordsworth’s “I Wandered Lonely as a Cloud” reimagined as a spatial narrative with scrolling poetry and AI-assisted skyboxes. Literature as an explorable environment.',
+        videoUrl: 'https://www.youtube.com/embed/Nb5_dX4yZZA',
+        projectUrl: 'project6.html',
+        tags: ['QUEST 3', 'MR', 'VR', 'Story']
+    },
+    {
+        index: 5,
+        year: '2025',
+        number: '06',
+        platform: 'QUEST PRO',
+        title: 'Molecules WebXR',
+        description:
+            'WebXR molecular visualization that makes chemistry tangible in the headset. Designed for clarity, scale, and classroom-ready interaction in the browser.',
+        videoUrl: 'https://www.youtube.com/embed/Q-V5EQ-FBMc',
+        projectUrl: 'project3.html',
+        tags: ['QUEST PRO', 'WebXR', 'Education', 'Three.js']
+    },
+    {
+        index: 6,
+        year: '2023',
+        number: '07',
+        platform: 'QUEST 2',
+        title: 'Scholarly VR',
+        description:
+            'Turns dense research into explorable 3D spaces so students and faculty can inhabit ideas instead of only reading them.',
+        videoUrl: 'https://www.youtube.com/embed/hrvmM2Cxiho',
+        projectUrl: 'project10.html',
+        tags: ['QUEST 2', 'VR', 'EdTech', 'Research']
+    },
+    {
+        index: 7,
+        year: '2023',
+        number: '08',
+        platform: 'QUEST 2',
+        title: 'Blown Away VR',
+        description:
+            'Experimental locomotion using breath control to move through surreal spaces. A playful study in embodied input and comfort in VR.',
+        videoUrl: 'https://www.youtube.com/embed/YkhsBu1dw0Y',
+        projectUrl: 'project4.html',
+        tags: ['QUEST 2', 'VR', 'Gameplay', 'Experiment']
+    },
+    {
+        index: 8,
+        year: '2024',
+        number: '09',
+        platform: 'QUEST 2',
+        title: 'Invisible Labour MR',
+        description:
+            'Mixed reality piece surfacing unseen emotional and physical labor. Uses presence and juxtaposition to advocate for recognition and care.',
+        videoUrl: 'https://www.youtube.com/embed/-3eBUV7rLAA',
+        projectUrl: 'project7.html',
+        tags: ['QUEST 2', 'MR', 'Art', 'Social']
+    },
+    {
+        index: 9,
+        year: '2023',
+        number: '10',
+        platform: 'QUEST 1',
+        title: "4'33’’ — Soundscapes in VR",
+        description:
+            'A Cage-inspired VR study of everyday soundscapes—from home to city—treating silence and ambience as compositional material.',
+        videoUrl: 'https://www.youtube.com/embed/Zp0g3Y7vn_8',
+        projectUrl: 'project8.html',
+        tags: ['QUEST 1', 'VR', 'Audio', 'Installation']
+    },
+    {
+        index: 10,
+        year: '2021',
+        number: '11',
+        platform: 'QUEST 1',
+        title: 'Synesthesia VR',
+        description:
+            'A VR experience embodying a synesthete’s perception of sound as color, grounded in Kandinsky and Bauhaus. Built in Unity with a painterly, interactive audiovisual language.',
+        videoUrl: 'https://www.youtube.com/embed/OqJXfS4G-cE',
+        projectUrl: 'project1.html',
+        tags: ['QUEST 1', 'Unity', 'VR', 'UX Design']
+    },
+    {
+        index: 11,
+        year: '2018',
+        number: '12',
+        platform: 'OCULUS GO',
+        title: 'Futuristic Metaverse Trailer (2018)',
+        description:
+            'Speculative short imagining freelance work inside the metaverse—tasks, collaboration, and the humor of early remote-work futures.',
+        videoUrl: 'https://www.youtube.com/embed/cwTM4ci1i84',
+        projectUrl: 'project9.html',
+        tags: ['OCULUS GO', 'VR', 'Trailer', 'Concept']
     }
 ];
 
