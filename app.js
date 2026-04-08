@@ -819,6 +819,18 @@ const PROJECT_DISPLAY = [
         index: 0,
         year: '2025',
         number: '01',
+        platform: 'VISION PRO',
+        title: 'Spatial Synesthesia',
+        description:
+            'A gaze-driven mixed reality experience where eye-dwell on Kandinsky painting regions solos instruments and shifts passthrough color. Perception as interface.',
+        videoUrl: '',
+        projectUrl: 'project-synesthesia.html',
+        tags: ['VISION PRO', 'visionOS', 'RealityKit', 'Eye Tracking']
+    },
+    {
+        index: 1,
+        year: '2025',
+        number: '02',
         platform: 'QUEST PRO',
         title: 'Molecules WebXR',
         description:
@@ -828,9 +840,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST PRO', 'WebXR', 'Education', 'Three.js']
     },
     {
-        index: 1,
+        index: 2,
         year: '2024',
-        number: '02',
+        number: '03',
         platform: 'QUEST 3',
         title: 'mr.js — WebXR library',
         description:
@@ -840,9 +852,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 3', 'WebXR', 'Open Source', 'JavaScript']
     },
     {
-        index: 2,
+        index: 3,
         year: '2021',
-        number: '03',
+        number: '04',
         platform: 'QUEST 1',
         title: 'Synesthesia VR',
         description:
@@ -852,21 +864,21 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 1', 'Unity', 'VR', 'UX Design']
     },
     {
-        index: 3,
+        index: 4,
         year: '2024',
-        number: '04',
+        number: '05',
         platform: 'QUEST 3',
         title: 'Classical Poem in MR / VR',
         description:
-            "Wordsworth's \"I Wandered Lonely as a Cloud\" reimagined as a spatial narrative with scrolling poetry and AI-assisted skyboxes. Literature as an explorable environment.",
+            "Wordsworth's 'I Wandered Lonely as a Cloud' reimagined as a spatial narrative with scrolling poetry and AI-assisted skyboxes. Literature as an explorable environment.",
         videoUrl: 'https://www.youtube.com/embed/Nb5_dX4yZZA',
         projectUrl: 'project6.html',
         tags: ['QUEST 3', 'MR', 'VR', 'Story']
     },
     {
-        index: 4,
+        index: 5,
         year: '2020',
-        number: '05',
+        number: '06',
         platform: 'INSTALLATION',
         title: 'Piano Bar — Cybernetics installation',
         description:
@@ -876,9 +888,9 @@ const PROJECT_DISPLAY = [
         tags: ['INSTALLATION', 'AI', 'Projection']
     },
     {
-        index: 5,
+        index: 6,
         year: '2025',
-        number: '06',
+        number: '07',
         platform: 'WEBXR',
         title: 'Memory Game WebXR',
         description:
@@ -888,9 +900,9 @@ const PROJECT_DISPLAY = [
         tags: ['WEBXR', 'WebXR', 'Hand Tracking', 'Health']
     },
     {
-        index: 6,
+        index: 7,
         year: '2024',
-        number: '07',
+        number: '08',
         platform: '3D',
         title: 'SCG Archival 3D Website',
         description:
@@ -900,9 +912,9 @@ const PROJECT_DISPLAY = [
         tags: ['3D', 'Three.js', 'WebGL', 'UX Research']
     },
     {
-        index: 7,
+        index: 8,
         year: '2024',
-        number: '08',
+        number: '09',
         platform: 'QUEST 2',
         title: 'Invisible Labour MR',
         description:
@@ -912,9 +924,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 2', 'MR', 'Art', 'Social']
     },
     {
-        index: 8,
+        index: 9,
         year: '2023',
-        number: '09',
+        number: '10',
         platform: 'QUEST 2',
         title: 'Scholarly VR',
         description:
@@ -924,9 +936,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 2', 'VR', 'EdTech', 'Research']
     },
     {
-        index: 9,
+        index: 10,
         year: '2023',
-        number: '10',
+        number: '11',
         platform: 'QUEST 2',
         title: 'Blown Away VR',
         description:
@@ -936,9 +948,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 2', 'VR', 'Gameplay', 'Experiment']
     },
     {
-        index: 10,
+        index: 11,
         year: '2023',
-        number: '11',
+        number: '12',
         platform: 'QUEST 1',
         title: "4'33'' — Soundscapes in VR",
         description:
@@ -948,9 +960,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 1', 'VR', 'Audio', 'Installation']
     },
     {
-        index: 11,
+        index: 12,
         year: '2018',
-        number: '12',
+        number: '13',
         platform: 'OCULUS GO',
         title: 'Futuristic Metaverse Trailer (2018)',
         description:
