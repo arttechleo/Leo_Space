@@ -25,46 +25,31 @@
     }
     footer, .footer { background: #000 !important; }
     .footer-copyright p, .footer-nav a { color: rgba(255,255,255,0.4) !important; }
-    .resume-proto-wrap {
+    .resume-hero-wrap {
       display: flex;
       justify-content: center;
-      padding: clamp(32px, 5vw, 64px) 24px 0;
+      padding: clamp(24px, 4vw, 48px) 24px 0;
     }
-    .resume-proto-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: clamp(14px, 2vw, 18px) clamp(28px, 4vw, 48px);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 100px;
-      color: #f5f5f7 !important;
-      text-decoration: none;
-      font-size: clamp(14px, 1.5vw, 17px);
-      letter-spacing: 0.04em;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(12px);
-      transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
-      opacity: 0;
-      transform: translateY(24px) scale(0.96);
-      animation: protoSlideIn 0.7s cubic-bezier(0.22,1,0.36,1) 0.3s forwards;
+    .resume-hero-frame {
+      width: min(1200px, 96vw);
+      aspect-ratio: 16 / 9;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #0b0b0d;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
     }
-    .resume-proto-link:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.4);
-      transform: scale(1.03);
-    }
-    .resume-proto-arrow {
-      font-size: 1.1em;
-      transition: transform 0.2s ease;
-    }
-    .resume-proto-link:hover .resume-proto-arrow {
-      transform: translateX(4px);
-    }
-    @keyframes protoSlideIn {
-      to { opacity: 1; transform: translateY(0) scale(1); }
+    .resume-hero-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
     }
     @media (max-width: 768px) {
-      .resume-proto-link { width: 90vw; justify-content: center; }
+      .resume-hero-frame {
+        width: 94vw;
+        border-radius: 12px;
+      }
     }
   </style>
 </head>
@@ -79,16 +64,15 @@
   <main>
     <span class="page-label">Resume · Available 2026</span>
     <h1>Let's build<br>spatial futures.</h1>
-    <div class="resume-proto-wrap">
-      <a
-        href="https://www.figma.com/proto/HZBhvC6hYVQTlEa9mTSLaF/Resume-Design_Documents?page-id=5053%3A2&node-id=6100-226&viewport=100%2C444%2C0.17&t=Qi85PdhcVTz4cJQz-1&scaling=contain&content-scaling=fixed&starting-point-node-id=6100%3A226"
-        target="_blank"
-        rel="noopener"
-        class="resume-proto-link"
-      >
-        <span class="resume-proto-label">View Interactive Resume</span>
-        <span class="resume-proto-arrow">→</span>
-      </a>
+    <div class="resume-hero-wrap">
+      <div class="resume-hero-frame">
+        <iframe
+          title="Resume prototype hero"
+          loading="lazy"
+          allowfullscreen
+          src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FHZBhvC6hYVQTlEa9mTSLaF%2FResume-Design_Documents%3Fpage-id%3D5053%253A2%26node-id%3D6100-226%26viewport%3D100%252C444%252C0.17%26t%3DQi85PdhcVTz4cJQz-1%26scaling%3Dcontain%26content-scaling%3Dfixed%26starting-point-node-id%3D6100%253A226"
+        ></iframe>
+      </div>
     </div>
 
     <div class="section-divider"></div>
