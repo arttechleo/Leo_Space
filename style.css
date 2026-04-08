@@ -276,7 +276,7 @@ nav.nav-pill a.active {
 /* ── SCROLL CONTENT ── */
 #scroll-content {
     position: relative;
-    margin-top: calc(95vh - 60px);
+    margin-top: calc(76vh - 60px);
     z-index: 10;
     background: var(--bg);
 }
