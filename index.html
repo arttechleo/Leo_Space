@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo Danenkov — Spatial Computing</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="project-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+</head>
+<body class="index-page">
+
+  <nav class="nav-pill">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="contact.html">Resume</a>
+  </nav>
+
+  <div id="canvas-container"></div>
+
+  <div class="spatial-left">
+    <p class="spatial-role">Spatial Computing</p>
+    <p class="spatial-body">
+      Vision Pro · WebXR · UE5 Lumen
+      Real-time volumetric rendering
+    </p>
+  </div>
+
+  <div class="spatial-right">
+    <p class="spatial-role">4D Gaussian Splatting</p>
+    <p class="spatial-body">
+      Volumetric actors for MR film
+      25% optimization · LED VP stages
+    </p>
+  </div>
+
+  <div id="scroll-content">
+    <div class="scroll-section" id="section-landing">
+      <h1 class="hero-title" data-hero-words="4">
+        <span class="hero-title-word">Hello,</span>
+        <span class="hero-title-word">I</span>
+        <span class="hero-title-word">am</span>
+        <span class="hero-title-word">Leo</span>
+      </h1>
+      <div class="scroll-hint">
+        <span class="scroll-hint-text">Scroll to explore work</span>
+        <span class="scroll-arrow">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6,9 12,15 18,9"></polyline>
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <div class="scroll-section project-section" data-project-index="0" id="section-project-0">
+      <div class="project-section-inner"></div>
+    </div>
+    <div class="scroll-section project-section" data-project-index="1" id="section-project-1">
+      <div class="project-section-inner"></div>
+    </div>
+    <div class="scroll-section project-section" data-project-index="2" id="section-project-2">
+      <div class="project-section-inner"></div>
+    </div>
+    <div class="scroll-section project-section" data-project-index="3" id="section-project-3">
+      <div class="project-section-inner"></div>
+    </div>
+    <div class="scroll-section project-section" data-project-index="4" id="section-project-4">
+      <div class="project-section-inner"></div>
+    </div>
+    <div class="scroll-section project-section" data-project-index="5" id="section-project-5">
+      <div class="project-section-inner"></div>
+    </div>
+    <div class="scroll-section project-section" data-project-index="6" id="section-project-6">
+      <div class="project-section-inner"></div>
+    </div>
+    <div class="scroll-section project-section" data-project-index="7" id="section-project-7">
+      <div class="project-section-inner"></div>
+    </div>
+    <div class="scroll-section project-section" data-project-index="8" id="section-project-8">
+      <div class="project-section-inner"></div>
+    </div>
+    <div class="scroll-section project-section" data-project-index="9" id="section-project-9">
+      <div class="project-section-inner"></div>
+    </div>
+    <div class="scroll-section project-section" data-project-index="10" id="section-project-10">
+      <div class="project-section-inner"></div>
+    </div>
+    <div class="scroll-section project-section" data-project-index="11" id="section-project-11">
+      <div class="project-section-inner"></div>
+    </div>
+  </div>
+
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <div class="zoom-flash" id="zoom-flash" aria-hidden="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

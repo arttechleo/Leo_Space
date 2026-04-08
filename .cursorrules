@@ -1,0 +1,30 @@
+# Leo Portfolio — Cursor Rules
+
+## Typography — NEVER override these
+- html { font-size: clamp(14px, 1.4vw, 20px) } is the only px font-size allowed
+- All other font-sizes must be in rem
+- Do not add font-size overrides inside @media blocks
+
+## Nav
+- One canonical nav.nav-pill rule lives in style.css only
+- project-style.css must contain zero nav or .nav-pill rules
+- Every page has <nav class="nav-pill"> with: Home | About | Research | Resume
+
+## CSS load order
+- <link> to style.css must always come before project-style.css on every page
+
+## New project pages
+- Copy the project template shell (nav + main + footer structure)
+- No active class on any nav link
+- Footer must match index.html exactly
+
+## Three.js
+- New computers added only via addComputerToScene(videoUrl)
+- Always call fitCameraToScene() then fitBackgroundToCamera() after adding
+- All video elements stored in screenVideos[] array
+- All VideoTextures stored in videoTextureMap (Map keyed by video element)
+
+## General
+- Do not introduce new CSS frameworks or libraries
+- Do not change file names of existing pages
+- Append an entry to CHANGELOG.md after every meaningful change

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project generator</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .project-generator-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+    }
+
+    .project-generator-page main {
+      flex: 1;
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 1.25rem 3rem;
+      text-align: left;
+      box-sizing: border-box;
+    }
+
+    .project-generator-page .generator-intro {
+      font-family: 'NeueMontreal-Regular', sans-serif;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: #222;
+      line-height: 1.55;
+      margin: 0 auto 1.75rem;
+      max-width: 36rem;
+      text-align: center;
+    }
+
+    .project-generator-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      font-family: 'NeueMontreal-Regular', sans-serif;
+    }
+
+    .project-generator-form .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      text-align: left;
+    }
+
+    .project-generator-form label {
+      font-family: 'NeueMontreal-Medium', 'NeueMontreal-Regular', sans-serif;
+      font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+      color: #111;
+      letter-spacing: 0.02em;
+    }
+
+    .project-generator-form .hint {
+      font-size: clamp(0.75rem, 1.2vw, 0.82rem);
+      color: #555;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .project-generator-form input[type="text"],
+    .project-generator-form input[type="password"],
+    .project-generator-form input[type="url"],
+    .project-generator-form textarea {
+      font-family: 'NeueMontreal-Regular', sans-serif;
+      font-size: clamp(0.9rem, 1.6vw, 1rem);
+      padding: 0.65rem 0.85rem;
+      border: 1px solid #c8d4e8;
+      border-radius: 8px;
+      background: #fff;
+      color: #111;
+      width: 100%;
+      box-sizing: border-box;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .project-generator-form input:focus,
+    .project-generator-form textarea:focus {
+      outline: none;
+      border-color: #3158a7;
+      box-shadow: 0 0 0 3px rgba(49, 88, 167, 0.15);
+    }
+
+    .project-generator-form textarea {
+      min-height: 6.5rem;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .api-key-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: stretch;
+    }
+
+    .api-key-row input {
+      flex: 1 1 200px;
+      min-width: 0;
+    }
+
+    .btn-save-key {
+      font-family: 'NeueMontreal-Medium', sans-serif;
+      padding: 0.65rem 1.1rem;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #6d98ee 0%, #3158a7 45%, #153981 100%);
+      color: #fff;
+      font-size: clamp(0.85rem, 1.4vw, 0.95rem);
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(21, 57, 129, 0.35);
+      transition: opacity 0.15s ease, transform 0.1s ease;
+      white-space: nowrap;
+    }
+
+    .btn-save-key:hover {
+      opacity: 0.92;
+    }
+
+    .btn-save-key:active {
+      transform: translateY(1px);
+    }
+
+    .btn-submit {
+      font-family: 'NeueMontreal-Medium', sans-serif;
+      margin-top: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #6d98ee 0%, #3158a7 40%, #153981 100%);
+      color: #fff;
+      font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+      align-self: center;
+      transition: opacity 0.15s ease, transform 0.1s ease;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .btn-confirm-save {
+      font-family: 'NeueMontreal-Medium', sans-serif;
+      margin-top: 1rem;
+      padding: 0.75rem 1.35rem;
+      border-radius: 999px;
+      border: 2px solid #153981;
+      background: #fff;
+      color: #153981;
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .btn-confirm-save:hover {
+      background: #153981;
+      color: #fff;
+    }
+
+    .generator-loading {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+      font-family: 'NeueMontreal-Regular', sans-serif;
+      color: #3158a7;
+      font-size: 0.95rem;
+    }
+
+    .generator-loading.is-visible {
+      display: flex;
+    }
+
+    .spinner {
+      width: 44px;
+      height: 44px;
+      border: 3px solid #d4e0f4;
+      border-top-color: #3158a7;
+      border-radius: 50%;
+      animation: generator-spin 0.75s linear infinite;
+    }
+
+    @keyframes generator-spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .generator-error {
+      display: none;
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      background: #fde8e8;
+      color: #8b1a1a;
+      font-family: 'NeueMontreal-Regular', sans-serif;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    .generator-error.is-visible {
+      display: block;
+    }
+
+    .generator-preview-section {
+      display: none;
+      margin-top: 2.5rem;
+      text-align: left;
+    }
+
+    .generator-preview-section.is-visible {
+      display: block;
+    }
+
+    .generator-preview-section h2 {
+      font-family: 'NeueMontreal-Medium', sans-serif;
+      color: #111;
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+
+    .preview-frame-wrap {
+      border: 1px solid #c8d4e8;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #f7f9fc;
+      min-height: 280px;
+    }
+
+    .preview-frame-wrap iframe {
+      display: block;
+      width: 100%;
+      min-height: 400px;
+      border: 0;
+      background: #fff;
+    }
+
+    .save-instructions {
+      display: none;
+      margin-top: 1.25rem;
+      padding: 1rem 1.15rem;
+      border-radius: 8px;
+      background: #eef3fb;
+      border: 1px solid #c8d4e8;
+      font-family: 'NeueMontreal-Regular', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #222;
+      text-align: left;
+    }
+
+    .save-instructions.is-visible {
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="project-generator-page">
+
+  <nav class="nav-pill">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="contact.html">Resume</a>
+  </nav>
+
+  <h1 class="projects-title">Project generator</h1>
+  <p class="generator-intro">Describe a project and generate inner <code>&lt;main&gt;</code> HTML for your portfolio using Claude.</p>
+
+  <main>
+    <form id="project-generator-form" class="project-generator-form" novalidate>
+      <div class="field">
+        <label for="project-title">Project title</label>
+        <input type="text" id="project-title" name="projectTitle" required autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label for="short-description">Short description</label>
+        <textarea id="short-description" name="shortDescription" required></textarea>
+      </div>
+
+      <div class="field">
+        <label for="role-tools">Role and tools used</label>
+        <input type="text" id="role-tools" name="roleAndTools" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label for="video-url">Video URL for screen display</label>
+        <input type="text" id="video-url" name="videoUrl" inputmode="url" placeholder="https://…" autocomplete="off">
+        <p class="hint">Used later for Three.js; also embedded in the generated preview.</p>
+      </div>
+
+      <div class="field">
+        <label for="github-url">GitHub repo URL</label>
+        <input type="url" id="github-url" name="githubUrl" autocomplete="url">
+      </div>
+
+      <div class="field">
+        <label for="linkedin-url">LinkedIn URL</label>
+        <input type="url" id="linkedin-url" name="linkedinUrl" autocomplete="url">
+      </div>
+
+      <div class="field">
+        <label for="api-key">Anthropic API key</label>
+        <div class="api-key-row">
+          <input type="password" id="api-key" name="apiKey" autocomplete="off" spellcheck="false">
+          <button type="button" class="btn-save-key" id="btn-save-api-key">Save</button>
+        </div>
+        <p class="hint">Stored in this browser as <code>leo_api_key</code> when you click Save.</p>
+      </div>
+
+      <button type="submit" class="btn-submit" id="btn-generate">Generate project HTML</button>
+    </form>
+
+    <div class="generator-loading" id="generator-loading" aria-live="polite" aria-busy="false">
+      <div class="spinner" role="status"></div>
+      <span>Generating with Claude…</span>
+    </div>
+
+    <p class="generator-error" id="generator-error" role="alert"></p>
+
+    <section class="generator-preview-section" id="generator-preview-section" aria-live="polite">
+      <h2>Preview</h2>
+      <div class="preview-frame-wrap">
+        <iframe id="preview-frame" title="Generated project preview" sandbox="allow-scripts allow-same-origin"></iframe>
+      </div>
+      <div style="text-align: center;">
+        <button type="button" class="btn-confirm-save" id="btn-confirm-save">Looks good — save project</button>
+      </div>
+      <div class="save-instructions" id="save-instructions"></div>
+    </section>
+  </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <!-- Copyright Notice -->
+            <div class="footer-copyright">
+                <p>© 2025. All Rights Reserved.</p>
+                <p>Website developed by Leo Danenkov.</p>
+                <p>Email with inquiries to ledanenkov@gmail.com</p>
+                <p>spatialme.xyz</p>
+            </div>
+        </div>
+    </footer>
+
+  <script>
+    (function () {
+      var STORAGE_GITHUB = 'leo_github';
+      var STORAGE_LINKEDIN = 'leo_linkedin';
+      var STORAGE_API = 'leo_api_key';
+      var SYSTEM_PROMPT = 'You generate HTML content blocks for a portfolio project page. Output ONLY the inner HTML for the <main> element — no <html>, <head>, or <body> tags. Use these class names from project-style.css: .project-hero, .project-description, .project-paragraph, .video-wrapper, .project-tools. Include sections for: title, description, tools list, video embed (use the provided video URL in an iframe), and links to the GitHub and LinkedIn URLs provided.';
+
+      var form = document.getElementById('project-generator-form');
+      var btnGenerate = document.getElementById('btn-generate');
+      var btnSaveKey = document.getElementById('btn-save-api-key');
+      var btnConfirmSave = document.getElementById('btn-confirm-save');
+      var loadingEl = document.getElementById('generator-loading');
+      var errorEl = document.getElementById('generator-error');
+      var previewSection = document.getElementById('generator-preview-section');
+      var previewFrame = document.getElementById('preview-frame');
+      var saveInstructions = document.getElementById('save-instructions');
+
+      var githubInput = document.getElementById('github-url');
+      var linkedinInput = document.getElementById('linkedin-url');
+      var apiKeyInput = document.getElementById('api-key');
+
+      var lastGeneratedMainHtml = '';
+
+      function loadStored() {
+        var gh = localStorage.getItem(STORAGE_GITHUB);
+        var li = localStorage.getItem(STORAGE_LINKEDIN);
+        var key = localStorage.getItem(STORAGE_API);
+        if (gh) githubInput.value = gh;
+        if (li) linkedinInput.value = li;
+        if (key) apiKeyInput.value = key;
+      }
+
+      function setLoading(on) {
+        loadingEl.classList.toggle('is-visible', on);
+        loadingEl.setAttribute('aria-busy', on ? 'true' : 'false');
+        btnGenerate.disabled = on;
+      }
+
+      function showError(msg) {
+        errorEl.textContent = msg || '';
+        errorEl.classList.toggle('is-visible', !!msg);
+      }
+
+      function stripOuterCodeFence(s) {
+        var t = s.trim();
+        if (!/^```/.test(t)) return s;
+        t = t.replace(/^```[a-z0-9]*\s*\n?/i, '');
+        if (/\n```\s*$/.test(t)) {
+          t = t.replace(/\n```\s*$/, '');
+        } else if (t.endsWith('```')) {
+          t = t.slice(0, -3);
+        }
+        return t.trim();
+      }
+
+      function buildPreviewSrcdoc(mainInner) {
+        var baseHref = new URL('.', window.location.href).href.replace(/"/g, '&quot;');
+        return '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">' +
+          '<base href="' + baseHref + '">' +
+          '<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="project-style.css"></head><body>' +
+          mainInner +
+          '</body></html>';
+      }
+
+      btnSaveKey.addEventListener('click', function () {
+        var v = apiKeyInput.value.trim();
+        if (v) {
+          localStorage.setItem(STORAGE_API, v);
+        } else {
+          localStorage.removeItem(STORAGE_API);
+        }
+      });
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        showError('');
+        saveInstructions.classList.remove('is-visible');
+        saveInstructions.textContent = '';
+        previewSection.classList.remove('is-visible');
+        lastGeneratedMainHtml = '';
+
+        var title = document.getElementById('project-title').value.trim();
+        var shortDescription = document.getElementById('short-description').value.trim();
+        if (!title || !shortDescription) {
+          showError('Please fill in the project title and short description.');
+          return;
+        }
+
+        var payload = {
+          projectTitle: title,
+          shortDescription: shortDescription,
+          roleAndTools: document.getElementById('role-tools').value.trim(),
+          videoUrl: document.getElementById('video-url').value.trim(),
+          githubUrl: githubInput.value.trim(),
+          linkedinUrl: linkedinInput.value.trim()
+        };
+
+        localStorage.setItem(STORAGE_GITHUB, payload.githubUrl);
+        localStorage.setItem(STORAGE_LINKEDIN, payload.linkedinUrl);
+
+        var apiKey = localStorage.getItem(STORAGE_API);
+        if (!apiKey) {
+          showError('Use the x-api-key from localStorage: click Save after entering your Anthropic API key.');
+          return;
+        }
+
+        setLoading(true);
+
+        try {
+          var res = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'x-api-key': apiKey,
+              'anthropic-version': '2023-06-01'
+            },
+            body: JSON.stringify({
+              model: 'claude-sonnet-4-20250514',
+              max_tokens: 1000,
+              system: SYSTEM_PROMPT,
+              messages: [
+                {
+                  role: 'user',
+                  content: JSON.stringify(payload)
+                }
+              ]
+            })
+          });
+
+          var data = await res.json().catch(function () { return {}; });
+
+          if (!res.ok) {
+            var errMsg = (data.error && data.error.message) ? data.error.message : ('Request failed (' + res.status + ')');
+            throw new Error(errMsg);
+          }
+
+          var text = '';
+          if (data.content && Array.isArray(data.content)) {
+            for (var i = 0; i < data.content.length; i++) {
+              if (data.content[i].type === 'text' && data.content[i].text) {
+                text += data.content[i].text;
+              }
+            }
+          }
+
+          text = stripOuterCodeFence(text.trim());
+          if (!text) {
+            throw new Error('Empty response from the API.');
+          }
+
+          lastGeneratedMainHtml = text;
+          previewFrame.srcdoc = buildPreviewSrcdoc(text);
+          previewSection.classList.add('is-visible');
+        } catch (err) {
+          showError(err.message || 'Something went wrong.');
+        } finally {
+          setLoading(false);
+        }
+      });
+
+      btnConfirmSave.addEventListener('click', function () {
+        if (!lastGeneratedMainHtml) return;
+        if (!window.confirm('Log this HTML to the console and show save instructions?')) return;
+        console.log(lastGeneratedMainHtml);
+        saveInstructions.textContent = 'Copy this HTML into a new file projectN.html using the project template shell';
+        saveInstructions.classList.add('is-visible');
+      });
+
+      loadStored();
+    })();
+  </script>
+</body>
+
+</html>
