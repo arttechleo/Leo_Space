@@ -2,6 +2,7 @@
 
 ## 2026-04-08
 
+- Core UX/UI (IT1): add `assets/resume-hero.png`, Emil design-eng agent skill under `.agents/skills/`, and symlink under `.claude/skills/`.
 - Resume (`contact.html`): add dark-mode overrides and a slide-in "View Interactive Resume" Figma prototype CTA near the hero heading.
 - Resume (`contact.html`): replace CTA with embedded first-slide Figma prototype hero frame on black background.
 - Resume (`contact.html`): swap Figma embed for local static hero image from first slide and force pure white hero/footer typography (no gray).
