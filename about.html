@@ -6,9 +6,13 @@
   <title>About · Leo Danenkov</title>
   <link rel="stylesheet" href="style.css">
   <script type="importmap">
-  { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+  {
+    "imports": {
+      "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.178.0/three.module.js",
+      "@sparkjsdev/spark": "https://sparkjs.dev/releases/spark/0.1.10/spark.module.js"
+    }
+  }
   </script>
-  <script src="https://unpkg.com/@mkkellogg/gaussian-splats-3d@0.4.1/build/gaussian-splats-3d.umd.cjs"></script>
   <style>
     .about-splat-layout {
       display: grid;
@@ -20,10 +24,16 @@
 
     #splat-container {
       width: 100%;
-      aspect-ratio: 3/4;
+      height: 500px;
       border-radius: 20px;
       overflow: hidden;
       position: relative;
+      background: #0a0a0a;
+      cursor: grab;
+    }
+
+    #splat-container:active {
+      cursor: grabbing;
     }
 
     @media (max-width: 768px) {
@@ -32,7 +42,7 @@
       }
 
       #splat-container {
-        aspect-ratio: 4/3;
+        height: 320px;
       }
     }
   </style>
@@ -49,7 +59,7 @@
     <span class="page-label">About</span>
 
     <div class="about-splat-layout">
-      <div class="about-splat-viewer" id="splat-container"></div>
+      <div id="splat-container"></div>
 
       <div class="about-splat-text">
         <h1>Experience engineer<br>in spatial media.</h1>
@@ -89,35 +99,60 @@
     </div>
   </main>
 
-    <footer>
-        <div class="footer-container">
-            <!-- Copyright Notice -->
-            <div class="footer-copyright">
-                <p>&#169; 2026. All Rights Reserved.</p>
-                <p>Website developed by Leo Danenkov.</p>
-                <p>Email with inquiries to ledanenkov@gmail.com</p>
-                <p>spatialme.xyz</p>
-            </div>
-        </div>
-    </footer>
+  <footer>
+      <div class="footer-container">
+          <!-- Copyright Notice -->
+          <div class="footer-copyright">
+              <p>&#169; 2026. All Rights Reserved.</p>
+              <p>Website developed by Leo Danenkov.</p>
+              <p>Email with inquiries to ledanenkov@gmail.com</p>
+              <p>spatialme.xyz</p>
+          </div>
+      </div>
+  </footer>
 
   <script type="module">
-    import * as GaussianSplats3D from 'https://unpkg.com/@mkkellogg/gaussian-splats-3d@0.4.1/build/gaussian-splats-3d.module.js';
+    import * as THREE from 'three';
+    import { SplatMesh } from '@sparkjsdev/spark';
 
-    const viewer = new GaussianSplats3D.Viewer({
-      cameraUp: [0, -1, 0],
-      initialCameraPosition: [0, -1, 5],
-      initialCameraLookAt: [0, -1, 0],
-      rootElement: document.getElementById('splat-container'),
-      selfDrivenMode: true,
-      useBuiltInControls: true,
-      autoResize: true
+    const container = document.getElementById('splat-container');
+    const w = container.clientWidth || 500;
+    const h = container.clientHeight || 500;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(w, h);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    container.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, w / h, 0.1, 1000);
+    camera.position.set(0, -1, 5);
+    camera.lookAt(0, -1, 0);
+
+    const splat = new SplatMesh({ url: './splats/LeoCanyon.ply' });
+    scene.add(splat);
+
+    // Orbit on drag
+    let isDragging = false, prevX = 0, prevY = 0;
+    container.addEventListener('mousedown', e => { isDragging = true; prevX = e.clientX; prevY = e.clientY; });
+    window.addEventListener('mouseup', () => isDragging = false);
+    window.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      splat.rotation.y += (e.clientX - prevX) * 0.005;
+      splat.rotation.x += (e.clientY - prevY) * 0.005;
+      prevX = e.clientX; prevY = e.clientY;
     });
 
-    viewer.addSplatScene('splats/LeoCanyon.ply', {
-      splatAlphaRemovalThreshold: 5,
-      showLoadingUI: true
-    }).then(() => { viewer.start(); });
+    // Resize
+    window.addEventListener('resize', () => {
+      const nw = container.clientWidth, nh = container.clientHeight;
+      renderer.setSize(nw, nh);
+      camera.aspect = nw / nh;
+      camera.updateProjectionMatrix();
+    });
+
+    renderer.setAnimationLoop(() => renderer.render(scene, camera));
+    console.log('Spark splat viewer initialized');
   </script>
 </body>
 </html>
