@@ -146,10 +146,10 @@
   scene.add(splat);
   // Rotation range: start at 60deg, auto-progress to 180deg, drag allowed +/-20deg outside [0deg, 180deg]
   const DEG = Math.PI / 180;
-  const ROT_MIN = -20 * DEG; // -20deg hard left limit
-  const ROT_MAX = 200 * DEG; // 200deg hard right limit (180deg + 20deg buffer)
-  const ROT_START = 60 * DEG; // start here on load
-  const ROT_TARGET = 180 * DEG; // auto-rotate stops here
+  const ROT_MIN = 25 * DEG; // was -20
+  const ROT_MAX = 245 * DEG; // was 200
+  const ROT_START = 105 * DEG; // was 60
+  const ROT_TARGET = 225 * DEG; // was 180
 
   let baseRotY = ROT_START;
   let autoRotating = true;
@@ -177,10 +177,13 @@
   });
 
   const baseZ = 1.8;
+  const baseY = 0.2;
   window.addEventListener('scroll', () => {
-    const f = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    camera.position.z = baseZ - (f * 6);
-    camera.position.y = -0.42 - (f * 0.5);
+    const f = Math.min(window.scrollY / 600, 1); // full effect over 600px scroll
+    camera.position.z = baseZ - (f * 2.4); // push forward 2.4 units into scene
+    camera.position.y = baseY - (f * 0.3); // slight downward drift
+    camera.position.x = f * 0.4; // subtle rightward drift
+    camera.lookAt(camera.position.x, camera.position.y - 0.1, 0);
   }, { passive: true });
 
   window.addEventListener('resize', () => {
