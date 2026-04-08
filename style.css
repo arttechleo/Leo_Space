@@ -1477,26 +1477,26 @@ footer {
 }
 
 .footer-container {
-    padding: 40px 24px 32px;
+    padding: 32px 24px;
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
 .footer-copyright {
-    text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    width: 100%;
+    align-items: center;
+    gap: 2px;
+    text-align: center;
 }
 
 .footer-copyright p {
-    font-size: 12px;
-    color: var(--text-tertiary, #6e6e73);
+    font-size: 11px;
+    line-height: 1.4;
+    color: var(--text-secondary);
     margin: 0;
-    line-height: 1.5;
-    text-align: center;
+    letter-spacing: 0.01em;
 }
 
 .back-to-top a {
