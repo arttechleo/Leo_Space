@@ -813,18 +813,6 @@ class MultiVideoScene {
    DOOM SCROLL SYSTEM — Zone B scroll drives Zone A camera
    ════════════════════════════════════════════ */
 
-const PLATFORM_ICONS = {
-  'Home': '<svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10 2L3 8V18H8V13H12V18H17V8L10 2Z"/></svg>',
-  'OCULUS GO': '<svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10 5.5C13.0376 5.5 15.5 6.73122 15.5 8.25V11.75C15.5 13.2688 13.0376 14.5 10 14.5C6.96243 14.5 4.5 13.2688 4.5 11.75V8.25C4.5 6.73122 6.96243 5.5 10 5.5ZM10 6.75C7.92893 6.75 6.25 7.42157 6.25 8.25V11.75C6.25 12.5784 7.92893 13.25 10 13.25C12.0711 13.25 13.75 12.5784 13.75 11.75V8.25C13.75 7.42157 12.0711 6.75 10 6.75Z"/></svg>',
-  'QUEST 1': '<svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10 14.5C6.96243 14.5 4.5 13.2688 4.5 11.75V8.25C4.5 6.73122 6.96243 5.5 10 5.5C13.0376 5.5 15.5 6.73122 15.5 8.25V11.75C15.5 13.2688 13.0376 14.5 10 14.5Z"/><rect x="2.75" y="8.75" width="2" height="2.5" rx="0.5"/><rect x="15.25" y="8.75" width="2" height="2.5" rx="0.5"/></svg>',
-  'QUEST 2': '<svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="14" height="8" rx="1.5"/><circle cx="6.5" cy="10" r="1.25" fill="var(--bg)"/><circle cx="10" cy="10" r="1.25" fill="var(--bg)"/><circle cx="13.5" cy="10" r="1.25" fill="var(--bg)"/><rect x="1.5" y="8.75" width="1.75" height="2.5" rx="0.5"/><rect x="16.75" y="8.75" width="1.75" height="2.5" rx="0.5"/></svg>',
-  'QUEST PRO': '<svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10 6.5C12.7614 6.5 15.25 7.2835 15.25 8.25V11.75C15.25 12.7165 12.7614 13.5 10 13.5C7.23858 13.5 4.75 12.7165 4.75 11.75V8.25C4.75 7.2835 7.23858 6.5 10 6.5Z"/><path d="M15.25 8.25L18.5 7.5V12.5L15.25 11.75V8.25Z"/><path d="M4.75 8.25L1.5 7.5V12.5L4.75 11.75V8.25Z"/></svg>',
-  'QUEST 3': '<svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="14" height="8" rx="1"/><circle cx="7.25" cy="10" r="1.5" fill="var(--bg)"/><circle cx="12.75" cy="10" r="1.5" fill="var(--bg)"/></svg>',
-  'VISION PRO': '<svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 6.5C3 5.67157 3.67157 5 4.5 5H15.5C16.3284 5 17 5.67157 17 6.5V11.5C17 12.3284 16.3284 13 15.5 13H13C13 13.8284 12.3284 14.5 11.5 14.5H8.5C7.67157 14.5 7 13.8284 7 13H4.5C3.67157 13 3 12.3284 3 11.5V6.5Z"/><rect x="4.5" y="5" width="11" height="1.25" fill="var(--bg)"/></svg>',
-  '3D': '<svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10 2L3 6V14L10 18L17 14V6L10 2ZM10 4.25L15 7.15V12.85L10 15.75L5 12.85V7.15L10 4.25Z" fill-rule="evenodd" clip-rule="evenodd"/></svg>',
-  'WEBXR': '<svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 1a9 9 0 100 18A9 9 0 0010 1zm0 1.8a7.2 7.2 0 110 14.4A7.2 7.2 0 0110 2.8zm0 0c-1.5 0-2.8 3.2-2.8 7.2s1.3 7.2 2.8 7.2 2.8-3.2 2.8-7.2-1.3-7.2-2.8-7.2zM2.8 7.5h14.4M2.8 12.5h14.4" stroke="currentColor" stroke-width="1" fill="none"/><circle cx="10" cy="10" r="7.2" stroke="currentColor" stroke-width="1" fill="none"/><ellipse cx="10" cy="10" rx="3.5" ry="7.2" stroke="currentColor" stroke-width="1" fill="none"/></svg>',
-  'INSTALLATION': '<svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="5" width="16" height="10" rx="1"/><rect x="4.5" y="5.5" width="1.5" height="5" fill="var(--bg)"/><rect x="8" y="5.5" width="1.5" height="5" fill="var(--bg)"/><rect x="11.5" y="5.5" width="1.5" height="5" fill="var(--bg)"/><rect x="15" y="5.5" width="0.5" height="5" fill="var(--bg)"/><rect x="6.25" y="5.5" width="0.75" height="3.5" fill="currentColor"/><rect x="9.75" y="5.5" width="0.75" height="3.5" fill="currentColor"/><rect x="13.25" y="5.5" width="0.75" height="3.5" fill="currentColor"/></svg>'
-};
 
 const PROJECT_DISPLAY = [
     {
@@ -1402,14 +1390,12 @@ function initScrollObserver(scene) {
         landDot.className = 'scroll-progress-dot active';
         landDot.dataset.index = '-1';
         landDot.dataset.label = 'Home';
-        landDot.innerHTML = PLATFORM_ICONS['Home'];
         progressEl.appendChild(landDot);
         PROJECT_DISPLAY.forEach((proj, i) => {
             const dot = document.createElement('div');
             dot.className = 'scroll-progress-dot';
             dot.dataset.index = String(i);
             dot.dataset.label = proj.title;
-            dot.innerHTML = PLATFORM_ICONS[proj.platform] ?? PLATFORM_ICONS['3D'];
             progressEl.appendChild(dot);
         });
         updateProgressDot(currentZoomIndex);

@@ -463,10 +463,13 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
 
 #scroll-content > .project-section:nth-child(odd) .project-short-video {
     order: 2;
+    min-width: 0;
 }
 
 #scroll-content > .project-section:nth-child(odd) .project-short-info {
     order: 1;
+    justify-self: end;
+    min-width: 0;
 }
 
 .project-short-video {
@@ -504,12 +507,15 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
 
 .project-short-screen iframe,
 .project-short-screen video {
+    display: block;
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     border: none;
+    margin: 0;
+    padding: 0;
 }
 
 .project-short-number {
@@ -647,35 +653,29 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
 /* ── PROGRESS DOTS ── */
 .scroll-progress {
     position: fixed;
-    right: 12px;
+    right: 18px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 150;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 7px;
     pointer-events: none;
     opacity: 0;
     animation: fade-in 0.4s ease forwards 1.5s;
 }
 
 .scroll-progress-dot {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
     color: var(--text-primary);
     opacity: 0.5;
     transition: opacity 0.25s ease;
     position: relative;
     pointer-events: auto;
     cursor: pointer;
-}
-
-.scroll-progress-dot svg {
-    display: block;
-    flex-shrink: 0;
 }
 
 .scroll-progress-dot::before {
@@ -705,6 +705,7 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
 .scroll-progress-dot.active {
     opacity: 1;
 }
+
 
 /* ── ZOOM FLASH ── */
 .zoom-flash {
