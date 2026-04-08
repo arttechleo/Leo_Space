@@ -80,7 +80,6 @@ class MultiVideoScene {
         this.setupLighting();
         this.setupVideos();
         this.setupLoaders();
-        this.setupUI();
         this.bindEvents();
     }
 
@@ -222,66 +221,6 @@ class MultiVideoScene {
         this.disposables.add(directionalLight);
         this.disposables.add(rimLight);
         this.disposables.add(fillLight);
-    }
-
-
-    setupUI() {
-        try {
-            const template = `
-    <div class="video-info-panel" style="
-        opacity: 0;
-        position: fixed;
-        padding: 15px;
-        color: var(--text-primary);
-        border-radius: var(--radius-card);
-        max-width: min(243px, 90vw);
-        transform: translateY(8px);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1000;
-        background: var(--bg-surface);
-        backdrop-filter: blur(40px) saturate(180%);
-        -webkit-backdrop-filter: blur(40px) saturate(180%);
-        border: 0.5px solid var(--border-strong);
-        box-shadow: var(--shadow-md);
-        pointer-events: none;
-        font-family: 'NeueMontreal-Medium';
-        ">
-    <h3 class="title" style="
-        margin: 0 0 8px 0;
-        font-size: 14px;
-        font-weight: 600;
-        background: none;
-        -webkit-background-clip: unset;
-        background-clip: unset;
-        -webkit-text-fill-color: var(--text-primary);
-        color: var(--text-primary);
-        opacity: 1;
-        letter-spacing: 1.1px;
-    "></h3>
-    <p class="description" style="
-        margin: 0;
-        font-size: 11px;
-        line-height: 1.6;
-        color: var(--text-secondary);
-        opacity: 0.9;
-        font-family: 'NeueMontreal-Medium';
-    "></p>
-</div>
-`;
-
-            const panel = document.createElement('div');
-            panel.innerHTML = template;
-            this.uiPanel = panel.firstElementChild;
-
-            // Only append to document.body if it exists
-            if (document.body) {
-                document.body.appendChild(this.uiPanel);
-            } else {
-                console.warn('Document body not available for UI panel attachment');
-            }
-        } catch (error) {
-            console.error('Error setting up UI:', error);
-        }
     }
 
     setupVideos() {
@@ -431,37 +370,6 @@ class MultiVideoScene {
         this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
         this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
         this.mouseMovedThisFrame = true;
-    }
-
-    showUIPanel(screenId, event) {
-        const info = this.projectInfo.get(screenId);
-        if (!info) return;
-
-        const panel = this.uiPanel;
-        panel.querySelector('.title').textContent = info.title;
-        panel.querySelector('.description').textContent = info.about;
-
-        // Position panel
-        const padding = 15;
-        let x = event.clientX + padding;
-        let y = event.clientY + padding;
-
-        if (x + panel.offsetWidth > window.innerWidth - padding) {
-            x = event.clientX - panel.offsetWidth - padding;
-        }
-        if (y + panel.offsetHeight > window.innerHeight - padding) {
-            y = event.clientY - panel.offsetHeight - padding;
-        }
-
-        panel.style.transform = 'translateY(0)';
-        panel.style.left = `${x}px`;
-        panel.style.top = `${y}px`;
-        panel.style.opacity = '1';
-    }
-
-    hideUIPanel() {
-        this.uiPanel.style.opacity = '0';
-        this.uiPanel.style.transform = 'translateY(8px)';
     }
 
     async loadModel() {
@@ -687,13 +595,11 @@ class MultiVideoScene {
 
             if (this.hoveredScreen !== screenId) {
                 this.hoveredScreen = screenId;
-                this.showUIPanel(screenId, this.lastMouseEvent);
             }
         } else {
             document.body.style.cursor = 'default';  // Reset cursor
             if (this.hoveredScreen !== null) {
                 this.hoveredScreen = null;
-                this.hideUIPanel();
             }
         }
     }
@@ -787,10 +693,6 @@ class MultiVideoScene {
             video.load();
             video.remove();
         });
-
-        if (this.uiPanel) {
-            this.uiPanel.remove();
-        }
 
         sceneInstance = null;
     }

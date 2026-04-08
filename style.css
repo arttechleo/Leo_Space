@@ -866,15 +866,6 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
     }
 }
 
-/* Index UI / hover panel above scroll content */
-.video-info-panel,
-.ui-panel,
-#ui-panel,
-[class*="project-card"],
-[class*="tooltip"],
-[class*="project-info"] {
-    z-index: 500 !important;
-}
 
 html,
 body {
