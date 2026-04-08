@@ -234,7 +234,7 @@ class MultiVideoScene {
         padding: 15px;
         color: var(--text-primary);
         border-radius: var(--radius-card);
-        max-width: 243px;
+        max-width: min(243px, 90vw);
         transform: translateY(8px);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1000;
