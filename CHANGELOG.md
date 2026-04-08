@@ -3,6 +3,7 @@
 ## 2026-04-08
 
 - About: adjust splat orientation, landscape canvas sizing, and scroll-driven camera push.
+- About: switch to full-width splat hero layout with bottom fade, corrected forward-facing rotation, and closer camera framing.
 
 ## 2026-04-03
 
