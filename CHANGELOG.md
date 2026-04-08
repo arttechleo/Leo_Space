@@ -7,6 +7,7 @@
 - About: clamp horizontal splat rotation to a 240-degree range for both auto-rotation and drag input.
 - About: start splat Y rotation at 60deg, auto-rotate to 180deg, and clamp drag between -20deg and 200deg.
 - About: shift rotation window +45deg and update scroll camera fly-in with capped 600px progression, right drift, and dynamic look-at.
+- About: use looping +/-20deg auto-swing around 135deg and disable auto-rotation after first scroll or drag interaction.
 
 ## 2026-04-03
 

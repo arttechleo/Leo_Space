@@ -144,14 +144,15 @@
   });
   splat.rotation.z = Math.PI;
   scene.add(splat);
-  // Rotation range: start at 60deg, auto-progress to 180deg, drag allowed +/-20deg outside [0deg, 180deg]
+  // Rotation range: looping swing around a center angle
   const DEG = Math.PI / 180;
-  const ROT_MIN = 25 * DEG; // was -20
-  const ROT_MAX = 245 * DEG; // was 200
-  const ROT_START = 105 * DEG; // was 60
-  const ROT_TARGET = 225 * DEG; // was 180
+  const ROT_CENTER = 135 * DEG; // center of swing
+  const ROT_SWING = 20 * DEG; // +/-20deg from center
+  const ROT_MIN = ROT_CENTER - ROT_SWING; // 115deg
+  const ROT_MAX = ROT_CENTER + ROT_SWING; // 155deg
 
-  let baseRotY = ROT_START;
+  let baseRotY = ROT_MIN;
+  let rotDir = 1; // 1 = going right, -1 = going left
   let autoRotating = true;
   // Debug: log splat position, rotation, camera on load
   setTimeout(() => {
@@ -166,7 +167,11 @@
   }, 2000);
 
   let isDragging = false, prevX = 0, prevY = 0;
-  container.addEventListener('mousedown', e => { isDragging = true; prevX = e.clientX; prevY = e.clientY; });
+  container.addEventListener('mousedown', e => {
+    isDragging = true;
+    autoRotating = false;
+    prevX = e.clientX; prevY = e.clientY;
+  });
   window.addEventListener('mouseup', () => isDragging = false);
   window.addEventListener('mousemove', e => {
     if (!isDragging) return;
@@ -178,11 +183,16 @@
 
   const baseZ = 1.8;
   const baseY = 0.2;
+  let hasScrolled = false;
   window.addEventListener('scroll', () => {
-    const f = Math.min(window.scrollY / 600, 1); // full effect over 600px scroll
-    camera.position.z = baseZ - (f * 2.4); // push forward 2.4 units into scene
-    camera.position.y = baseY - (f * 0.3); // slight downward drift
-    camera.position.x = f * 0.4; // subtle rightward drift
+    if (!hasScrolled) {
+      hasScrolled = true;
+      autoRotating = false;
+    }
+    const f = Math.min(window.scrollY / 600, 1);
+    camera.position.z = baseZ - (f * 2.4);
+    camera.position.y = baseY - (f * 0.3);
+    camera.position.x = f * 0.4;
     camera.lookAt(camera.position.x, camera.position.y - 0.1, 0);
   }, { passive: true });
 
@@ -195,11 +205,9 @@
 
   renderer.setAnimationLoop(() => {
     if (!isDragging && autoRotating) {
-      baseRotY += 0.002;
-      if (baseRotY >= ROT_TARGET) {
-        baseRotY = ROT_TARGET;
-        autoRotating = false;
-      }
+      baseRotY += 0.004 * rotDir;
+      if (baseRotY >= ROT_MAX) { baseRotY = ROT_MAX; rotDir = -1; }
+      if (baseRotY <= ROT_MIN) { baseRotY = ROT_MIN; rotDir = 1; }
     }
     splat.rotation.y = baseRotY;
     renderer.render(scene, camera);
