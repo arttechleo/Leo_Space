@@ -327,7 +327,6 @@ class MultiVideoScene {
             });
 
             video.addEventListener('loadeddata', () => {
-                console.log(`Video ${id} loaded successfully`);
             });
 
             video.src = src;
