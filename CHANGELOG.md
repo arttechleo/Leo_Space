@@ -9,6 +9,7 @@
 - Resume (`contact.html`): make Figma embed full viewport width with edge-to-edge wrapper and 90vh iframe height.
 - Resume (`contact.html`): remove proto-section side padding/max-width constraints and enforce full-bleed iframe container with no internal spacing.
 - Resume (`contact.html`): switch to embedded Figma URL with `hide-ui=1` and apply scaled full-bleed 85vh iframe treatment with 600px minimum height.
+- Resume (`contact.html`): reduce Figma iframe zoom from 1.35 to 1.1 to restore more horizontal content while keeping full-bleed presentation.
 - About: adjust splat orientation, landscape canvas sizing, and scroll-driven camera push.
 - About: switch to full-width splat hero layout with bottom fade, corrected forward-facing rotation, and closer camera framing.
 - About: clamp horizontal splat rotation to a 240-degree range for both auto-rotation and drag input.
