@@ -129,7 +129,10 @@
     camera.position.set(0, -1, 5);
     camera.lookAt(0, -1, 0);
 
-    const splat = new SplatMesh({ url: './splats/LeoCanyon.ply' });
+    const splat = new SplatMesh({
+      url: './splats/LeoCanyon.compressed.ply',
+      splatAlphaRemovalThreshold: 10,
+    });
     scene.add(splat);
 
     // Orbit on drag

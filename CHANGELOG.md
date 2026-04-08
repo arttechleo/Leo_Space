@@ -6,6 +6,8 @@
 - `contact.html`: hiring-focused resume page with metric grid (resume-sourced figures), ASU / capstone copy, Vision Pro–aligned “looking for,” mail + LinkedIn + GitHub + spatialme.xyz; removed printer UI and `contact-style.css`.
 - `about.html` / `research.html`: `main` + `page-label`, quantified narrative (SCG, Article, Volumetrics, Nanome, SIGGRAPH, SFU, ASU, publications); no placeholder “work in progress.”
 
+- About: switch Spark `SplatMesh` to compressed PLY for faster loads.
+
 - Index: unified `#EBEBEB` page background (radial on `body.index-page`, scroll column, landing, project sections, canvas bottom fade); transparent canvas; project sections use `PROJECT_DISPLAY` with YouTube or local MP4, description, tags, CTA (no full-page fetch). Overview camera forced to `(0,1.5,12)` / lookAt `(0,1.5,0)`, FOV 52, `storeOverviewState` synced; `updateCanvasSize` sets FOV.
 - Index hero title matches comp copy **Hello,I am Leo** (no space after comma): single first span `Hello,I`, then `am` / `Leo` with word gaps; three-word stagger + exit.
 - Index landing: hero anchored bottom-left (`flex-end` + `align-self` on title), scroll hint stays centered; hero words use `margin-left` gaps between separate spans.
