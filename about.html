@@ -143,15 +143,29 @@
     splatAlphaRemovalThreshold: 10
   });
   splat.rotation.z = Math.PI;
-  splat.rotation.y = Math.PI;
   scene.add(splat);
+  // Clamp Y rotation to +/-120deg (240deg total)
+  const MAX_ROT = Math.PI * (120 / 180);
+  let baseRotY = Math.PI; // starting rotation
+  // Debug: log splat position, rotation, camera on load
+  setTimeout(() => {
+    console.log('=== SPLAT DEBUG ===');
+    console.log('splat.position:', splat.position.x.toFixed(3), splat.position.y.toFixed(3), splat.position.z.toFixed(3));
+    console.log('splat.rotation:', splat.rotation.x.toFixed(3), splat.rotation.y.toFixed(3), splat.rotation.z.toFixed(3));
+    console.log('camera.position:', camera.position.x.toFixed(3), camera.position.y.toFixed(3), camera.position.z.toFixed(3));
+    console.log('camera.lookAt target: 0, 0.2, 0');
+    console.log('container size:', container.clientWidth, 'x', container.clientHeight);
+    console.log('canvas size:', renderer.domElement.width, 'x', renderer.domElement.height);
+    console.log('===================');
+  }, 2000);
 
   let isDragging = false, prevX = 0, prevY = 0;
   container.addEventListener('mousedown', e => { isDragging = true; prevX = e.clientX; prevY = e.clientY; });
   window.addEventListener('mouseup', () => isDragging = false);
   window.addEventListener('mousemove', e => {
     if (!isDragging) return;
-    splat.rotation.y += (e.clientX - prevX) * 0.005;
+    const delta = (e.clientX - prevX) * 0.005;
+    baseRotY = Math.max(Math.PI - MAX_ROT, Math.min(Math.PI + MAX_ROT, baseRotY + delta));
     splat.rotation.x += (e.clientY - prevY) * 0.005;
     prevX = e.clientX; prevY = e.clientY;
   });
@@ -171,7 +185,11 @@
   });
 
   renderer.setAnimationLoop(() => {
-    if (!isDragging) splat.rotation.y += 0.002;
+    if (!isDragging) {
+      baseRotY += 0.002;
+      if (baseRotY > Math.PI + MAX_ROT) baseRotY = Math.PI + MAX_ROT;
+    }
+    splat.rotation.y = baseRotY;
     renderer.render(scene, camera);
   });
   </script>
