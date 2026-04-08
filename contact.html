@@ -24,32 +24,64 @@
       border-color: rgba(255,255,255,0.1) !important;
     }
     footer, .footer { background: #000 !important; }
-    .footer-copyright p, .footer-nav a { color: rgba(255,255,255,0.4) !important; }
-    .resume-hero-wrap {
-      display: flex;
-      justify-content: center;
-      padding: clamp(24px, 4vw, 48px) 24px 0;
+    .footer-copyright p, .footer-nav a { color: #f5f5f7 !important; }
+    h1 { color: #ffffff !important; }
+    .resume-proto-wrap {
+      width: 90vw;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: clamp(24px, 4vw, 48px) 0;
     }
-    .resume-hero-frame {
-      width: min(1200px, 96vw);
-      aspect-ratio: 16 / 9;
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 18px;
-      overflow: hidden;
-      background: #0b0b0d;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
-    }
-    .resume-hero-frame iframe {
+    .resume-proto-link, .figma-embed, iframe[src*="figma"] {
       width: 100%;
-      height: 100%;
-      border: 0;
+      min-height: 70vh;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .stats-grid, [class*="stat"], [class*="metric"], [class*="numbers"] {
+      background: #111 !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 16px !important;
+    }
+    .stats-grid *, [class*="stat"] *, [class*="metric"] * {
+      color: #f5f5f7 !important;
+    }
+    [class*="stat"] h2, [class*="stat"] h3, [class*="metric"] h2 {
+      font-size: clamp(32px, 5vw, 56px) !important;
+      font-weight: 700 !important;
+      color: #ffffff !important;
+    }
+    [class*="stat"] p, [class*="metric"] p {
+      font-size: 11px !important;
+      letter-spacing: 0.08em !important;
+      color: rgba(255,255,255,0.45) !important;
+      text-transform: uppercase !important;
+    }
+    .metric-card {
+      background: #111 !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 16px !important;
+    }
+    .metric-number {
+      color: #ffffff !important;
+      font-size: clamp(32px, 5vw, 56px) !important;
+      font-weight: 700 !important;
+    }
+    .metric-label {
+      font-size: 11px !important;
+      letter-spacing: 0.08em !important;
+      color: rgba(255,255,255,0.45) !important;
+      text-transform: uppercase !important;
+    }
+    .resume-bento, .resume-preview-img, img[src*="resume"], img[src*="bento"] {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
       display: block;
+      border-radius: 20px;
     }
     @media (max-width: 768px) {
-      .resume-hero-frame {
-        width: 94vw;
-        border-radius: 12px;
-      }
+      .resume-proto-wrap { width: 94vw; }
     }
   </style>
 </head>
@@ -64,15 +96,12 @@
   <main>
     <span class="page-label">Resume · Available 2026</span>
     <h1>Let's build<br>spatial futures.</h1>
-    <div class="resume-hero-wrap">
-      <div class="resume-hero-frame">
-        <iframe
-          title="Resume prototype hero"
-          loading="lazy"
-          allowfullscreen
-          src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FHZBhvC6hYVQTlEa9mTSLaF%2FResume-Design_Documents%3Fpage-id%3D5053%253A2%26node-id%3D6100-226%26viewport%3D100%252C444%252C0.17%26t%3DQi85PdhcVTz4cJQz-1%26scaling%3Dcontain%26content-scaling%3Dfixed%26starting-point-node-id%3D6100%253A226"
-        ></iframe>
-      </div>
+    <div class="resume-proto-wrap">
+      <iframe
+        src="https://www.figma.com/proto/HZBhvC6hYVQTlEa9mTSLaF/Resume-Design_Documents?page-id=5053%3A2&node-id=6100-226&viewport=100%2C444%2C0.17&t=Qi85PdhcVTz4cJQz-1&scaling=contain&content-scaling=fixed&starting-point-node-id=6100%3A226&embed-host=share"
+        allowfullscreen
+        style="width:100%;height:70vh;border:none;border-radius:16px;"
+      ></iframe>
     </div>
 
     <div class="section-divider"></div>

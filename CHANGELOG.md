@@ -4,6 +4,8 @@
 
 - Resume (`contact.html`): add dark-mode overrides and a slide-in "View Interactive Resume" Figma prototype CTA near the hero heading.
 - Resume (`contact.html`): replace CTA with embedded first-slide Figma prototype hero frame on black background.
+- Resume (`contact.html`): swap Figma embed for local static hero image from first slide and force pure white hero/footer typography (no gray).
+- Resume (`contact.html`): expand Figma embed to 90vw hero, restyle metric cards as dark panels with white numbers, and enlarge resume/bento preview selectors.
 - About: adjust splat orientation, landscape canvas sizing, and scroll-driven camera push.
 - About: switch to full-width splat hero layout with bottom fade, corrected forward-facing rotation, and closer camera framing.
 - About: clamp horizontal splat rotation to a 240-degree range for both auto-rotation and drag input.
