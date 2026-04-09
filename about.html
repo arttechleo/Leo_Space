@@ -148,25 +148,26 @@
     var W = svg.parentElement.offsetWidth || window.innerWidth;
     svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
 
-    var total = Math.floor(W / 2);
+    var total = Math.floor(W / 0.8);   // ~2.5x denser
     var blades = [];
 
     for (var i = 0; i < total; i++) {
       var path = document.createElementNS(NS, 'path');
+      // bias toward short/medium: pick from lower 60% of H, occasionally taller
+      var maxH = Math.random() < 0.15 ? H * 0.70 : H * 0.42;
       var blade = {
         path: path,
-        sx:   rnd(-10, W + 10),             // allow slight bleed past edges
-        h:    rnd(18, H * 0.92),
-        w:    rnd(0.5, 2.0),                 // thin strokes
-        lean: rnd(-0.55, 0.55),             // initial lean
-        maxAngle: rnd(10, 60),              // wide chaos range
+        sx:   rnd(-6, W + 6),
+        h:    rnd(10, maxH),               // shorter, biased distribution
+        w:    rnd(0.5, 1.8),
+        lean: rnd(-0.35, 0.35),            // less extreme lean
+        maxAngle: rnd(8, 32),              // tighter sway
         speed: rnd(0.00025, 0.0008),
         phase: rnd(0, Math.PI * 2),
-        // chaotic control point offsets — fixed per blade
-        cpDriftX: rnd(-20, 20),
-        cpHeightFrac: rnd(0.3, 0.75),
-        tipDriftX: rnd(-25, 25),
-        g: Math.floor(rnd(115, 200))        // green variation
+        cpDriftX: rnd(-8, 8),              // constrained control drift
+        cpHeightFrac: rnd(0.35, 0.65),
+        tipDriftX: rnd(-10, 10),           // constrained tip drift
+        g: Math.floor(rnd(115, 200))
       };
       path.setAttribute('stroke', 'rgb(0,' + blade.g + ',0)');
       path.setAttribute('stroke-width', blade.w);
