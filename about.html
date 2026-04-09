@@ -222,8 +222,8 @@ window.addEventListener('load', function() {
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(60, w / h, 0.1, 1000);
-  camera.position.set(-0.3, 0.3, 1.4);
-  camera.lookAt(0, 0.1, 0);
+  camera.position.set(0.2, 0.5, 1.0);
+  camera.lookAt(0, 0.3, 0);
 
   const splat = new SplatMesh({
     url: './splats/LeoCanyon.compressed.ply',
@@ -270,8 +270,8 @@ window.addEventListener('load', function() {
     prevX = e.clientX; prevY = e.clientY;
   });
 
-  const baseZ = 1.4;
-  const baseY = 0.1;
+  const baseZ = 1.0;
+  const baseY = 0.5;
   let hasScrolled = false;
   window.addEventListener('scroll', () => {
     if (!hasScrolled) {
@@ -279,10 +279,10 @@ window.addEventListener('load', function() {
       autoRotating = false;
     }
     const f = Math.min(window.scrollY / 600, 1);
-    camera.position.z = baseZ - (f * 1.2);
-    camera.position.y = baseY - (f * 0.3);
-    camera.position.x = f * 0.4;
-    camera.lookAt(camera.position.x, camera.position.y - 0.1, 0);
+    camera.position.z = baseZ - (f * 0.8);
+    camera.position.y = 0.5 - (f * 0.2);
+    camera.position.x = 0.2 + f * 0.15;
+    camera.lookAt(camera.position.x * 0.5, camera.position.y - 0.1, 0);
   }, { passive: true });
 
   window.addEventListener('resize', () => {
