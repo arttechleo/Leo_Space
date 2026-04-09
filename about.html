@@ -6,10 +6,8 @@
   <link rel="icon" type="image/png" href="/faviconbw.png" />
   <title>About · Leo Danenkov</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="site-brand.js"></script>
   <script>
-    console.log('%c spatialme.xyz ', 'background:#1d1d1f;color:#f5f5f7;font-size:14px;font-weight:600;padding:4px 8px;border-radius:4px;');
-    console.log('%c vibecoded with \u2736 ChatGPT  \u2736 Cursor  \u2736 Claude Code ', 'color:#6e6e73;font-size:11px;letter-spacing:0.08em;');
-    console.log('%c Leo Danenkov \u00b7 spatialme.xyz \u00b7 ledanenkov@gmail.com ', 'color:#0066cc;font-size:11px;');
     window.addEventListener('scroll', () => {
       document.body.classList.toggle('has-scrolled', window.scrollY > 80);
     }, { passive: true });
@@ -73,6 +71,7 @@
       pointer-events: none;
       width: 100%;
     }
+    /* Keep in sync with GRASS_VIEW_H in grass script below */
     #grass-svg {
       display: block;
       width: 100%;
@@ -97,7 +96,9 @@
     <span class="page-label">About</span>
 
     <div class="about-splat-layout">
-      <div id="splat-container"></div>
+      <div id="splat-container">
+        <div id="splat-loading" class="visual-loading-placeholder" aria-live="polite">Wait, Loading</div>
+      </div>
 
       <div class="about-splat-text">
         <h1>Touching grass.</h1>
@@ -138,7 +139,9 @@
   <script>
 (function() {
   var NS = 'http://www.w3.org/2000/svg';
-  var H = 160; // viewBox height; blade lengths are fractions of H (capped below)
+  // Single source of truth for grass scale (must match #grass-svg height in <style> above)
+  var GRASS_VIEW_H = 160;
+  var MAX_BLADE_FRAC = 0.40; // hard cap on blade length as fraction of viewBox height
 
   function rnd(a, b) { return a + Math.random() * (b - a); }
 
@@ -146,21 +149,20 @@
     var svg = document.getElementById('grass-svg');
     if (!svg) return;
     var W = svg.parentElement.offsetWidth || window.innerWidth;
+    var H = GRASS_VIEW_H;
     svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
 
     // ~4–5× denser than original
     var total = Math.floor(W / 0.45);
     var blades = [];
-    // Hard cap: no tall outliers; top silhouette stays even (light letter overlap via CSS nudge only)
-    var MAX_BLADE_FRAC = 0.46;
 
     for (var i = 0; i < total; i++) {
       var path = document.createElementNS(NS, 'path');
       var roll = Math.random();
-      // Tight height bands; all clamped to MAX_BLADE_FRAC * H
-      var maxH = roll < 0.14 ? rnd(H * 0.34, H * 0.46)
-               : roll < 0.48 ? rnd(H * 0.22, H * 0.38)
-               :                rnd(H * 0.12, H * 0.30);
+      // Tight height bands; all clamped to MAX_BLADE_FRAC * H (no tall spikes)
+      var maxH = roll < 0.14 ? rnd(H * 0.28, H * MAX_BLADE_FRAC)
+               : roll < 0.48 ? rnd(H * 0.18, H * 0.32)
+               :                rnd(H * 0.10, H * 0.24);
       maxH = Math.min(maxH, H * MAX_BLADE_FRAC);
       var blade = {
         path: path,
@@ -219,116 +221,159 @@
     });
   }
 
+  function scheduleGrass() {
+    if (typeof requestIdleCallback === 'function') {
+      requestIdleCallback(function() { setTimeout(init, 50); }, { timeout: 1200 });
+    } else {
+      setTimeout(init, 50);
+    }
+  }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() { setTimeout(init, 50); });
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof requestAnimationFrame === 'function') {
+        requestAnimationFrame(function() { requestAnimationFrame(scheduleGrass); });
+      } else {
+        scheduleGrass();
+      }
+    });
+  } else if (typeof requestAnimationFrame === 'function') {
+    requestAnimationFrame(function() { requestAnimationFrame(scheduleGrass); });
   } else {
-    setTimeout(init, 50);
+    scheduleGrass();
   }
 })();
   </script>
 
   <script type="module">
-  import * as THREE from 'three';
-  import { SplatMesh } from '@sparkjsdev/spark';
+  const scheduleAboutSplat = typeof requestIdleCallback === 'function'
+    ? function(fn) { requestIdleCallback(fn, { timeout: 2200 }); }
+    : function(fn) { setTimeout(fn, 200); };
 
-  const container = document.getElementById('splat-container');
-  const w = container.clientWidth || 600;
-  const h = container.clientHeight || 450;
-
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setSize(w, h);
-  renderer.setPixelRatio(window.devicePixelRatio);
-  container.appendChild(renderer.domElement);
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, w / h, 0.1, 1000);
-  // Higher lookAt Y tilts camera up so splat sits lower in viewport (dolly unchanged)
-  const focusTarget = new THREE.Vector3(0, 0.375, 0);
-  camera.position.set(0.2, 0.42, 1.0);
-  camera.lookAt(focusTarget);
-
-  const splat = new SplatMesh({
-    url: './splats/LeoCanyon.compressed.ply',
-    splatAlphaRemovalThreshold: 10
-  });
-  splat.rotation.z = Math.PI;
-  splat.rotation.x = 0.15;  // slight forward tilt
-  scene.add(splat);
-  // Rotation range: looping swing around a center angle
-  const DEG = Math.PI / 180;
-  const ROT_CENTER = 180 * DEG; // dead center facing camera
-  const ROT_SWING = 25 * DEG; // tight +/-25deg - stays within visible splat content
-  const ROT_MIN = ROT_CENTER - ROT_SWING; // 155deg
-  const ROT_MAX = ROT_CENTER + ROT_SWING; // 205deg
-
-  splat.rotation.y = ROT_CENTER; // keep existing center
-  let baseRotY = ROT_CENTER; // start centered, not at edge
-  let rotDir = 1; // 1 = going right, -1 = going left
-  let autoRotating = true;
-  // Debug: log splat position, rotation, camera on load
-  setTimeout(() => {
-    console.log('=== SPLAT DEBUG ===');
-    console.log('splat.position:', splat.position.x.toFixed(3), splat.position.y.toFixed(3), splat.position.z.toFixed(3));
-    console.log('splat.rotation:', splat.rotation.x.toFixed(3), splat.rotation.y.toFixed(3), splat.rotation.z.toFixed(3));
-    console.log('camera.position:', camera.position.x.toFixed(3), camera.position.y.toFixed(3), camera.position.z.toFixed(3));
-    console.log('camera.lookAt target:', focusTarget.x.toFixed(3), focusTarget.y.toFixed(3), focusTarget.z.toFixed(3));
-    console.log('container size:', container.clientWidth, 'x', container.clientHeight);
-    console.log('canvas size:', renderer.domElement.width, 'x', renderer.domElement.height);
-    console.log('===================');
-  }, 2000);
-
-  let isDragging = false, prevX = 0, prevY = 0;
-  container.addEventListener('mousedown', e => {
-    isDragging = true;
-    autoRotating = false;
-    prevX = e.clientX; prevY = e.clientY;
-  });
-  window.addEventListener('mouseup', () => isDragging = false);
-  window.addEventListener('mousemove', e => {
-    if (!isDragging) return;
-    const delta = (e.clientX - prevX) * 0.005;
-    baseRotY = Math.max(ROT_MIN, Math.min(ROT_MAX, baseRotY + delta));
-    splat.rotation.x += (e.clientY - prevY) * 0.005;
-    prevX = e.clientX; prevY = e.clientY;
-  });
-
-  // Fixed ray from focus: scroll only changes distance (dolly), not yaw/pitch or splat rotation
-  const scrollDollyDir = new THREE.Vector3().subVectors(camera.position, focusTarget).normalize();
-  const scrollDollyDistMax = camera.position.distanceTo(focusTarget);
-  const scrollDollyDistMin = 0.34;
-
-  let hasScrolled = false;
-  window.addEventListener('scroll', () => {
-    if (!hasScrolled) {
-      hasScrolled = true;
-      autoRotating = false;
+  function paintThenSplat() {
+    if (typeof requestAnimationFrame === 'function') {
+      requestAnimationFrame(function() { requestAnimationFrame(function() { scheduleAboutSplat(bootAboutSplat); }); });
+    } else {
+      scheduleAboutSplat(bootAboutSplat);
     }
-    const f = Math.min(window.scrollY / 600, 1);
-    const dist = THREE.MathUtils.clamp(
-      THREE.MathUtils.lerp(scrollDollyDistMax, scrollDollyDistMin, f),
-      scrollDollyDistMin,
-      scrollDollyDistMax
-    );
-    camera.position.copy(focusTarget).addScaledVector(scrollDollyDir, dist);
+  }
+
+  async function bootAboutSplat() {
+    let THREE;
+    let SplatMesh;
+    try {
+      THREE = await import('three');
+      const spark = await import('@sparkjsdev/spark');
+      SplatMesh = spark.SplatMesh;
+    } catch (e) {
+      var failEl = document.getElementById('splat-loading');
+      if (failEl) failEl.hidden = true;
+      return;
+    }
+
+    const container = document.getElementById('splat-container');
+    if (!container) return;
+
+    const w = container.clientWidth || 600;
+    const h = container.clientHeight || 450;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(w, h);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    container.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, w / h, 0.1, 1000);
+    const focusTarget = new THREE.Vector3(0, 0.375, 0);
+    camera.position.set(0.2, 0.42, 1.0);
     camera.lookAt(focusTarget);
-  }, { passive: true });
 
-  window.addEventListener('resize', () => {
-    const nw = container.clientWidth, nh = container.clientHeight;
-    renderer.setSize(nw, nh);
-    camera.aspect = nw / nh;
-    camera.updateProjectionMatrix();
-  });
-
-  renderer.setAnimationLoop(() => {
-    if (!isDragging && autoRotating) {
-      baseRotY += 0.0015 * rotDir;
-      if (baseRotY >= ROT_MAX) { baseRotY = ROT_MAX; rotDir = -1; }
-      if (baseRotY <= ROT_MIN) { baseRotY = ROT_MIN; rotDir = 1; }
+    function hideSplatLoading() {
+      var c = document.getElementById('splat-container');
+      var el = document.getElementById('splat-loading');
+      if (c) c.classList.add('splat-visual-ready');
+      if (el) {
+        el.classList.add('visual-loading-done');
+        setTimeout(function() {
+          el.hidden = true;
+          el.classList.remove('visual-loading-done');
+        }, 380);
+      }
     }
-    splat.rotation.y = baseRotY;
-    renderer.render(scene, camera);
-  });
+
+    const splat = new SplatMesh({
+      url: './splats/LeoCanyon.compressed.ply',
+      splatAlphaRemovalThreshold: 10,
+      onLoad: hideSplatLoading
+    });
+    splat.initialized.then(hideSplatLoading, hideSplatLoading);
+    splat.rotation.z = Math.PI;
+    splat.rotation.x = 0.15;
+    scene.add(splat);
+    const DEG = Math.PI / 180;
+    const ROT_CENTER = 180 * DEG;
+    const ROT_SWING = 25 * DEG;
+    const ROT_MIN = ROT_CENTER - ROT_SWING;
+    const ROT_MAX = ROT_CENTER + ROT_SWING;
+
+    splat.rotation.y = ROT_CENTER;
+    let baseRotY = ROT_CENTER;
+    let rotDir = 1;
+    let autoRotating = true;
+
+    let isDragging = false, prevX = 0, prevY = 0;
+    container.addEventListener('mousedown', e => {
+      isDragging = true;
+      autoRotating = false;
+      prevX = e.clientX; prevY = e.clientY;
+    });
+    window.addEventListener('mouseup', () => isDragging = false);
+    window.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      const delta = (e.clientX - prevX) * 0.005;
+      baseRotY = Math.max(ROT_MIN, Math.min(ROT_MAX, baseRotY + delta));
+      splat.rotation.x += (e.clientY - prevY) * 0.005;
+      prevX = e.clientX; prevY = e.clientY;
+    });
+
+    const scrollDollyDir = new THREE.Vector3().subVectors(camera.position, focusTarget).normalize();
+    const scrollDollyDistMax = camera.position.distanceTo(focusTarget);
+    const scrollDollyDistMin = 0.34;
+
+    let hasScrolled = false;
+    window.addEventListener('scroll', () => {
+      if (!hasScrolled) {
+        hasScrolled = true;
+        autoRotating = false;
+      }
+      const f = Math.min(window.scrollY / 600, 1);
+      const dist = THREE.MathUtils.clamp(
+        THREE.MathUtils.lerp(scrollDollyDistMax, scrollDollyDistMin, f),
+        scrollDollyDistMin,
+        scrollDollyDistMax
+      );
+      camera.position.copy(focusTarget).addScaledVector(scrollDollyDir, dist);
+      camera.lookAt(focusTarget);
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      const nw = container.clientWidth, nh = container.clientHeight;
+      renderer.setSize(nw, nh);
+      camera.aspect = nw / nh;
+      camera.updateProjectionMatrix();
+    });
+
+    renderer.setAnimationLoop(() => {
+      if (!isDragging && autoRotating) {
+        baseRotY += 0.0015 * rotDir;
+        if (baseRotY >= ROT_MAX) { baseRotY = ROT_MAX; rotDir = -1; }
+        if (baseRotY <= ROT_MIN) { baseRotY = ROT_MIN; rotDir = 1; }
+      }
+      splat.rotation.y = baseRotY;
+      renderer.render(scene, camera);
+    });
+  }
+
+  paintThenSplat();
   </script>
 </body>
 </html>

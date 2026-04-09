@@ -7,9 +7,6 @@
     <title>Leo Danenkov · Spatial Computing</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="project-style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
 </head>
 <body class="index-page">
 
@@ -20,7 +17,9 @@
     <a href="contact.html">Resume</a>
   </nav>
 
-  <div id="canvas-container"></div>
+  <div id="canvas-container">
+    <div id="canvas-loading" class="visual-loading-placeholder" aria-live="polite">Wait, Loading</div>
+  </div>
 
   <div class="spatial-left">
     <p class="spatial-role">Spatial Computing</p>
@@ -107,7 +106,11 @@
 
   <div class="zoom-flash" id="zoom-flash" aria-hidden="true"></div>
 
-  <script src="app.js"></script>
+  <script defer src="site-brand.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+  <script defer src="app.js"></script>
 
     <footer>
   <div class="footer-container">

@@ -44,14 +44,10 @@
 
   <div class="video-wrapper">
     <div class="video-container">
-      <iframe
-        src="https://www.youtube.com/embed/hrvmM2Cxiho?si=53f0gTzN_Iu0V-d6"
-        title="Scholarly VR"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-        style="width:100%;height:100%;"
-      ></iframe>
+      <button type="button" class="youtube-facade" data-embed-src="https://www.youtube.com/embed/hrvmM2Cxiho?si=53f0gTzN_Iu0V-d6" data-title="Scholarly VR" data-iframe-class="" data-frameborder="0" data-iframe-style="width:100%;height:100%;" aria-label="Play YouTube video">
+        <img class="youtube-facade__thumb" src="https://i.ytimg.com/vi/hrvmM2Cxiho/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+        <span class="youtube-facade__play" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path fill="#fff" d="M9 7v10l8-5-8-5z"/></svg></span>
+      </button>
     </div>
   </div>
 
@@ -151,6 +147,8 @@
   </div>
 </footer>
 
+<script src="site-brand.js"></script>
+<script defer src="youtube-facade.js"></script>
 <script src="app.js"></script>
 
 </body>

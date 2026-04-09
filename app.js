@@ -1,7 +1,3 @@
-console.log('%c spatialme.xyz ', 'background:#1d1d1f;color:#f5f5f7;font-size:14px;font-weight:600;padding:4px 8px;border-radius:4px;');
-console.log('%c vibecoded with \u2736 ChatGPT  \u2736 Cursor  \u2736 Claude Code ', 'color:#6e6e73;font-size:11px;letter-spacing:0.08em;');
-console.log('%c Leo Danenkov \u00b7 spatialme.xyz \u00b7 ledanenkov@gmail.com ', 'color:#0066cc;font-size:11px;');
-
 window.addEventListener('scroll', () => {
     document.body.classList.toggle('has-scrolled', window.scrollY > 80);
 }, { passive: true });
@@ -569,16 +565,7 @@ class MultiVideoScene {
             const screenId = screenMesh.userData.screenId;
             const info = this.projectInfo.get(screenId);
 
-            // Debug monitor world positions for PROJECT_ZOOMS tuning:
-            // const _wp = new THREE.Vector3();
-            // screenMesh.getWorldPosition(_wp);
-            // console.log(screenMesh.name || screenId, _wp.x, _wp.y, _wp.z);
-
-            console.log('Screen clicked:', screenId);
-            console.log('Project info:', info);
-
             if (info && info.url) {
-                console.log('Navigating to:', info.url);
                 try {
                     window.location.href = info.url;
                 } catch (error) {
@@ -981,7 +968,6 @@ function doomCanvasZoneVh() {
 function logAllMonitorPositions() {
     const inst = sceneInstance;
     if (!inst || !inst.scene) {
-        console.warn('logAllMonitorPositions: scene not ready');
         return [];
     }
 
@@ -1010,8 +996,6 @@ function logAllMonitorPositions() {
             });
         }
     });
-    console.table(positions);
-    console.log(JSON.stringify(positions, null, 2));
     return positions;
 }
 
@@ -1503,6 +1487,7 @@ function setupHoverHint() {
 
 // Initialize the scene
 async function initializeScene() {
+    const container = document.getElementById('canvas-container');
     try {
         if (sceneInstance) {
             sceneInstance.dispose();
@@ -1527,6 +1512,18 @@ async function initializeScene() {
         }
     } catch (error) {
         console.error("Error creating scene:", error);
+    } finally {
+        if (container) {
+            container.classList.add('canvas-visual-ready');
+        }
+        const ph = document.getElementById('canvas-loading');
+        if (ph) {
+            ph.classList.add('visual-loading-done');
+            window.setTimeout(function () {
+                ph.hidden = true;
+                ph.classList.remove('visual-loading-done');
+            }, 380);
+        }
     }
 }
 
@@ -1538,11 +1535,28 @@ function ensureHeroTitleWords() {
     h1.setAttribute('data-hero-words', '4');
 }
 
+function scheduleAfterFirstPaint(fn) {
+    function runIdle() {
+        if (typeof requestIdleCallback === 'function') {
+            requestIdleCallback(fn, { timeout: 2000 });
+        } else {
+            window.setTimeout(fn, 1);
+        }
+    }
+    if (typeof requestAnimationFrame === 'function') {
+        requestAnimationFrame(function () {
+            requestAnimationFrame(runIdle);
+        });
+    } else {
+        runIdle();
+    }
+}
+
 // Ensure DOM is fully loaded before initializing
 function bootIndexScene() {
     ensureHeroTitleWords();
     setupHoverHint();
-    initializeScene();
+    scheduleAfterFirstPaint(initializeScene);
 }
 
 window.addEventListener('scroll', () => {
@@ -1563,7 +1577,6 @@ window.logAllMonitorPositions = logAllMonitorPositions;
 window.testZoom = function (x, y, z, standoff = 2.0) {
     const inst = sceneInstance;
     if (!inst) {
-        console.warn('testZoom: scene not ready');
         return;
     }
     const target = new THREE.Vector3(x, y, z);
@@ -1579,5 +1592,4 @@ window.testZoom = function (x, y, z, standoff = 2.0) {
         flashMid: false,
         overshoot: false
     });
-    console.log('Zooming to:', { x, y, z }, 'standoff:', standoff);
 };

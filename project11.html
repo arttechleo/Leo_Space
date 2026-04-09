@@ -45,11 +45,10 @@
   </header>
 
   <div class="video-wrapper">
-    <iframe class="youtube-video" src="https://www.youtube.com/embed/bEsWqgApTyw?si=kTzCE9MVSO4L2Ikp"
-      title="YouTube video"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
+    <button type="button" class="youtube-facade" data-embed-src="https://www.youtube.com/embed/bEsWqgApTyw?si=kTzCE9MVSO4L2Ikp" data-title="YouTube video" aria-label="Play YouTube video">
+      <img class="youtube-facade__thumb" src="https://i.ytimg.com/vi/bEsWqgApTyw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+      <span class="youtube-facade__play" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path fill="#fff" d="M9 7v10l8-5-8-5z"/></svg></span>
+    </button>
   </div>
 
   <!-- Main Project Content with Alternate Layouts -->
@@ -115,11 +114,10 @@
     </div>
 
     <div class="video-wrapper">
-      <iframe class="youtube-video" src="https://www.youtube.com/embed/FLGMP3XtQwQ?si=w123WgNRQpNLWbD-"
-        title="YouTube video"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+      <button type="button" class="youtube-facade" data-embed-src="https://www.youtube.com/embed/FLGMP3XtQwQ?si=w123WgNRQpNLWbD-" data-title="YouTube video" aria-label="Play YouTube video">
+        <img class="youtube-facade__thumb" src="https://i.ytimg.com/vi/FLGMP3XtQwQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+        <span class="youtube-facade__play" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path fill="#fff" d="M9 7v10l8-5-8-5z"/></svg></span>
+      </button>
     </div>
 
     <div class="text-left">
@@ -156,6 +154,8 @@
   </div>
 </footer>
 
+<script src="site-brand.js"></script>
+<script defer src="youtube-facade.js"></script>
 <script src="app.js"></script>
 
 </body>
