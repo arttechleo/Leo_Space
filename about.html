@@ -14,8 +14,6 @@
       document.body.classList.toggle('has-scrolled', window.scrollY > 80);
     }, { passive: true });
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/plugins/MorphSVGPlugin.min.js"></script>
   <script type="importmap">
   {
     "imports": {
@@ -142,18 +140,14 @@
   var perf = window.performance;
   var now = perf ? perf.now.bind(perf) : Date.now;
   var stage = document.querySelector("#grass-stage");
+  if (!stage) return;
   var start = now();
   var blades = [];
-  var offset = 20;
   var width = stage.parentElement.offsetWidth || window.innerWidth;
   var height = 125;
-  var total = Math.floor(width / 6);
-  var maxHeight = height * 0.8;
-  var maxAngle = 20;
-  var startAngle = 40;
-
-  stage.setAttribute("width", width);
-  stage.setAttribute("height", height);
+  var total = Math.floor(width / 5);
+  stage.setAttribute("viewBox", "0 0 " + width + " " + height);
+  stage.setAttribute("preserveAspectRatio", "xMidYMax meet");
 
   function random(min, max) {
     if (max == null) { max = min; min = 0; }
@@ -166,83 +160,51 @@
     return node;
   }
 
-  function Grass(path) {
+  function Blade(path) {
     this.path = path;
-    this.width = random(1, 5);
-    this.height = random(20, maxHeight);
-    this.maxAngle = random(30, maxAngle + 30);
-    this.angle = Math.random() * randomSign() * startAngle * Math.PI / 180;
-    var sx = offset / 2 + random(width - offset);
-    var sy = height;
-    var csx = sx - 1.5;
-    var csy = sy - this.height / (Math.random() < 0.5 ? 1 : 2);
-    this.coords = [sx, sy, csx, csy, csx, csy, sx + this.width, sy];
-    this.morphed = false;
-    this.growing = false;
-    this.start = 0;
-    this.elapsed = 0;
-    this.height_ = this.height;
-    this.height = random(20, Math.min(500, this.height));
-    var ambient = 0.85;
-    var color = [
-      Math.floor(random(16, 48) * ambient),
-      Math.floor(random(100, 255) * ambient),
-      Math.floor(random(16, 48) * ambient)
-    ];
-    var w = this.width / 2;
-    path.setAttribute("d", "M" + sx + "," + (sy+2) + ",h" + w + ",h" + w + "z");
-    path.setAttribute("fill", "rgb(" + color + ")");
+    this.w = random(1.5, 4);
+    this.h = random(30, height * 0.85);
+    this.sx = random(width);
+    this.sy = height;
+    this.maxAngle = random(15, 35);
+    this.angle = randomSign() * random(5, 20) * Math.PI / 180;
+    this.speed = random(0.0004, 0.0009);
+    this.phase = random(0, Math.PI * 2);
+    var r = Math.floor(random(16, 45));
+    var g = Math.floor(random(90, 220));
+    var b = Math.floor(random(16, 45));
+    path.setAttribute("fill", "rgb("+r+","+g+","+b+")");
+    path.setAttribute("stroke", "none");
   }
 
-  Grass.prototype.grow = function() {
-    this.morphed = true;
-    this.growing = false;
-    this.elapsed = now() - this.start;
-    TweenLite.to(this, random(2.5, 3.5), { height: this.height_, ease: Power1.easeInOut });
-  };
-
-  Grass.prototype.morph = function(d) {
-    var self = this;
-    this.growing = true;
-    TweenLite.to(this.path, random(1.5, 3.5), {
-      morphSVG: d,
-      delay: random(0.5, 4.5),
-      onComplete: function() { self.grow(); }
-    });
-  };
-
-  Grass.prototype.update = function(time) {
-    if (this.growing) return;
-    time -= this.elapsed;
-    var coords = this.coords;
-    var tip = Math.sin(time * 0.0007);
-    var th = this.angle + Math.PI / 2 + tip * Math.PI / 180 * (this.maxAngle * Math.cos(time * 0.0002));
-    var px = coords[0] + this.width + this.height * Math.cos(th);
-    var py = coords[1] - this.height * Math.sin(th);
-    var d = "M" + coords[0] + "," + coords[1];
-    d += "C" + coords[0] + "," + coords[1] + "," + coords[2] + "," + coords[3] + "," + px + "," + py;
-    d += "C" + px + "," + py + "," + coords[4] + "," + coords[5] + "," + coords[6] + "," + coords[7] + "z";
-    if (!this.morphed) {
-      this.morph(d);
-      this.start = now();
-    } else {
-      this.path.setAttribute("d", d);
-    }
+  Blade.prototype.update = function(time) {
+    var tip = Math.sin(time * this.speed + this.phase);
+    var th = this.angle + Math.PI / 2 + tip * Math.PI / 180 * this.maxAngle;
+    var px = this.sx + this.w + this.h * Math.cos(th);
+    var py = this.sy - this.h * Math.sin(th);
+    var cpx = this.sx + this.w * 0.5 + (this.h * 0.5) * Math.cos(th);
+    var cpy = this.sy - (this.h * 0.5) * Math.sin(th);
+    var d = "M" + this.sx + "," + this.sy;
+    d += " Q" + cpx + "," + cpy + " " + px + "," + py;
+    d += " L" + (px + this.w * 0.5) + "," + py;
+    d += " Q" + (cpx + this.w * 0.5) + "," + cpy + " " + (this.sx + this.w) + "," + this.sy + "z";
+    this.path.setAttribute("d", d);
   };
 
   for (var i = 0; i < total; i++) {
-    var p = createSVG("path", stage);
-    blades[i] = new Grass(p);
+    blades.push(new Blade(createSVG("path", stage)));
   }
 
-  TweenLite.ticker.addEventListener("tick", function() {
+  function render() {
     var elapsed = now() - start;
-    for (var i = 0; i < total; i++) blades[i].update(elapsed);
-  });
+    for (var i = 0; i < blades.length; i++) blades[i].update(elapsed);
+    requestAnimationFrame(render);
+  }
+  requestAnimationFrame(render);
 
   window.addEventListener("resize", function() {
     width = stage.parentElement.offsetWidth || window.innerWidth;
-    stage.setAttribute("width", width);
+    stage.setAttribute("viewBox", "0 0 " + width + " " + height);
   });
 })();
   </script>
