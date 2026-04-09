@@ -10,6 +10,9 @@
     console.log('%c spatialme.xyz ', 'background:#1d1d1f;color:#f5f5f7;font-size:14px;font-weight:600;padding:4px 8px;border-radius:4px;');
     console.log('%c vibecoded with \u2736 ChatGPT  \u2736 Cursor  \u2736 Claude Code ', 'color:#6e6e73;font-size:11px;letter-spacing:0.08em;');
     console.log('%c Leo Danenkov \u00b7 spatialme.xyz \u00b7 ledanenkov@gmail.com ', 'color:#0066cc;font-size:11px;');
+    window.addEventListener('scroll', () => {
+      document.body.classList.toggle('has-scrolled', window.scrollY > 80);
+    }, { passive: true });
   </script>
   <script type="importmap">
   {
@@ -55,13 +58,21 @@
       padding: clamp(32px, 5vw, 80px) clamp(24px, 6vw, 80px);
     }
 
-    .experience-item { margin-bottom: 32px; }
-    .experience-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
-    .experience-role { font-weight: 600; font-size: 14px; color: var(--text-primary); }
-    .experience-date { font-size: 12px; color: var(--text-secondary); }
-    .experience-org { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
-    .experience-bullets { margin: 0; padding-left: 16px; }
-    .experience-bullets li { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 4px; }
+    .touching-grass-img-wrap {
+      margin-top: -24px;
+      margin-bottom: 24px;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .touching-grass-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: center 60%;
+      display: block;
+      border-radius: 16px;
+    }
 
     #splat-container:active { cursor: grabbing; }
 
@@ -87,12 +98,20 @@
       <div class="about-splat-text">
         <h1>Touching grass.</h1>
 
+        <div class="touching-grass-img-wrap">
+          <img
+            src="https://www.permogreen.com/images/shutterstock_1023002008.jpg"
+            alt="grass"
+            class="touching-grass-img"
+          />
+        </div>
+
         <div class="section-divider"></div>
 
         <p>
           I swim a kilometre every morning. My father and I completed the
           rim-to-rim Grand Canyon hike in 7 hours and 59 minutes. My mother
-          is an Art Lecturer in Modern and Contemporary Art — I grew up in
+          is an Art Lecturer in Modern and Contemporary Art. I grew up in
           museums, and I still find my way back to them.
         </p>
 

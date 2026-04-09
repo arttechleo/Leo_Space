@@ -3,11 +3,7 @@ console.log('%c vibecoded with \u2736 ChatGPT  \u2736 Cursor  \u2736 Claude Code
 console.log('%c Leo Danenkov \u00b7 spatialme.xyz \u00b7 ledanenkov@gmail.com ', 'color:#0066cc;font-size:11px;');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-        document.body.classList.add('has-scrolled');
-    } else {
-        document.body.classList.remove('has-scrolled');
-    }
+    document.body.classList.toggle('has-scrolled', window.scrollY > 80);
 }, { passive: true });
 
 let sceneInstance = null;
