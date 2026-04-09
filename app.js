@@ -2,6 +2,14 @@ console.log('%c spatialme.xyz ', 'background:#1d1d1f;color:#f5f5f7;font-size:14p
 console.log('%c vibecoded with \u2736 ChatGPT  \u2736 Cursor  \u2736 Claude Code ', 'color:#6e6e73;font-size:11px;letter-spacing:0.08em;');
 console.log('%c Leo Danenkov \u00b7 spatialme.xyz \u00b7 ledanenkov@gmail.com ', 'color:#0066cc;font-size:11px;');
 
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+        document.body.classList.add('has-scrolled');
+    } else {
+        document.body.classList.remove('has-scrolled');
+    }
+}, { passive: true });
+
 let sceneInstance = null;
 
 // Mobile viewport-height fix for better 100vh handling (address bar on mobile)
