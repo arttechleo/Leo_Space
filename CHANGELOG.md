@@ -2,6 +2,10 @@
 
 ## 2026-04-08
 
+- About: re-export `images/Grass.png` with black pixels made transparent (PIL/numpy); grass image CSS uses `mix-blend-mode: normal` instead of multiply.
+- Global: hide native scrollbars on `html` (Firefox/IE/Edge/WebKit), keep `body` `overflow-y: scroll`; index page uses `overflow-y: scroll` to match.
+- About: `.about-splat-text` uses `background: var(--bg)` for multiply blend; grass image `mix-blend-mode: multiply`, wrap `margin-top: -60px`, image `height: 260px` / `border-radius: 0` in `style.css`.
+- About (`about.html`): replace external permogreen grass JPEG with local `images/Grass.png`.
 - Site: add black-and-white favicon (`faviconbw.png` at repo root, copied from `favicon/faviconbw.png`) and `<link rel="icon" type="image/png" href="/faviconbw.png" />` on all HTML pages plus project generator preview shell.
 - Core UX/UI (IT1): add `assets/resume-hero.png`, Emil design-eng agent skill under `.agents/skills/`, and symlink under `.claude/skills/`.
 - Resume (`contact.html`): add dark-mode overrides and a slide-in "View Interactive Resume" Figma prototype CTA near the hero heading.

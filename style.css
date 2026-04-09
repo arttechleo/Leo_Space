@@ -27,9 +27,16 @@
     --font: -apple-system, "SF Pro Display", "Helvetica Neue", sans-serif;
 }
 
+/* Hide scrollbar across all browsers */
 html {
     font-size: clamp(14px, 1.4vw, 20px);
     background: var(--bg);
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+html::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
 }
 
 /* Type scale — rem only; px allowed on html root only */
@@ -92,7 +99,7 @@ body.index-page {
     color: var(--text-primary);
     overflow-x: hidden;
     text-align: left;
-    overflow-y: auto;
+    overflow-y: scroll;
     min-height: 100%;
 }
 
@@ -934,6 +941,7 @@ body {
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-y: scroll; /* keep scrolling functional */
 }
 
 
@@ -1263,6 +1271,30 @@ body.project9-page {
 .about-section-title {
     font-weight: 600;
     margin: 1.5em 0 0.4em;
+}
+
+.about-splat-text {
+    background: var(--bg);
+}
+
+.touching-grass-img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    object-position: center bottom;
+    display: block;
+    border-radius: 0;
+    mix-blend-mode: normal;
+    background: transparent;
+}
+
+.touching-grass-img-wrap {
+    margin-top: -60px;
+    margin-bottom: 24px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    background: transparent;
 }
 
 .research-title {
