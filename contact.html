@@ -32,6 +32,18 @@
       color: var(--text-secondary);
       text-transform: uppercase;
     }
+    .experience-item { margin-bottom: 24px; }
+    .experience-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+    .experience-role { font-weight: 600; font-size: 14px; color: var(--text-primary); }
+    .experience-date { font-size: 12px; color: var(--text-secondary); }
+    .experience-org { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+    .experience-bullets { margin: 0; padding-left: 16px; }
+    .experience-bullets li { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 4px; }
+    .skills-resume-group { display: flex; flex-direction: column; gap: 12px; margin-bottom: 8px; }
+    .skills-resume-row { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+    .skills-resume-label { font-size: 11px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.07em; min-width: 120px; padding-top: 3px; }
+    .skills-resume-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skills-resume-tags span { font-size: 11px; color: var(--text-secondary); background: var(--bg-surface); border: 1px solid var(--border); border-radius: 100px; padding: 2px 10px; }
     @keyframes protoSlideIn {
       from { opacity: 0; transform: translateY(-6px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -89,6 +101,53 @@
       <div class="metric-card">
         <div class="metric-number">30%</div>
         <div class="metric-label">Cost savings via 3D scanning pipeline</div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <h2>Education</h2>
+
+    <div class="experience-item">
+      <div class="experience-header">
+        <span class="experience-role">MA Emerging Media &amp; Narrative Design</span>
+        <span class="experience-date">2025–2026</span>
+      </div>
+      <div class="experience-org">Arizona State University</div>
+      <ul class="experience-bullets">
+        <li>Capstone: mixed reality film using spatially agentic 4D Gaussian Splatting volumetric actors</li>
+      </ul>
+    </div>
+
+    <div class="experience-item">
+      <div class="experience-header">
+        <span class="experience-role">BA Interactive Arts &amp; Technology</span>
+        <span class="experience-date">2021</span>
+      </div>
+      <div class="experience-org">Simon Fraser University</div>
+    </div>
+
+    <h2>Skills</h2>
+
+    <div class="skills-resume-group">
+      <div class="skills-resume-row">
+        <span class="skills-resume-label">Prototyping</span>
+        <div class="skills-resume-tags">
+          <span>Figma</span><span>Three.js</span><span>Blender</span><span>3Ds Max</span>
+          <span>WebXR</span><span>Unity (C#)</span><span>URP</span><span>Unreal Engine 5</span>
+        </div>
+      </div>
+      <div class="skills-resume-row">
+        <span class="skills-resume-label">AI</span>
+        <div class="skills-resume-tags">
+          <span>ChatGPT</span><span>Claude Code</span><span>Cursor</span><span>Gemini</span><span>ComfyUI</span>
+        </div>
+      </div>
+      <div class="skills-resume-row">
+        <span class="skills-resume-label">Project Management</span>
+        <div class="skills-resume-tags">
+          <span>Coda</span><span>Jira</span><span>GitHub</span>
+        </div>
       </div>
     </div>
 

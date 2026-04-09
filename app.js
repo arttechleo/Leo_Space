@@ -2,20 +2,6 @@ console.log('%c spatialme.xyz ', 'background:#1d1d1f;color:#f5f5f7;font-size:14p
 console.log('%c vibecoded with \u2736 ChatGPT  \u2736 Cursor  \u2736 Claude Code ', 'color:#6e6e73;font-size:11px;letter-spacing:0.08em;');
 console.log('%c Leo Danenkov \u00b7 spatialme.xyz \u00b7 ledanenkov@gmail.com ', 'color:#0066cc;font-size:11px;');
 
-// Hero period dot scroll animation
-(function() {
-    let heroPeriodFired = false;
-    window.addEventListener('scroll', function heroPeriodScroll() {
-        if (heroPeriodFired) return;
-        heroPeriodFired = true;
-        document.body.classList.add('scrolled');
-        window.removeEventListener('scroll', heroPeriodScroll);
-        setTimeout(function() {
-            document.body.classList.remove('scrolled');
-        }, 600);
-    }, { passive: true });
-}());
-
 let sceneInstance = null;
 
 // Mobile viewport-height fix for better 100vh handling (address bar on mobile)
