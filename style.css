@@ -201,31 +201,44 @@ nav.nav-pill a.active {
     background: transparent !important;
 }
 
-/* Centered copy while main visual loads (index + about) */
-#canvas-container .visual-loading-placeholder,
-#splat-container .visual-loading-placeholder {
+/* Hero loading copy (index + about): IDs; vw + vh cap so two lines stay inside visual area (rem/px rules: no px on font-size) */
+#canvas-container #canvas-loading.visual-loading-placeholder,
+#splat-container #splat-loading.visual-loading-placeholder {
     position: absolute;
     inset: 0;
     z-index: 3;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--text-tertiary);
+    box-sizing: border-box;
+    padding: clamp(1.25rem, 5vmin, 2.5rem);
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    white-space: normal;
+    font-family: 'NeueMontreal-Bold', 'NeueMontreal-Medium', system-ui, sans-serif;
+    /* ~clamp(48px, 10vw, 140px); vh limits height on short / half-height canvas (mobile) */
+    font-size: clamp(3rem, min(10vw, 20vh), min(8.75rem, 22vh));
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    color: var(--text-primary);
+    opacity: 1;
+    text-wrap: balance;
     background: transparent;
     transition: opacity 0.35s ease-out;
 }
 
-#canvas-container .visual-loading-placeholder.visual-loading-done,
-#splat-container .visual-loading-placeholder.visual-loading-done {
+#canvas-container #canvas-loading.visual-loading-placeholder.visual-loading-done,
+#splat-container #splat-loading.visual-loading-placeholder.visual-loading-done {
     opacity: 0;
 }
 
-#canvas-container .visual-loading-placeholder[hidden],
-#splat-container .visual-loading-placeholder[hidden] {
+#canvas-container #canvas-loading[hidden],
+#splat-container #splat-loading[hidden] {
     display: none !important;
 }
 
