@@ -66,9 +66,9 @@
 
     .touching-grass-wrap {
       position: relative;
-      margin-top: -50px;
-      margin-bottom: 16px;
-      z-index: 2;
+      margin-top: -80px;   /* pull up further so tall blades reach the title */
+      margin-bottom: 8px;
+      z-index: 3;          /* above splat container's ::after gradient */
       overflow: visible;
       pointer-events: none;
       width: 100%;
@@ -76,7 +76,7 @@
     #grass-svg {
       display: block;
       width: 100%;
-      height: 140px;
+      height: 160px;
       overflow: visible;
     }
     #grass-svg path {
@@ -138,7 +138,7 @@
   <script>
 (function() {
   var NS = 'http://www.w3.org/2000/svg';
-  var H = 140;
+  var H = 160; // taller viewBox so title-reaching blades have room
 
   function rnd(a, b) { return a + Math.random() * (b - a); }
 
@@ -148,52 +148,60 @@
     var W = svg.parentElement.offsetWidth || window.innerWidth;
     svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
 
-    var total = Math.floor(W / 0.8);   // ~2.5x denser
+    // ~4–5× denser than original
+    var total = Math.floor(W / 0.45);
     var blades = [];
 
     for (var i = 0; i < total; i++) {
       var path = document.createElementNS(NS, 'path');
-      // bias toward short/medium: pick from lower 60% of H, occasionally taller
-      var maxH = Math.random() < 0.15 ? H * 0.70 : H * 0.42;
+      var roll = Math.random();
+      // 8% title-touchers, 27% medium, rest short
+      var maxH = roll < 0.08 ? rnd(H * 0.68, H * 0.78)
+               : roll < 0.35 ? rnd(H * 0.38, H * 0.52)
+               :                rnd(H * 0.12, H * 0.36);
       var blade = {
         path: path,
-        sx:   rnd(-6, W + 6),
-        h:    rnd(10, maxH),               // shorter, biased distribution
-        w:    rnd(0.5, 1.8),
-        lean: rnd(-0.35, 0.35),            // less extreme lean
-        maxAngle: rnd(8, 32),              // tighter sway
-        speed: rnd(0.00025, 0.0008),
-        phase: rnd(0, Math.PI * 2),
-        cpDriftX: rnd(-8, 8),              // constrained control drift
-        cpHeightFrac: rnd(0.35, 0.65),
-        tipDriftX: rnd(-10, 10),           // constrained tip drift
-        g: Math.floor(rnd(115, 200))
+        sx:          rnd(-4, W + 4),
+        h:           maxH,
+        w:           rnd(0.4, 1.6),
+        lean:        rnd(-0.22, 0.22),      // gentle base lean
+        // per-blade variation added on top of global wind — small
+        personalVar: rnd(0.03, 0.12),
+        phaseOffset: rnd(0, Math.PI * 2),   // tiny personal phase
+        cpDriftX:    rnd(-6, 6),
+        cpHeightFrac: rnd(0.38, 0.62),
+        tipDriftX:   rnd(-7, 7),
+        g:           Math.floor(rnd(118, 195))
       };
       path.setAttribute('stroke', 'rgb(0,' + blade.g + ',0)');
       path.setAttribute('stroke-width', blade.w);
-      path.setAttribute('opacity', rnd(0.55, 1.0));
+      path.setAttribute('opacity', rnd(0.6, 1.0));
       svg.appendChild(path);
       blades.push(blade);
     }
 
     var start = performance.now();
+    var WIND_SPEED  = 0.00038;  // global breeze frequency
+    var WIND_SWING  = 14;       // degrees of shared swing
 
     function render() {
       var t = performance.now() - start;
+      // one shared wind angle — all blades ride this
+      var globalSway = Math.sin(t * WIND_SPEED) * (WIND_SWING * Math.PI / 180);
+      // subtle secondary ripple for organic feel
+      var ripple = Math.sin(t * WIND_SPEED * 2.3) * 0.018;
+
       for (var i = 0; i < blades.length; i++) {
         var b = blades[i];
-        var sway = Math.sin(t * b.speed + b.phase);
-        var angle = b.lean + sway * (b.maxAngle * Math.PI / 180);
+        // personal variation is small — just adds individuality, not chaos
+        var personal = Math.sin(t * 0.00055 + b.phaseOffset) * b.personalVar;
+        var angle = b.lean + globalSway + ripple + personal;
 
-        // asymmetric control point — chaotic drift built in at creation
-        var csx = b.sx + b.cpDriftX + angle * b.h * 0.4;
+        var csx = b.sx + b.cpDriftX + angle * b.h * 0.38;
         var csy = H - b.h * b.cpHeightFrac;
+        var px  = b.sx + b.tipDriftX + angle * b.h * 0.88;
+        var py  = H - b.h;
 
-        // tip — drifts independently of the control point
-        var px = b.sx + b.tipDriftX + angle * b.h * 0.9;
-        var py = H - b.h;
-
-        // open quadratic path — no mirrored closing stroke
         b.path.setAttribute('d',
           'M' + b.sx + ',' + H +
           ' Q' + csx + ',' + csy + ' ' + px + ',' + py

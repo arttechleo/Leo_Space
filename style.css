@@ -1280,9 +1280,9 @@ body.project9-page {
 
 .touching-grass-wrap {
   position: relative;
-  margin-top: -50px;
-  margin-bottom: 16px;
-  z-index: 2;
+  margin-top: -80px;
+  margin-bottom: 8px;
+  z-index: 3;
   overflow: visible;
   pointer-events: none;
   width: 100%;
@@ -1290,7 +1290,7 @@ body.project9-page {
 #grass-svg {
   display: block;
   width: 100%;
-  height: 140px;
+  height: 160px;
   overflow: visible;
 }
 #grass-svg path {
