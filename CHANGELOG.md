@@ -2,6 +2,9 @@
 
 ## 2026-04-08
 
+- Research (`research.html`): copy passes — living-lab structure, redundancy trim, final rhythm / sharper opens.
+- About (grass): single source of truth — procedural grass only in `about.html`; remove duplicate `#grass-svg` CSS from `style.css`; tighten `MAX_BLADE_FRAC` (0.40) and height tiers; `GRASS_VIEW_H` + comment tied to `#grass-svg` height.
+- Research (`research.html`): restructure copy as a living lab — new headline, three thematic sections + delivery + Open Questions; preserve SIGGRAPH, ASU LA, Structural Color facts; wrap in `research-content`.
 - About (splat): `focusTarget.y` set to `0.375` (further upward tilt / lower splat in viewport; position & dolly unchanged).
 - Resume (`contact.html`): remove metric card “30% / Cost savings via 3D scanning pipeline”.
 - About: tighter splat-to-title layout — shorter `#splat-container` (62vh, min 360px), `margin-bottom: -40px`, reduced top padding on `.about-splat-text` (bottom/side padding unchanged).
