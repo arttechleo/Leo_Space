@@ -2,6 +2,7 @@
 
 ## 2026-04-08
 
+- About (`about.html`): replace grass PNG with inline transparent SVG (`.touching-grass-svg`); drop `.touching-grass-img` styles in `style.css`.
 - About: re-export `images/Grass.png` with black pixels made transparent (PIL/numpy); grass image CSS uses `mix-blend-mode: normal` instead of multiply.
 - Global: hide native scrollbars on `html` (Firefox/IE/Edge/WebKit), keep `body` `overflow-y: scroll`; index page uses `overflow-y: scroll` to match.
 - About: `.about-splat-text` uses `background: var(--bg)` for multiply blend; grass image `mix-blend-mode: multiply`, wrap `margin-top: -60px`, image `height: 260px` / `border-radius: 0` in `style.css`.
