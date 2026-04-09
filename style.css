@@ -1278,6 +1278,17 @@ body.project9-page {
 }
 
 
+.touching-grass-wrap {
+  position: relative;
+  margin-top: -50px;
+  margin-bottom: 16px;
+  z-index: 2;
+  overflow: visible;
+  pointer-events: none;
+  width: 100%;
+  min-height: 125px;
+}
+
 .research-title {
     font-weight: 800;
     margin: 1.5rem 0 1rem;
