@@ -1287,10 +1287,15 @@ body.project9-page {
   pointer-events: none;
   width: 100%;
 }
-#grass-canvas {
+#grass-svg {
   display: block;
   width: 100%;
-  background: transparent;
+  height: 140px;
+  overflow: visible;
+}
+#grass-svg path {
+  fill: none;
+  stroke-linecap: round;
 }
 
 .research-title {
