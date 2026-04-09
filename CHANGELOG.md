@@ -2,6 +2,11 @@
 
 ## 2026-04-08
 
+- About (splat): `focusTarget.y` set to `0.375` (further upward tilt / lower splat in viewport; position & dolly unchanged).
+- Resume (`contact.html`): remove metric card “30% / Cost savings via 3D scanning pipeline”.
+- About: tighter splat-to-title layout — shorter `#splat-container` (62vh, min 360px), `margin-bottom: -40px`, reduced top padding on `.about-splat-text` (bottom/side padding unchanged).
+- About (splat): scroll drives camera dolly only — fixed `focusTarget`, `scrollDollyDir` from initial pose, `lerp`/`clamp` distance; `lookAt(focusTarget)` each update (removed per-axis position + moving lookAt that caused orbit-like drift).
+- About: procedural grass — clamp blade height (`MAX_BLADE_FRAC` 0.46), tighter tiers, smaller lean/drift; unified wind (`WIND_SWING` 9deg, personal sway uses `WIND_SPEED`); wrap `margin-top: -108px` to sit nearer the title.
 - About (`about.html`): replace grass PNG with inline transparent SVG (`.touching-grass-svg`); drop `.touching-grass-img` styles in `style.css`.
 - About: re-export `images/Grass.png` with black pixels made transparent (PIL/numpy); grass image CSS uses `mix-blend-mode: normal` instead of multiply.
 - Global: hide native scrollbars on `html` (Firefox/IE/Edge/WebKit), keep `body` `overflow-y: scroll`; index page uses `overflow-y: scroll` to match.
