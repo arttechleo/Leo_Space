@@ -14,6 +14,8 @@
       document.body.classList.toggle('has-scrolled', window.scrollY > 80);
     }, { passive: true });
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/plugins/MorphSVGPlugin.min.js"></script>
   <script type="importmap">
   {
     "imports": {
@@ -63,6 +65,25 @@
     @media (max-width: 768px) {
       #splat-container { min-height: 240px; }
     }
+
+    .touching-grass-wrap {
+      position: relative;
+      margin-top: -60px;
+      margin-bottom: 16px;
+      z-index: 2;
+      overflow: visible;
+      pointer-events: none;
+    }
+    #grass-stage {
+      width: 100%;
+      height: 125px;
+      display: block;
+      overflow: visible;
+    }
+    #grass-stage path {
+      fill: none;
+      stroke: none;
+    }
   </style>
 </head>
 <body>
@@ -82,66 +103,8 @@
       <div class="about-splat-text">
         <h1>Touching grass.</h1>
 
-        <div class="touching-grass-img-wrap">
-          <svg class="touching-grass-svg" viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
-            <!-- Base ground -->
-            <ellipse cx="600" cy="260" rx="620" ry="30" fill="#4a7c2f" opacity="0.3"/>
-            <!-- Grass blades - back layer -->
-            <g fill="#3d6b22" opacity="0.7">
-              <path d="M50,260 Q45,180 60,120 Q65,180 70,260Z"/>
-              <path d="M120,260 Q110,160 130,80 Q140,160 145,260Z"/>
-              <path d="M200,260 Q195,190 210,110 Q215,190 218,260Z"/>
-              <path d="M280,260 Q270,150 290,70 Q300,150 305,260Z"/>
-              <path d="M360,260 Q355,180 370,100 Q375,180 378,260Z"/>
-              <path d="M440,260 Q430,160 450,85 Q460,165 465,260Z"/>
-              <path d="M520,260 Q515,175 530,95 Q535,175 538,260Z"/>
-              <path d="M600,260 Q590,155 610,75 Q620,158 625,260Z"/>
-              <path d="M680,260 Q675,180 690,100 Q695,180 698,260Z"/>
-              <path d="M760,260 Q750,160 770,85 Q780,165 785,260Z"/>
-              <path d="M840,260 Q835,175 850,95 Q855,178 858,260Z"/>
-              <path d="M920,260 Q910,155 930,75 Q940,158 945,260Z"/>
-              <path d="M1000,260 Q995,180 1010,100 Q1015,182 1018,260Z"/>
-              <path d="M1080,260 Q1070,160 1090,85 Q1100,165 1105,260Z"/>
-              <path d="M1150,260 Q1145,185 1158,115 Q1163,188 1165,260Z"/>
-            </g>
-            <!-- Grass blades - mid layer -->
-            <g fill="#4e8f2a" opacity="0.85">
-              <path d="M30,260 Q20,195 40,130 Q48,198 52,260Z"/>
-              <path d="M85,260 Q80,185 95,115 Q100,188 103,260Z"/>
-              <path d="M155,260 Q145,170 165,95 Q174,173 178,260Z"/>
-              <path d="M230,260 Q225,182 240,108 Q245,185 248,260Z"/>
-              <path d="M310,260 Q300,168 320,90 Q330,172 335,260Z"/>
-              <path d="M390,260 Q385,178 400,105 Q405,180 408,260Z"/>
-              <path d="M465,260 Q455,165 475,88 Q485,168 490,260Z"/>
-              <path d="M545,260 Q540,178 555,102 Q560,180 563,260Z"/>
-              <path d="M625,260 Q615,162 635,82 Q645,165 650,260Z"/>
-              <path d="M705,260 Q700,178 715,105 Q720,180 723,260Z"/>
-              <path d="M785,260 Q775,165 795,88 Q805,168 810,260Z"/>
-              <path d="M865,260 Q860,178 875,102 Q880,182 883,260Z"/>
-              <path d="M945,260 Q935,162 955,82 Q965,165 970,260Z"/>
-              <path d="M1025,260 Q1020,178 1035,105 Q1040,182 1043,260Z"/>
-              <path d="M1110,260 Q1100,165 1120,88 Q1130,168 1135,260Z"/>
-            </g>
-            <!-- Grass blades - front layer -->
-            <g fill="#5aab30">
-              <path d="M10,260 Q0,200 15,145 Q22,202 25,260Z"/>
-              <path d="M65,260 Q58,188 72,125 Q78,190 80,260Z"/>
-              <path d="M135,260 Q128,175 142,112 Q148,177 150,260Z"/>
-              <path d="M210,260 Q202,182 218,118 Q224,184 226,260Z"/>
-              <path d="M290,260 Q282,172 298,108 Q304,174 306,260Z"/>
-              <path d="M370,260 Q362,185 378,120 Q384,187 386,260Z"/>
-              <path d="M450,260 Q440,172 458,108 Q466,175 468,260Z"/>
-              <path d="M530,260 Q522,182 538,118 Q544,184 546,260Z"/>
-              <path d="M610,260 Q600,168 618,102 Q626,170 628,260Z"/>
-              <path d="M690,260 Q682,182 698,118 Q704,184 706,260Z"/>
-              <path d="M770,260 Q760,172 778,108 Q786,175 788,260Z"/>
-              <path d="M850,260 Q842,182 858,118 Q864,184 866,260Z"/>
-              <path d="M930,260 Q920,168 938,102 Q946,170 948,260Z"/>
-              <path d="M1010,260 Q1002,182 1018,118 Q1024,184 1026,260Z"/>
-              <path d="M1090,260 Q1080,172 1098,108 Q1106,175 1108,260Z"/>
-              <path d="M1170,260 Q1162,185 1178,122 Q1184,187 1186,260Z"/>
-            </g>
-          </svg>
+        <div class="touching-grass-wrap">
+          <svg id="grass-stage"></svg>
         </div>
 
         <div class="section-divider"></div>
@@ -172,6 +135,117 @@
     </div>
   </div>
 </footer>
+
+  <script>
+(function() {
+  var xmlns = "http://www.w3.org/2000/svg";
+  var perf = window.performance;
+  var now = perf ? perf.now.bind(perf) : Date.now;
+  var stage = document.querySelector("#grass-stage");
+  var start = now();
+  var blades = [];
+  var offset = 20;
+  var width = stage.parentElement.offsetWidth || window.innerWidth;
+  var height = 125;
+  var total = Math.floor(width / 6);
+  var maxHeight = height * 0.8;
+  var maxAngle = 20;
+  var startAngle = 40;
+
+  stage.setAttribute("width", width);
+  stage.setAttribute("height", height);
+
+  function random(min, max) {
+    if (max == null) { max = min; min = 0; }
+    return min + Math.random() * (max - min);
+  }
+  function randomSign() { return Math.random() < 0.5 ? 1 : -1; }
+  function createSVG(type, parent) {
+    var node = document.createElementNS(xmlns, type);
+    parent && parent.appendChild(node);
+    return node;
+  }
+
+  function Grass(path) {
+    this.path = path;
+    this.width = random(1, 5);
+    this.height = random(20, maxHeight);
+    this.maxAngle = random(30, maxAngle + 30);
+    this.angle = Math.random() * randomSign() * startAngle * Math.PI / 180;
+    var sx = offset / 2 + random(width - offset);
+    var sy = height;
+    var csx = sx - 1.5;
+    var csy = sy - this.height / (Math.random() < 0.5 ? 1 : 2);
+    this.coords = [sx, sy, csx, csy, csx, csy, sx + this.width, sy];
+    this.morphed = false;
+    this.growing = false;
+    this.start = 0;
+    this.elapsed = 0;
+    this.height_ = this.height;
+    this.height = random(20, Math.min(500, this.height));
+    var ambient = 0.85;
+    var color = [
+      Math.floor(random(16, 48) * ambient),
+      Math.floor(random(100, 255) * ambient),
+      Math.floor(random(16, 48) * ambient)
+    ];
+    var w = this.width / 2;
+    path.setAttribute("d", "M" + sx + "," + (sy+2) + ",h" + w + ",h" + w + "z");
+    path.setAttribute("fill", "rgb(" + color + ")");
+  }
+
+  Grass.prototype.grow = function() {
+    this.morphed = true;
+    this.growing = false;
+    this.elapsed = now() - this.start;
+    TweenLite.to(this, random(2.5, 3.5), { height: this.height_, ease: Power1.easeInOut });
+  };
+
+  Grass.prototype.morph = function(d) {
+    var self = this;
+    this.growing = true;
+    TweenLite.to(this.path, random(1.5, 3.5), {
+      morphSVG: d,
+      delay: random(0.5, 4.5),
+      onComplete: function() { self.grow(); }
+    });
+  };
+
+  Grass.prototype.update = function(time) {
+    if (this.growing) return;
+    time -= this.elapsed;
+    var coords = this.coords;
+    var tip = Math.sin(time * 0.0007);
+    var th = this.angle + Math.PI / 2 + tip * Math.PI / 180 * (this.maxAngle * Math.cos(time * 0.0002));
+    var px = coords[0] + this.width + this.height * Math.cos(th);
+    var py = coords[1] - this.height * Math.sin(th);
+    var d = "M" + coords[0] + "," + coords[1];
+    d += "C" + coords[0] + "," + coords[1] + "," + coords[2] + "," + coords[3] + "," + px + "," + py;
+    d += "C" + px + "," + py + "," + coords[4] + "," + coords[5] + "," + coords[6] + "," + coords[7] + "z";
+    if (!this.morphed) {
+      this.morph(d);
+      this.start = now();
+    } else {
+      this.path.setAttribute("d", d);
+    }
+  };
+
+  for (var i = 0; i < total; i++) {
+    var p = createSVG("path", stage);
+    blades[i] = new Grass(p);
+  }
+
+  TweenLite.ticker.addEventListener("tick", function() {
+    var elapsed = now() - start;
+    for (var i = 0; i < total; i++) blades[i].update(elapsed);
+  });
+
+  window.addEventListener("resize", function() {
+    width = stage.parentElement.offsetWidth || window.innerWidth;
+    stage.setAttribute("width", width);
+  });
+})();
+  </script>
 
   <script type="module">
   import * as THREE from 'three';
