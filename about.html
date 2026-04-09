@@ -188,7 +188,7 @@
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(60, w / h, 0.1, 1000);
-  camera.position.set(0, 0.2, 1.8);
+  camera.position.set(-0.5, 0.8, 2.8);
   camera.lookAt(0, 0.2, 0);
 
   const splat = new SplatMesh({
@@ -196,6 +196,7 @@
     splatAlphaRemovalThreshold: 10
   });
   splat.rotation.z = Math.PI;
+  splat.rotation.x = 0.15;  // slight forward tilt
   scene.add(splat);
   // Rotation range: looping swing around a center angle
   const DEG = Math.PI / 180;
@@ -204,6 +205,7 @@
   const ROT_MIN = ROT_CENTER - ROT_SWING; // 155deg
   const ROT_MAX = ROT_CENTER + ROT_SWING; // 205deg
 
+  splat.rotation.y = ROT_CENTER; // keep existing center
   let baseRotY = ROT_CENTER; // start centered, not at edge
   let rotDir = 1; // 1 = going right, -1 = going left
   let autoRotating = true;
@@ -234,7 +236,7 @@
     prevX = e.clientX; prevY = e.clientY;
   });
 
-  const baseZ = 1.8;
+  const baseZ = 2.8;
   const baseY = 0.2;
   let hasScrolled = false;
   window.addEventListener('scroll', () => {
