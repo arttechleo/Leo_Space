@@ -101,7 +101,6 @@ function loadSvgPaths(svgFilePath, targetSvgId, basePathId) {
   // Function to check if loading is complete
   function checkAndRemoveLoadingScreen() {
     if (loadingComplete && svgAnimationComplete) {
-      console.log('Both loading and animation complete, removing loading screen');
       const loadingScreen = document.getElementById('loading-screen');
       
       if (loadingScreen) {
