@@ -55,6 +55,14 @@
       padding: clamp(32px, 5vw, 80px) clamp(24px, 6vw, 80px);
     }
 
+    .experience-item { margin-bottom: 32px; }
+    .experience-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+    .experience-role { font-weight: 600; font-size: 14px; color: var(--text-primary); }
+    .experience-date { font-size: 12px; color: var(--text-secondary); }
+    .experience-org { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+    .experience-bullets { margin: 0; padding-left: 16px; }
+    .experience-bullets li { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 4px; }
+
     #splat-container:active { cursor: grabbing; }
 
     @media (max-width: 768px) {
@@ -90,14 +98,81 @@
         </p>
 
         <h2>Experience</h2>
-        <p>
-          <strong>ASU Los Angeles</strong> · Gaussian Splatting Specialist &amp; Virtual Art Department Trainee · Sep 2025–present<br>
-          <strong>SIGGRAPH Vancouver</strong> · AI Prototyping &amp; Conference Apprentice · Jan–Aug 2025<br>
-          <strong>Article Vancouver</strong> · Digitization Specialist, CGI Team Intern · Sep–Dec 2024<br>
-          <strong>Structural Color Gallery New York</strong> · Experience Engineer · Feb–Aug 2024<br>
-          <strong>Volumetrics.io San Francisco</strong> · Mixed Reality Design Engineer · Sep 2023–Feb 2024<br>
-          <strong>Nanome San Diego</strong> · Mixed Reality Product Designer · Sep 2022–Aug 2023
-        </p>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="experience-role">Gaussian Splatting Specialist &amp; Virtual Art Department Trainee</span>
+            <span class="experience-date">Sep 2025–present</span>
+          </div>
+          <div class="experience-org">ASU, Los Angeles, CA</div>
+          <ul class="experience-bullets">
+            <li>Trained 25 students on Synapse's LED VP stage, cutting location scouting costs by 15%</li>
+            <li>Optimized Gaussian Splatting by 25% for virtual backgrounds</li>
+            <li>Built AI-assisted workflows testing 30+ immersive concepts per iteration cycle</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="experience-role">AI Prototyping &amp; Conference Apprentice</span>
+            <span class="experience-date">Jan–Aug 2025</span>
+          </div>
+          <div class="experience-org">SIGGRAPH, Vancouver, BC</div>
+          <ul class="experience-bullets">
+            <li>Served on Immersive Pavilion Subcommittee, reviewing real-time XR installations</li>
+            <li>Integrated generative AI tools into live conference production workflows</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="experience-role">Digitization Specialist, CGI Team Intern</span>
+            <span class="experience-date">Sep–Dec 2024</span>
+          </div>
+          <div class="experience-org">Article, Vancouver, BC</div>
+          <ul class="experience-bullets">
+            <li>Ran Gaussian splatting and photogrammetry capture for product digitization pipeline</li>
+            <li>Delivered optimized 3D assets for e-commerce AR previews</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="experience-role">Experience Engineer</span>
+            <span class="experience-date">Feb–Aug 2024</span>
+          </div>
+          <div class="experience-org">Structural Color Gallery, New York, NY</div>
+          <ul class="experience-bullets">
+            <li>Built WebGL virtual exhibition for Megumi Nagai's Night Trees show (20 artworks)</li>
+            <li>Cut load times by 50% through mesh decimation and Three.js optimization</li>
+            <li>Conducted 20+ usability sessions to refine navigation and performance</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="experience-role">Mixed Reality Design Engineer</span>
+            <span class="experience-date">Sep 2023–Feb 2024</span>
+          </div>
+          <div class="experience-org">Volumetrics.io, San Francisco, CA</div>
+          <ul class="experience-bullets">
+            <li>Designed and tested MR experiences on Meta Quest and Apple Vision Pro with mr.js</li>
+            <li>Validated 3D file type support (glb, USDZ) and spatial anchoring features</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="experience-role">Mixed Reality Product Designer</span>
+            <span class="experience-date">Sep 2022–Aug 2023</span>
+          </div>
+          <div class="experience-org">Nanome, San Diego, CA</div>
+          <ul class="experience-bullets">
+            <li>Owned interaction research for Nanome 2.0 across XR and 2D surfaces</li>
+            <li>Built LLM pipeline automating qualitative user feedback, unblocking 2.0 design sprint</li>
+            <li>Ran playtesting sessions with pharmaceutical researchers; derived updated personas and wireframes</li>
+          </ul>
+        </div>
 
         <h2>Education</h2>
         <p>
@@ -115,9 +190,8 @@
 
         <h2>Outside the headset</h2>
         <p>
-          Rim-to-rim Grand Canyon in 8h59 with my dad; Vancouver mountain trails;
-          Chamonix skiing; quarterly Chicago family trips. I like ambitious,
-          efficient projects, whether in code or on a bike.
+          I swim 1km every day. I'm drawn to the history of art and watch a lot of cinema.
+          I completed the rim-to-rim Grand Canyon hike in 7:59.
         </p>
 
         <div class="section-divider"></div>
@@ -136,7 +210,6 @@
       <p>Website developed by Leo Danenkov.</p>
       <p>Email with inquiries to ledanenkov@gmail.com</p>
       <p>spatialme.xyz</p>
-      <p>This site uses YouTube embeds which may set third-party cookies.</p>
     </div>
   </div>
 </footer>

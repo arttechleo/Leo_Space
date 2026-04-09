@@ -337,6 +337,25 @@ h1.hero-title {
     margin-right: 0;
 }
 
+.hero-period {
+    display: inline-block;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), width 0.6s ease, border-radius 0.4s ease;
+}
+
+body.scrolled .hero-period {
+    display: block;
+    position: fixed;
+    width: 100vmax;
+    height: 100vmax;
+    border-radius: 50%;
+    background: var(--text-primary);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 999;
+    pointer-events: none;
+}
+
 .hero-title-word:nth-child(1) {
     animation-delay: 0.5s;
 }
@@ -848,6 +867,14 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
     nav.nav-pill {
         width: calc(100vw - 32px);
         justify-content: space-evenly;
+    }
+
+    .hello-text {
+        font-size: clamp(40px, 12vw, 80px);
+    }
+
+    .project-short-skill {
+        justify-content: center;
     }
 }
 
