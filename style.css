@@ -866,31 +866,49 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
 }
 
 @media (max-width: 768px) {
+    body, html {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
     #canvas-container {
-        height: calc(52vh - 60px);
+        height: 45vh !important;
     }
 
     #scroll-content {
-        margin-top: 52vh;
+        margin-top: 45vh !important;
+    }
+
+    .hello-text {
+        font-size: clamp(32px, 10vw, 56px) !important;
+        padding: 0 16px;
+        text-align: left;
     }
 
     .spatial-left,
     .spatial-right {
-        display: none;
+        display: none !important;
     }
 
     .scroll-progress {
-        display: none;
+        display: none !important;
+    }
+
+    .project-section {
+        padding: 32px 16px !important;
+        width: 100%;
     }
 
     .project-short {
+        flex-direction: column !important;
+        align-items: center !important;
         grid-template-columns: 1fr;
         justify-items: center;
         align-items: start;
-        padding: 40px 20px 64px;
-        gap: 28px;
+        gap: 20px !important;
         min-height: auto;
-        text-align: center;
+        text-align: left;
+        padding: 32px 16px !important;
     }
 
     #scroll-content > .project-section:nth-child(odd) .project-short-video,
@@ -898,24 +916,40 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
         order: 0;
     }
 
-    /* Reset desktop justify-self: end on reversed cards */
     #scroll-content > .project-section:nth-child(odd) .project-short-info {
         justify-self: center;
     }
 
+    .project-short-video {
+        width: 100% !important;
+        max-width: 100% !important;
+        order: 1;
+    }
+
     .project-short-screen {
-        width: clamp(280px, 90vw, 460px);
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     .project-short-info {
-        width: 90vw;
-        max-width: 460px;
-        text-align: center;
+        width: 100% !important;
+        max-width: 100% !important;
+        order: 2;
+        text-align: left;
         align-self: auto;
     }
 
+    .project-short-info h2 {
+        font-size: clamp(24px, 7vw, 36px) !important;
+    }
+
     .project-short-skills {
-        justify-content: center;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .project-short-skill {
+        justify-content: flex-start;
     }
 
     nav.nav-pill {
@@ -923,44 +957,37 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
         justify-content: space-evenly;
     }
 
-    .hello-text {
-        font-size: clamp(36px, 11vw, 64px);
-        padding: 0 20px;
-    }
-
-    .project-short-skill {
-        justify-content: center;
-    }
-
-    .project-short-video {
-        width: 90vw;
-        max-width: 460px;
-        order: 1;
+    .nav-pill a {
+        font-size: 12px !important;
+        padding: 5px 8px !important;
     }
 
     .scroll-hint {
+        width: 100%;
         text-align: center;
     }
 
     .hero {
-        padding: 0 20px;
+        padding: 0 16px;
+    }
+
+    .project-short-content,
+    .projects-header {
+        padding: 0 16px;
+        width: 100%;
+        box-sizing: border-box;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 390px) {
+    #canvas-container {
+        height: 40vh !important;
+    }
+    #scroll-content {
+        margin-top: 40vh !important;
+    }
     .hello-text {
-        font-size: clamp(32px, 10vw, 48px);
-    }
-    .nav-pill a {
-        font-size: 12px;
-        padding: 5px 8px;
-    }
-}
-
-@media (max-width: 400px) {
-    nav.nav-pill a {
-        font-size: 13px;
-        padding: 4px 10px;
+        font-size: 28px !important;
     }
 }
 
