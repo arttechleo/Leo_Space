@@ -924,11 +924,36 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
     }
 
     .hello-text {
-        font-size: clamp(40px, 12vw, 80px);
+        font-size: clamp(36px, 11vw, 64px);
+        padding: 0 20px;
     }
 
     .project-short-skill {
         justify-content: center;
+    }
+
+    .project-short-video {
+        width: 90vw;
+        max-width: 460px;
+        order: 1;
+    }
+
+    .scroll-hint {
+        text-align: center;
+    }
+
+    .hero {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hello-text {
+        font-size: clamp(32px, 10vw, 48px);
+    }
+    .nav-pill a {
+        font-size: 12px;
+        padding: 5px 8px;
     }
 }
 
