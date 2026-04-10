@@ -992,43 +992,103 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
     .about-splat-layout {
         display: flex !important;
         flex-direction: column !important;
-        padding: 20px 16px !important;
-        gap: 24px !important;
+        padding: 16px !important;
+        gap: 20px !important;
     }
     #splat-container {
         width: 100% !important;
-        height: 300px !important;
+        height: 280px !important;
         min-height: 0 !important;
     }
     .about-splat-text {
         width: 100% !important;
         padding: 0 !important;
     }
-    .touching-grass-wrap {
-        margin-top: -20px !important;
-    }
     .about-splat-text h1 {
-        font-size: clamp(32px, 10vw, 48px) !important;
+        font-size: clamp(28px, 9vw, 48px) !important;
+    }
+    .touching-grass-wrap {
+        margin-top: -16px !important;
+        width: 100% !important;
+    }
+    #grass-canvas, #grass-svg {
+        height: 80px !important;
+        width: 100% !important;
     }
 
     /* ── Resume / Contact page ── */
     .experience-item {
-        padding: 0 16px !important;
+        padding: 0 !important;
+        margin-bottom: 24px !important;
     }
     .experience-header {
         flex-direction: column !important;
-        gap: 4px !important;
+        align-items: flex-start !important;
+        gap: 2px !important;
     }
     .experience-date {
         text-align: left !important;
     }
+    .experience-role {
+        font-size: 13px !important;
+    }
+    .experience-bullets li {
+        font-size: 12px !important;
+    }
     .metric-grid,
-    [class*="metric"] {
+    .stats-grid {
         grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
         padding: 0 16px !important;
     }
     .availability-badge {
+        font-size: 10px !important;
+        padding: 4px 10px !important;
         margin: 16px 16px 0 !important;
+    }
+    .skills-section,
+    .education-section {
+        padding: 0 16px !important;
+        width: 100% !important;
+    }
+    .project-nav {
+        flex-direction: column !important;
+        gap: 12px !important;
+        padding: 24px 16px !important;
+    }
+
+    /* ── Research page ── */
+    .research-content,
+    .research-container,
+    .research-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 16px !important;
+        gap: 20px !important;
+        width: 100% !important;
+    }
+    .research-title {
+        font-size: clamp(24px, 7vw, 40px) !important;
+    }
+    .research-section {
+        width: 100% !important;
+        padding: 0 16px !important;
+    }
+
+    /* ── All pages ── */
+    .page-label {
+        padding-left: 16px !important;
+    }
+    h1, h2 {
+        word-break: break-word !important;
+    }
+    main {
+        padding: 0 16px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    footer .footer-container {
+        padding: 24px 16px !important;
     }
 }
 
