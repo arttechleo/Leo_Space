@@ -2497,11 +2497,15 @@ body:not(.index-page) .section-divider {
   }
 
   /* --- About page --- */
+  /* main has padding: 0 20px; bleed layout back to full viewport width */
   .about-splat-layout {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 0;
     gap: 0;
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
   }
   #splat-container {
     width: 100%;
@@ -2510,7 +2514,7 @@ body:not(.index-page) .section-divider {
   }
   .about-splat-text {
     width: 100%;
-    padding: 0;
+    padding: 0 20px;
   }
   .about-splat-text h1 {
     font-size: clamp(36px, 10vw, 52px);
@@ -2570,16 +2574,40 @@ body:not(.index-page) .section-divider {
     padding: 0;
     width: 100%;
   }
-  .research-section h2 {
-    font-size: clamp(20px, 5.5vw, 28px);
-    line-height: 1.25;
+  .research-content h1 {
+    font-size: clamp(24px, 7vw, 36px);
+    line-height: 1.2;
+    word-break: break-word;
   }
-  .research-section p {
+  .research-section h2 {
+    font-size: clamp(18px, 5vw, 26px);
+    line-height: 1.25;
+    word-break: break-word;
+  }
+  .research-section p,
+  .research-content > p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .research-section ul li,
+  .research-content ul li {
     font-size: 15px;
     line-height: 1.7;
   }
 
   /* --- Resume page (contact.html) --- */
+  .contact-page main {
+    text-align: left;
+  }
+  .contact-page main > p:not(.availability-badge) {
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+  }
+  .contact-page h1,
+  .contact-page h2 {
+    text-align: left;
+  }
   .availability-badge {
     font-size: 10px;
     letter-spacing: 0.06em;
@@ -2589,11 +2617,12 @@ body:not(.index-page) .section-divider {
     margin: 20px 20px 12px;
   }
   /* actual stats classes: .metric-grid / .metric-card / .metric-number / .metric-label */
+  /* no padding here — main already provides 20px horizontal */
   .metric-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
-    padding: 0 20px;
+    padding: 0;
     width: 100%;
     overflow: hidden;
   }
