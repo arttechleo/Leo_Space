@@ -868,12 +868,15 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
 @media (max-width: 768px) {
     /* ── Global overflow prevention ── */
     * {
-        max-width: 100vw;
         box-sizing: border-box;
     }
-    body, html {
+    html, body {
         overflow-x: hidden !important;
+        max-width: 100vw !important;
         width: 100% !important;
+    }
+    img, video, iframe, canvas {
+        max-width: 100% !important;
     }
 
     /* ── Main page canvas ── */
@@ -908,15 +911,20 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
         padding: 32px 16px !important;
         width: 100%;
     }
+    /* display:grid on desktop — must switch to flex for column stacking */
     .project-short {
+        display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        gap: 24px !important;
-        min-height: auto;
+        gap: 20px !important;
+        min-height: auto !important;
         padding: 40px 16px !important;
+        width: 100% !important;
     }
-    /* Reset alternating desktop order so mobile always stacks same way */
-    .project-short > *,
+    /* Kill alternating grid-template-columns and order from nth-child(odd) rules */
+    #scroll-content > .project-section:nth-child(odd) .project-short {
+        grid-template-columns: unset;
+    }
     #scroll-content > .project-section:nth-child(odd) .project-short-video,
     #scroll-content > .project-section:nth-child(odd) .project-short-info {
         order: unset;
@@ -925,6 +933,7 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
         order: 1 !important;
         width: 100% !important;
         max-width: 100% !important;
+        padding: 0 !important;
         text-align: left !important;
         align-self: auto;
     }
@@ -933,18 +942,31 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
         width: 100% !important;
         max-width: 100% !important;
     }
+    /* clamp(240px,28vw,480px) has 240px minimum — override with explicit 100% */
     .project-short-screen {
         width: 100% !important;
         max-width: 100% !important;
+        min-width: 0 !important;
         aspect-ratio: 16 / 9 !important;
+        border-radius: 20px !important;
     }
-    .project-short-info h2 {
-        font-size: clamp(24px, 7vw, 36px) !important;
+    .project-short-screen iframe,
+    .project-short-screen video {
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        inset: 0 !important;
     }
-    .project-short-skills,
-    .project-short-skill {
+    .project-short h2 {
+        font-size: clamp(22px, 6vw, 32px) !important;
+    }
+    .project-short-skills {
         justify-content: flex-start !important;
         flex-wrap: wrap !important;
+        gap: 6px !important;
+    }
+    .project-short-skill {
+        justify-content: flex-start !important;
     }
     .project-short-content,
     .projects-header {
@@ -968,20 +990,22 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
 
     /* ── About page ── */
     .about-splat-layout {
-        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
         padding: 20px 16px !important;
         gap: 24px !important;
     }
     #splat-container {
-        height: 340px !important;
         width: 100% !important;
+        height: 300px !important;
+        min-height: 0 !important;
     }
     .about-splat-text {
         width: 100% !important;
         padding: 0 !important;
     }
     .touching-grass-wrap {
-        margin-top: -30px !important;
+        margin-top: -20px !important;
     }
     .about-splat-text h1 {
         font-size: clamp(32px, 10vw, 48px) !important;
