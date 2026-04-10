@@ -866,116 +866,145 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
 }
 
 @media (max-width: 768px) {
+    /* ── Global overflow prevention ── */
+    * {
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
     body, html {
-        overflow-x: hidden;
-        width: 100%;
+        overflow-x: hidden !important;
+        width: 100% !important;
     }
 
+    /* ── Main page canvas ── */
     #canvas-container {
         height: 45vh !important;
     }
-
     #scroll-content {
         margin-top: 45vh !important;
     }
 
+    /* ── Hero ── */
     .hello-text {
         font-size: clamp(32px, 10vw, 56px) !important;
         padding: 0 16px;
         text-align: left;
     }
+    .hero {
+        padding: 0 16px;
+    }
 
+    /* ── Flanking columns + dots ── */
     .spatial-left,
     .spatial-right {
         display: none !important;
     }
-
     .scroll-progress {
         display: none !important;
     }
 
+    /* ── Project cards: info first, video second ── */
     .project-section {
         padding: 32px 16px !important;
         width: 100%;
     }
-
     .project-short {
         flex-direction: column !important;
         align-items: center !important;
-        grid-template-columns: 1fr;
-        justify-items: center;
-        align-items: start;
-        gap: 20px !important;
+        gap: 24px !important;
         min-height: auto;
-        text-align: left;
-        padding: 32px 16px !important;
+        padding: 40px 16px !important;
     }
-
+    /* Reset alternating desktop order so mobile always stacks same way */
+    .project-short > *,
     #scroll-content > .project-section:nth-child(odd) .project-short-video,
     #scroll-content > .project-section:nth-child(odd) .project-short-info {
-        order: 0;
+        order: unset;
     }
-
-    #scroll-content > .project-section:nth-child(odd) .project-short-info {
-        justify-self: center;
-    }
-
-    .project-short-video {
+    .project-short-info {
+        order: 1 !important;
         width: 100% !important;
         max-width: 100% !important;
-        order: 1;
+        text-align: left !important;
+        align-self: auto;
     }
-
+    .project-short-video {
+        order: 2 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
     .project-short-screen {
         width: 100% !important;
         max-width: 100% !important;
+        aspect-ratio: 16 / 9 !important;
     }
-
-    .project-short-info {
-        width: 100% !important;
-        max-width: 100% !important;
-        order: 2;
-        text-align: left;
-        align-self: auto;
-    }
-
     .project-short-info h2 {
         font-size: clamp(24px, 7vw, 36px) !important;
     }
-
-    .project-short-skills {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-    }
-
+    .project-short-skills,
     .project-short-skill {
-        justify-content: flex-start;
+        justify-content: flex-start !important;
+        flex-wrap: wrap !important;
     }
-
-    nav.nav-pill {
-        width: calc(100vw - 32px);
-        justify-content: space-evenly;
+    .project-short-content,
+    .projects-header {
+        padding: 0 16px;
+        width: 100%;
     }
-
-    .nav-pill a {
-        font-size: 12px !important;
-        padding: 5px 8px !important;
-    }
-
     .scroll-hint {
         width: 100%;
         text-align: center;
     }
 
-    .hero {
-        padding: 0 16px;
+    /* ── Nav ── */
+    nav.nav-pill {
+        width: calc(100vw - 32px);
+        justify-content: space-evenly;
+    }
+    .nav-pill a {
+        font-size: 12px !important;
+        padding: 5px 8px !important;
     }
 
-    .project-short-content,
-    .projects-header {
-        padding: 0 16px;
-        width: 100%;
-        box-sizing: border-box;
+    /* ── About page ── */
+    .about-splat-layout {
+        grid-template-columns: 1fr !important;
+        padding: 20px 16px !important;
+        gap: 24px !important;
+    }
+    #splat-container {
+        height: 340px !important;
+        width: 100% !important;
+    }
+    .about-splat-text {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    .touching-grass-wrap {
+        margin-top: -30px !important;
+    }
+    .about-splat-text h1 {
+        font-size: clamp(32px, 10vw, 48px) !important;
+    }
+
+    /* ── Resume / Contact page ── */
+    .experience-item {
+        padding: 0 16px !important;
+    }
+    .experience-header {
+        flex-direction: column !important;
+        gap: 4px !important;
+    }
+    .experience-date {
+        text-align: left !important;
+    }
+    .metric-grid,
+    [class*="metric"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        padding: 0 16px !important;
+    }
+    .availability-badge {
+        margin: 16px 16px 0 !important;
     }
 }
 
