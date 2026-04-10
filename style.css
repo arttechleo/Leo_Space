@@ -993,27 +993,40 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
         display: flex !important;
         flex-direction: column !important;
         padding: 16px !important;
-        gap: 20px !important;
+        gap: 12px !important;
     }
     #splat-container {
         width: 100% !important;
-        height: 280px !important;
+        height: 260px !important;
         min-height: 0 !important;
+        margin-bottom: 0 !important;
     }
     .about-splat-text {
         width: 100% !important;
         padding: 0 !important;
     }
     .about-splat-text h1 {
-        font-size: clamp(28px, 9vw, 48px) !important;
+        font-size: clamp(32px, 9vw, 48px) !important;
+        margin-top: 8px !important;
     }
     .touching-grass-wrap {
-        margin-top: -16px !important;
+        margin-top: -12px !important;
         width: 100% !important;
     }
     #grass-canvas, #grass-svg {
         height: 80px !important;
         width: 100% !important;
+    }
+
+    /* ── Research page ── */
+    body:not(.index-page) main {
+        padding-top: 24px !important;
+    }
+    .research-title,
+    .page-hero-title {
+        font-size: clamp(26px, 7vw, 40px) !important;
+        padding: 0 16px !important;
+        margin-top: 16px !important;
     }
 
     /* ── Resume / Contact page ── */
@@ -1035,16 +1048,32 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
     .experience-bullets li {
         font-size: 12px !important;
     }
-    .metric-grid,
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px !important;
-        padding: 0 16px !important;
-    }
     .availability-badge {
+        display: block !important;
+        width: fit-content !important;
         font-size: 10px !important;
-        padding: 4px 10px !important;
+        letter-spacing: 0.06em !important;
+        padding: 4px 12px !important;
+        white-space: normal !important;
+        text-align: center !important;
+        max-width: calc(100vw - 32px) !important;
         margin: 16px 16px 0 !important;
+    }
+    .metric-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        width: calc(100vw - 32px) !important;
+        margin: 0 16px !important;
+        gap: 12px !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+    }
+    .metric-number {
+        font-size: clamp(24px, 6vw, 36px) !important;
+    }
+    .metric-label {
+        font-size: 10px !important;
+        word-break: break-word !important;
     }
     .skills-section,
     .education-section {
