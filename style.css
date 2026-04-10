@@ -865,295 +865,6 @@ h1.hero-title.exiting .hero-title-word:nth-child(4) {
     }
 }
 
-@media (max-width: 768px) {
-    /* ── Global overflow prevention ── */
-    * {
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-    html, body {
-        overflow-x: hidden !important;
-        max-width: 100vw !important;
-        width: 100% !important;
-    }
-    img, video, iframe, canvas {
-        max-width: 100% !important;
-    }
-
-    /* ── Main page canvas ── */
-    #canvas-container {
-        height: 45vh !important;
-    }
-    #scroll-content {
-        margin-top: 45vh !important;
-    }
-
-    /* ── Hero ── */
-    .hello-text {
-        font-size: clamp(32px, 10vw, 56px) !important;
-        padding: 0 16px;
-        text-align: left;
-    }
-    .hero {
-        padding: 0 16px;
-    }
-
-    /* ── Flanking columns + dots ── */
-    .spatial-left,
-    .spatial-right {
-        display: none !important;
-    }
-    .scroll-progress {
-        display: none !important;
-    }
-
-    /* ── Project cards: info first, video second ── */
-    .project-section {
-        padding: 32px 16px !important;
-        width: 100%;
-    }
-    /* display:grid on desktop — must switch to flex for column stacking */
-    .project-short {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 20px !important;
-        min-height: auto !important;
-        padding: 40px 16px !important;
-        width: 100% !important;
-    }
-    /* Kill alternating grid-template-columns and order from nth-child(odd) rules */
-    #scroll-content > .project-section:nth-child(odd) .project-short {
-        grid-template-columns: unset;
-    }
-    #scroll-content > .project-section:nth-child(odd) .project-short-video,
-    #scroll-content > .project-section:nth-child(odd) .project-short-info {
-        order: unset;
-    }
-    .project-short-info {
-        order: 1 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        text-align: left !important;
-        align-self: auto;
-    }
-    .project-short-video {
-        order: 2 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-    /* clamp(240px,28vw,480px) has 240px minimum — override with explicit 100% */
-    .project-short-screen {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        aspect-ratio: 16 / 9 !important;
-        border-radius: 20px !important;
-    }
-    .project-short-screen iframe,
-    .project-short-screen video {
-        width: 100% !important;
-        height: 100% !important;
-        position: absolute !important;
-        inset: 0 !important;
-    }
-    .project-short h2 {
-        font-size: clamp(22px, 6vw, 32px) !important;
-    }
-    .project-short-skills {
-        justify-content: flex-start !important;
-        flex-wrap: wrap !important;
-        gap: 6px !important;
-    }
-    .project-short-skill {
-        justify-content: flex-start !important;
-    }
-    .project-short-content,
-    .projects-header {
-        padding: 0 16px;
-        width: 100%;
-    }
-    .scroll-hint {
-        width: 100%;
-        text-align: center;
-    }
-
-    /* ── Nav ── */
-    nav.nav-pill {
-        width: calc(100vw - 32px);
-        justify-content: space-evenly;
-    }
-    .nav-pill a {
-        font-size: 12px !important;
-        padding: 5px 8px !important;
-    }
-
-    /* ── About page ── */
-    .about-splat-layout {
-        display: flex !important;
-        flex-direction: column !important;
-        padding: 16px !important;
-        gap: 12px !important;
-    }
-    #splat-container {
-        width: 100% !important;
-        height: 260px !important;
-        min-height: 0 !important;
-        margin-bottom: 0 !important;
-    }
-    .about-splat-text {
-        width: 100% !important;
-        padding: 0 !important;
-    }
-    .about-splat-text h1 {
-        font-size: clamp(32px, 9vw, 48px) !important;
-        margin-top: 8px !important;
-        margin-bottom: 0 !important;
-        position: relative !important;
-        z-index: 2 !important;
-    }
-    .touching-grass-wrap {
-        margin-top: -40px !important;
-        width: 100% !important;
-        position: relative !important;
-        z-index: 3 !important;
-    }
-    #grass-canvas, #grass-svg {
-        height: 80px !important;
-        width: 100% !important;
-    }
-
-    /* ── Research page ── */
-    body:not(.index-page) main {
-        padding-top: 24px !important;
-    }
-    body:not(.index-page) main > * {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-        box-sizing: border-box !important;
-    }
-    .research-title,
-    .page-hero-title {
-        font-size: clamp(26px, 7vw, 40px) !important;
-        padding: 0 16px !important;
-        margin-top: 16px !important;
-    }
-    h2.research-question,
-    .research-sec h2 {
-        font-size: clamp(22px, 6vw, 32px) !important;
-        line-height: 1.2 !important;
-    }
-
-    /* ── Resume / Contact page ── */
-    .experience-item {
-        padding: 0 !important;
-        margin-bottom: 24px !important;
-    }
-    .experience-header {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 2px !important;
-    }
-    .experience-date {
-        text-align: left !important;
-    }
-    .experience-role {
-        font-size: 13px !important;
-    }
-    .experience-bullets li {
-        font-size: 12px !important;
-    }
-    .availability-badge {
-        display: inline-block !important;
-        font-size: 9px !important;
-        letter-spacing: 0.05em !important;
-        padding: 4px 10px !important;
-        white-space: nowrap !important;
-        max-width: fit-content !important;
-        margin: 16px 16px 0 !important;
-    }
-    .metric-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 16px !important;
-        margin: 0 !important;
-        gap: 12px !important;
-        overflow: hidden !important;
-        box-sizing: border-box !important;
-    }
-    .metric-card {
-        min-width: 0 !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-    .metric-number {
-        font-size: clamp(24px, 6vw, 36px) !important;
-    }
-    .metric-label {
-        font-size: 10px !important;
-        line-height: 1.3 !important;
-        word-break: break-word !important;
-    }
-    .skills-section,
-    .education-section {
-        padding: 0 16px !important;
-        width: 100% !important;
-    }
-    .project-nav {
-        flex-direction: column !important;
-        gap: 12px !important;
-        padding: 24px 16px !important;
-    }
-
-    /* ── Research page ── */
-    .research-content,
-    .research-container,
-    .research-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        padding: 16px !important;
-        gap: 20px !important;
-        width: 100% !important;
-    }
-    .research-title {
-        font-size: clamp(24px, 7vw, 40px) !important;
-    }
-    .research-section {
-        width: 100% !important;
-        padding: 0 16px !important;
-    }
-
-    /* ── All pages ── */
-    .page-label {
-        padding-left: 16px !important;
-    }
-    h1, h2 {
-        word-break: break-word !important;
-    }
-    main {
-        padding: 0 16px !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-    footer .footer-container {
-        padding: 24px 16px !important;
-    }
-}
-
-@media (max-width: 390px) {
-    #canvas-container {
-        height: 40vh !important;
-    }
-    #scroll-content {
-        margin-top: 40vh !important;
-    }
-    .hello-text {
-        font-size: 28px !important;
-    }
-}
 
 /* ── MICRO-INTERACTIONS: page fade-in ── */
 @keyframes page-fade-in {
@@ -2459,54 +2170,9 @@ img:hover {
     }
 }
 
-@media (max-width: 768px) {
-
-    .projects-title {
-        --title-offset: -10%;
-        /* Move 10% left from center on small screens */
-        margin-top: 30px;
-    }
-
-    .printer-container {
-        width: 90%;
-        height: 240px;
-    }
-
-    .printed-paper {
-        width: 90vw;
-        padding: 15px;
-    }
-
-    .resume-item .resume-header {
-        flex-direction: column;
-    }
-
-    .company-name,
-    .position,
-    .date {
-        margin-bottom: 3px;
-    }
-
-}
-
-@media (max-width: 576px) {
-
-    .projects-title {
-        --title-offset: 15%;
-        /* Move 15% left from center on mobile */
-        margin-top: 25px;
-    }
-}
 
 
 
-@media (max-width: 768px) {
-    body:not(.index-page) .hero h1 {
-        line-height: 1.1;
-        /* Decrease space between lines */
-    }
-
-}
 
 /* Media container for image or video */
 .media-container {
@@ -2574,50 +2240,6 @@ iframe {
 }
 
 
-@media (max-width: 480px) {
-    /* Small phones */
-    body:not(.index-page) .hero h1 {
-        line-height: 1;
-        /* Tighten line spacing */
-    }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    img,
-    video,
-    canvas:not(#three-canvas),
-    iframe {
-        max-width: 100%;
-        height: auto;
-    }
-
-    /* Stack common side-by-side layouts (non-index pages) */
-    body:not(.index-page) .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contact-links {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .contact-link-pills {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .resume-pubs {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* ── Interior pages (About, Research, Contact) ── */
 body:not(.index-page) {
@@ -2759,6 +2381,277 @@ body:not(.index-page) .section-divider {
 .contact-link:hover {
     color: var(--text-primary);
     border-color: var(--text-primary);
+}
+
+/* ============================================
+   MOBILE — max-width: 768px
+   Clean rewrite. No !important spam.
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* --- Global --- */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  img, video, canvas:not(#three-canvas), iframe {
+    max-width: 100%;
+    height: auto;
+  }
+  h1, h2 {
+    word-break: break-word;
+  }
+
+  /* --- Nav --- */
+  .nav-pill {
+    width: calc(100vw - 32px);
+    justify-content: space-between;
+    padding: 6px 4px;
+  }
+  .nav-pill a {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  /* --- Index: Canvas --- */
+  #canvas-container {
+    height: 50vh;
+  }
+  #scroll-content {
+    margin-top: 50vh;
+  }
+
+  /* --- Index: Hero text --- */
+  .hello-text {
+    font-size: clamp(36px, 11vw, 56px);
+    padding: 0 20px;
+    line-height: 1.1;
+  }
+  .scroll-hint {
+    padding: 0 20px;
+  }
+
+  /* --- Index: Hide decorative elements --- */
+  .spatial-left,
+  .spatial-right,
+  .scroll-progress {
+    display: none;
+  }
+
+  /* --- Index: Project cards --- */
+  .project-section {
+    padding: 48px 20px;
+  }
+  /* desktop is display:grid — must override to flex for column stacking */
+  .project-short {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    min-height: auto;
+  }
+  /* reset alternating nth-child order before re-applying */
+  #scroll-content > .project-section:nth-child(odd) .project-short {
+    grid-template-columns: unset;
+  }
+  #scroll-content > .project-section:nth-child(odd) .project-short-video,
+  #scroll-content > .project-section:nth-child(odd) .project-short-info {
+    order: unset;
+  }
+  .project-short-info {
+    order: 1;
+    width: 100%;
+  }
+  .project-short-video {
+    order: 2;
+    width: 100%;
+  }
+  /* clamp min 240px on desktop overrides width:100% — kill with min-width:0 */
+  .project-short-screen {
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+  }
+  .project-short-screen iframe,
+  .project-short-screen video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .project-short h2 {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+  .project-short p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .project-short-skills {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* --- About page --- */
+  .about-splat-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 0;
+  }
+  #splat-container {
+    width: 100%;
+    height: 320px;
+    min-height: 0;
+  }
+  .about-splat-text {
+    width: 100%;
+    padding: 0;
+  }
+  .about-splat-text h1 {
+    font-size: clamp(36px, 10vw, 52px);
+    margin-top: 24px;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+  }
+  .touching-grass-wrap {
+    margin-top: -32px;
+    width: 100%;
+    overflow: visible;
+    position: relative;
+    z-index: 3;
+  }
+  #grass-canvas, #grass-svg {
+    height: 100px;
+    width: 100%;
+  }
+  .about-splat-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-top: 20px;
+    padding: 0;
+  }
+
+  /* --- Experience items (resume + about) --- */
+  .experience-item {
+    margin-bottom: 28px;
+  }
+  .experience-header {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .experience-role {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .experience-date {
+    font-size: 12px;
+    text-align: left;
+  }
+  .experience-org {
+    font-size: 12px;
+  }
+  .experience-bullets li {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* --- Research page --- */
+  body:not(.index-page) main {
+    padding: 0 20px;
+  }
+  .research-section,
+  .text-content {
+    padding: 0;
+    width: 100%;
+  }
+  .research-section h2 {
+    font-size: clamp(20px, 5.5vw, 28px);
+    line-height: 1.25;
+  }
+  .research-section p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* --- Resume page (contact.html) --- */
+  .availability-badge {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 5px 14px;
+    white-space: nowrap;
+    display: inline-block;
+    margin: 20px 20px 12px;
+  }
+  /* actual stats classes: .metric-grid / .metric-card / .metric-number / .metric-label */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 0 20px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .metric-card {
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .metric-number {
+    font-size: clamp(24px, 7vw, 36px);
+  }
+  .metric-label {
+    font-size: 10px;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+  .skills-resume-group {
+    gap: 16px;
+  }
+  .skills-resume-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .contact-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .contact-link-pills {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* --- Footer --- */
+  .footer-container {
+    padding: 24px 20px;
+  }
+  .footer-copyright p {
+    font-size: 11px;
+  }
+}
+
+/* ============================================
+   MOBILE — max-width: 390px (iPhone 14 and smaller)
+   ============================================ */
+@media (max-width: 390px) {
+  .hello-text {
+    font-size: 34px;
+  }
+  .nav-pill a {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+  #splat-container {
+    height: 260px;
+  }
+  .availability-badge {
+    font-size: 9px;
+    padding: 4px 10px;
+  }
 }
 
 @media print {
