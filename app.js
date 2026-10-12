@@ -231,84 +231,84 @@ class MultiVideoScene {
         const videoSources = [
             {
                 id: 'screen1',
-                src: './videos/ScholarlyVRDemo.mp4',
+                src: './videos/screens/ScholarlyVRDemo.mp4',
                 title: "Scholarly VR",
                 about: "Ever wished academic papers were less… paper-y? Scholarly VR lets professors and students step inside research itself, turning dense concepts into immersive 3D experiences. Because if knowledge is power, why not make it feel like a superpower?",
                 url: "./project10.html"
             },
             {
                 id: 'screen2',
-                src: './videos/5CEOMoleculeDemoWebXR.mp4',
+                src: './videos/screens/5CEOMoleculeDemoWebXR.mp4',
                 title: "Molecules WebXR",
                 about: "Science just got a glow-up. This WebXR demo brings molecular structures to life in a 3D space, making chemistry feel less like a textbook headache and more like a futuristic science fair where you can poke atoms for fun.",
                 url: "./project3.html"
             },
             {
                 id: 'screen3',
-                src: './videos/Piano_Train_Installation.mp4',
+                src: './videos/screens/Piano_Train_Installation.mp4',
                 title: "Piano Bar - Cybernetics and Human Knowing",
                 about: "A game, an AI, and a piano walk into a bar... and only one of them never loses. This interactive installation features a massive wall projection, an 88-key piano as a controller, and an AI that's out to prove humans are overrated at playing with colors. Are you up for the challenge? (Spoiler: the AI thinks you're not.)",
                 url: "./project11.html"
             },
             {
                 id: 'screen4',
-                src: './videos/WizardofOzVRSoundscapeProject.mp4',
+                src: './videos/screens/WizardofOzVRSoundscapeProject.mp4',
                 title: "4'33'' - Soundscapes in VR",
                 about: "What if silence wasn't empty but full of hidden stories? Inspired by John Cage's 4'33'', this VR experience lets you explore soundscapes from everyday life—your apartment, your city, maybe even the weird noise your fridge makes at night. It's a concert, but the world is the composer.",
                 url: "./project8.html"
             },
             {
                 id: 'screen5',
-                src: './videos/MemoryGameXR.mp4',
+                src: './videos/screens/MemoryGameXR.mp4',
                 title: "Memory Game WebXR",
                 about: "A Mixed Reality memory game that turns brain training into an interactive adventure. Designed for caregiving facilities, this game uses hand-tracking and point-and-click mechanics to flip cards, find matches, and prove that your memory is sharper than you think (or at least sharper than the AI's).",
                 url: "./project12.html"
             },
             {
                 id: 'screen6',
-                src: './videos/Structural Color Gallery Experience Recording.mp4',
+                src: './videos/screens/Structural_Color_Gallery_Experience_Recording.mp4',
                 title: "SCG - Archival 3D Website",
                 about: "An art exhibition you don't have to leave your house for. This Web3D experience transports you into a 3D-scanned gallery, letting you explore artist Megumi Nagai's work as if you were there—minus the risk of knocking over a sculpture.",
                 url: "./project2.html"
             },
             {
                 id: 'screen7',
-                src: './videos/mrjs - from web to spatial web.mp4',
+                src: './videos/screens/mrjs_-_from_web_to_spatial_web.mp4',
                 title: "mr.js - WebXR three.js library",
                 about: "Building for the web is cool. Building for the immersive web is cooler. mr.js is an open-source WebXR library that helps designers and developers bring Mixed Reality to the browser—because why settle for flat when you can build inside the web?",
                 url: "./project5.html"
             },
             {
                 id: 'screen8',
-                src: './videos/Invisible_Labor.mp4',
+                src: './videos/screens/Invisible_Labor.mp4',
                 title: "Invisible Labour MR",
                 about: "Ever feel like no one sees all the work you do? This Mixed Reality experience dives into the hidden struggles of labor and self-advocacy, giving voice (and visuals) to the effort we put in behind the scenes. Spoiler alert: hard work deserves to be noticed, even in MR.",
                 url: "./project7.html"
             },
             {
                 id: 'screen9',
-                src: './videos/GGJ-21_ Blown Away (Gameplay).mp4',
+                src: './videos/screens/GGJ-21__Blown_Away_Gameplay.mp4',
                 title: "Blown Away VR",
                 about: "Ever wanted to move through VR using just your breath? This experimental game lets you explore digital worlds by controlling airflow—kind of like a virtual meditation session, but with way more floating. Just don't hyperventilate.",
                 url: "./project4.html"
             },
             {
                 id: 'screen10',
-                src: './videos/IWanderedLonelyasaCloud_by WilliamWordsworth.mp4',
+                src: './videos/screens/IWanderedLonelyasaCloud_by_WilliamWordsworth.mp4',
                 title: "Classical Poem in Mixed and Virtual Reality",
                 about: "Wordsworth's I Wandered Lonely as a Cloud reimagined for the immersive age. With interactive scrolling and AI-generated skyboxes, this project brings poetry off the page and into a dreamlike Mixed and Virtual Reality world. It's literature, but make it sci-fi.",
                 url: "./project6.html"
             },
             {
                 id: 'screen11',
-                src: './videos/Talegraph Trailer.mp4',
+                src: './videos/screens/Talegraph_Trailer.mp4',
                 title: "Futuristic Metaverse Trailer - 2018",
                 about: "Back in 2018, we asked: what if freelancing happened inside the metaverse? This concept trailer imagined a future where we complete tasks in VR, collaborate in digital spaces, and somehow still have too many Zoom meetings. A glimpse into the future of remote work—before it was cool.",
                 url: "./project9.html"
             },
             {
                 id: 'screen12',
-                src: './videos/Synesthesia VR Experience.mp4',
+                src: './videos/screens/Synesthesia_VR_Experience.mp4',
                 title: "Synesthesia VR",
                 about: "Ever wondered what it's like to hear colors? This VR experience puts you in the mind of a synesthete, where sounds and colors blend into one. Inspired by Bauhaus aesthetics and Kandinsky's paintings, it's part game, part art experiment, and all kinds of trippy!",
                 url: "./project1.html"
@@ -696,7 +696,8 @@ class MultiVideoScene {
         try {
             await this.loadModel();
             this.animate();
-            await this.startVideos();
+            // Screens start as their loops buffer; nothing waits on them.
+            this.startVideos();
             return true;
         } catch (error) {
             console.error("Initialization failed:", error);
@@ -713,8 +714,20 @@ class MultiVideoScene {
 const PROJECT_DISPLAY = [
     {
         index: 0,
-        year: '2025',
+        year: '2026',
         number: '01',
+        platform: 'QUEST 3',
+        title: 'IMET In*Human',
+        description:
+            "A linear mixed reality comedy about people losing their senses and rediscovering themselves through other people's life choices and hard work, asking whether talent ever beats it. Volumetric holographic characters, placed in your home by an AI vision model running on the headset, perform as masters of their craft and tell how they became who they are, with comedic interruptions from Humobox.",
+        videoUrl: './images/imetinhuman/humobox_bounce_loop.mp4',
+        projectUrl: 'project-imetinhuman.html',
+        tags: ['Computer Vision · YOLOv9', '4D Gaussian Splatting', 'Mixed & Virtual Reality', 'PBR Shaders on Camera Feed']
+    },
+    {
+        index: 1,
+        year: '2025',
+        number: '02',
         platform: 'VISION PRO',
         title: 'Spatial Synesthesia',
         description:
@@ -724,9 +737,9 @@ const PROJECT_DISPLAY = [
         tags: ['VISION PRO', 'visionOS', 'RealityKit', 'Eye Tracking']
     },
     {
-        index: 1,
+        index: 2,
         year: '2024',
-        number: '02',
+        number: '03',
         platform: 'QUEST 3',
         title: 'Herald Examiner MR',
         description:
@@ -736,9 +749,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 3', 'Unity', 'Computer Vision', 'Sentis', 'MR']
     },
     {
-        index: 2,
+        index: 3,
         year: '2024',
-        number: '03',
+        number: '04',
         platform: '3D',
         title: 'World Labs → UE Pipeline',
         description:
@@ -748,9 +761,9 @@ const PROJECT_DISPLAY = [
         tags: ['UNREAL ENGINE 5', 'AI', 'Virtual Production', 'World Labs']
     },
     {
-        index: 3,
+        index: 4,
         year: '2025',
-        number: '04',
+        number: '05',
         platform: 'QUEST PRO',
         title: 'Molecules WebXR',
         description:
@@ -760,9 +773,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST PRO', 'WebXR', 'Education', 'Three.js']
     },
     {
-        index: 4,
+        index: 5,
         year: '2024',
-        number: '05',
+        number: '06',
         platform: 'QUEST 3',
         title: 'mr.js — WebXR library',
         description:
@@ -772,9 +785,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 3', 'WebXR', 'Open Source', 'JavaScript']
     },
     {
-        index: 5,
+        index: 6,
         year: '2021',
-        number: '06',
+        number: '07',
         platform: 'QUEST 1',
         title: 'Synesthesia VR',
         description:
@@ -784,9 +797,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 1', 'Unity', 'VR', 'UX Design']
     },
     {
-        index: 6,
+        index: 7,
         year: '2024',
-        number: '07',
+        number: '08',
         platform: 'QUEST 3',
         title: 'Classical Poem in MR / VR',
         description:
@@ -796,9 +809,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 3', 'MR', 'VR', 'Story']
     },
     {
-        index: 7,
+        index: 8,
         year: '2020',
-        number: '08',
+        number: '09',
         platform: 'INSTALLATION',
         title: 'Piano Bar — Cybernetics installation',
         description:
@@ -808,9 +821,9 @@ const PROJECT_DISPLAY = [
         tags: ['PHYSICAL COMPUTING', 'INTERACTIVE INSTALLATION', 'AI']
     },
     {
-        index: 8,
+        index: 9,
         year: '2025',
-        number: '09',
+        number: '10',
         platform: 'WEBXR',
         title: 'Memory Game WebXR',
         description:
@@ -820,9 +833,9 @@ const PROJECT_DISPLAY = [
         tags: ['WEBXR', 'WebXR', 'Hand Tracking', 'Health']
     },
     {
-        index: 9,
+        index: 10,
         year: '2024',
-        number: '10',
+        number: '11',
         platform: '3D',
         title: 'SCG Archival 3D Website',
         description:
@@ -832,9 +845,9 @@ const PROJECT_DISPLAY = [
         tags: ['3D', 'Three.js', 'WebGL', 'UX Research']
     },
     {
-        index: 10,
+        index: 11,
         year: '2024',
-        number: '11',
+        number: '12',
         platform: 'QUEST 2',
         title: 'Invisible Labour MR',
         description:
@@ -844,9 +857,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 2', 'MR', 'Art', 'Social']
     },
     {
-        index: 11,
+        index: 12,
         year: '2023',
-        number: '12',
+        number: '13',
         platform: 'QUEST 2',
         title: 'Scholarly VR',
         description:
@@ -856,9 +869,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 2', 'VR', 'EdTech', 'Research']
     },
     {
-        index: 12,
+        index: 13,
         year: '2023',
-        number: '13',
+        number: '14',
         platform: 'QUEST 2',
         title: 'Blown Away VR',
         description:
@@ -868,9 +881,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 2', 'VR', 'Gameplay', 'Experiment']
     },
     {
-        index: 13,
+        index: 14,
         year: '2023',
-        number: '14',
+        number: '15',
         platform: 'QUEST 1',
         title: "4'33'' — Soundscapes in VR",
         description:
@@ -880,9 +893,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 1', 'VR', 'Audio', 'Installation']
     },
     {
-        index: 14,
+        index: 15,
         year: '2018',
-        number: '15',
+        number: '16',
         platform: 'OCULUS GO',
         title: 'Futuristic Metaverse Trailer (2018)',
         description:
@@ -1004,6 +1017,42 @@ function updateProgressDot(idx) {
         const di = parseInt(dot.dataset.index, 10);
         dot.classList.toggle('active', di === idx);
     });
+}
+
+/** Active dot = the section crossing the middle of the viewport (landing = -1). */
+function syncProgressDotToScroll() {
+    const mid = window.innerHeight / 2;
+    let best = null;
+    let bestDist = Infinity;
+    document.querySelectorAll('#section-landing, .project-section[data-project-index]').forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.height === 0) return;
+        const dist = r.top <= mid && r.bottom >= mid ? 0 : Math.min(Math.abs(r.top - mid), Math.abs(r.bottom - mid));
+        if (dist < bestDist) {
+            bestDist = dist;
+            best = el;
+        }
+    });
+    if (!best) return;
+    const idx = best.id === 'section-landing' ? -1 : parseInt(best.dataset.projectIndex, 10);
+    if (!Number.isNaN(idx)) updateProgressDot(idx);
+}
+
+let progressDotScrollBound = false;
+function bindProgressDotScrollOnce() {
+    if (progressDotScrollBound) return;
+    progressDotScrollBound = true;
+    let queued = false;
+    const onScroll = () => {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(() => {
+            queued = false;
+            syncProgressDotToScroll();
+        });
+    };
+    document.addEventListener('scroll', onScroll, { passive: true, capture: true });
+    window.addEventListener('resize', onScroll, { passive: true });
 }
 
 function storeOverviewState(scene) {
@@ -1229,7 +1278,7 @@ function initScrollObserver(scene) {
                 document.querySelector('h1.hero-title')?.classList.add('exiting');
                 document.querySelector('.scroll-hint')?.classList.add('exiting');
 
-                updateProgressDot(idx);
+                syncProgressDotToScroll();
 
                 // Camera zoom disabled — uncomment to re-enable
                 // const fromPos = scene.camera.position.clone();
@@ -1291,7 +1340,7 @@ function initScrollObserver(scene) {
                             s.classList.remove('visible', 'entering');
                         });
 
-                    updateProgressDot(-1);
+                    syncProgressDotToScroll();
 
                     // Camera return disabled — uncomment to re-enable
                     // if (!overviewCameraPos || !overviewCameraTarget) return;
@@ -1339,7 +1388,8 @@ function initScrollObserver(scene) {
             });
             progressEl.appendChild(dot);
         });
-        updateProgressDot(currentZoomIndex);
+        syncProgressDotToScroll();
+        bindProgressDotScrollOnce();
     }
 
     window._doomObservers = doomObservers;
@@ -1385,21 +1435,10 @@ function preloadProjects() {
   <div class="project-short">
 
     <div class="project-short-video">
-      <div class="project-short-screen">
-        ${
-            isYoutube
-                ? `<iframe
-               src="${project.videoUrl}${ytLoop}"
-               frameborder="0"
-               allow="autoplay *; fullscreen *"
-               allowfullscreen>
-             </iframe>`
-                : `<video
-               src="${project.videoUrl}"
-               muted autoplay loop playsinline
-               preload="auto">
-             </video>`
-        }
+      <div class="project-short-screen"
+           data-media-type="${isYoutube ? 'youtube' : 'video'}"
+           data-media-src="${isYoutube ? project.videoUrl + ytLoop : project.videoUrl}"
+           ${isYoutube && embedId ? `style="background: #0a0a0a url('https://i.ytimg.com/vi/${embedId[1]}/hqdefault.jpg') center / cover no-repeat"` : ''}>
       </div>
       <div class="project-short-number">
         ${project.number}
@@ -1435,6 +1474,69 @@ function preloadProjects() {
   </div>
 `;
     });
+    observeSectionMedia();
+}
+
+// Section media is mounted only near the viewport: a page of autoplaying
+// YouTube players (and their scripts) otherwise loads before anything else.
+let sectionMediaObserver = null;
+
+function mountSectionMedia(screen) {
+    if (screen.firstElementChild) return;
+    const src = screen.dataset.mediaSrc;
+    if (!src) return;
+    if (screen.dataset.mediaType === 'youtube') {
+        const iframe = document.createElement('iframe');
+        iframe.src = src;
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'autoplay *; fullscreen *');
+        iframe.setAttribute('allowfullscreen', '');
+        screen.appendChild(iframe);
+    } else {
+        const video = document.createElement('video');
+        video.src = src;
+        video.muted = true;
+        video.loop = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        video.preload = 'auto';
+        screen.appendChild(video);
+        video.play().catch(() => {});
+    }
+}
+
+function unmountSectionMedia(screen) {
+    const media = screen.firstElementChild;
+    if (!media) return;
+    if (screen.dataset.mediaType === 'youtube') {
+        media.remove();
+    } else {
+        media.pause();
+    }
+}
+
+function observeSectionMedia() {
+    if (sectionMediaObserver) sectionMediaObserver.disconnect();
+    const screens = document.querySelectorAll('.project-short-screen[data-media-src]');
+    if (!('IntersectionObserver' in window)) {
+        screens.forEach(mountSectionMedia);
+        return;
+    }
+    sectionMediaObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    mountSectionMedia(entry.target);
+                    const video = entry.target.querySelector('video');
+                    if (video && video.paused) video.play().catch(() => {});
+                } else {
+                    unmountSectionMedia(entry.target);
+                }
+            });
+        },
+        { rootMargin: '100% 0px' }
+    );
+    screens.forEach((screen) => sectionMediaObserver.observe(screen));
 }
 
 function updateCanvasSize(scene) {
@@ -1492,6 +1594,8 @@ async function initializeScene() {
         if (sceneInstance) {
             sceneInstance.dispose();
         }
+        // Project sections do not depend on the 3D scene, so build them first.
+        preloadProjects();
         const scene = new MultiVideoScene();
         const success = await scene.init();
         if (success) {
@@ -1503,7 +1607,6 @@ async function initializeScene() {
             scene._zoomAnimating = false;
             buildProjectZooms();
             storeOverviewState(scene);
-            preloadProjects();
             initScrollObserver(scene);
             bindDoomResizeOnce(scene);
             updateCanvasSize(scene);

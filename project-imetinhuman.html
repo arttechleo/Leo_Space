@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/faviconbw.png" />
+  <title>IMET In*Human · Leo Danenkov</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="project-style.css">
+</head>
+
+<body class="project-detail-page project-page">
+  <!-- Navigation -->
+  <nav class="nav-pill">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="contact.html">Resume</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="page-label">MIXED REALITY</span>
+      <p class="title">2026</p>
+      <div class="skills-overview-projects skills-tags">
+        <span>QUEST 3</span> | <span>UNITY 6</span> | <span>COMPUTER VISION (YOLOV9)</span> |
+        <span>4D GAUSSIAN SPLATTING</span> | <span>MIXED &amp; VIRTUAL REALITY</span> |
+        <span>PBR REAL-TIME SHADERS</span>
+      </div>
+      <h1>IMET In*Human</h1>
+      <h2>A mixed reality linear narrative about creative people losing their senses, and rediscovering themselves
+        by reflecting on their hard work and on how their senses shaped their craft</h2>
+    </div>
+  </header>
+
+  <!-- Main Project Content -->
+  <main class="project-content project-page-content">
+    <section class="project-section">
+
+      <div class="text-left">
+        <h3>Overview</h3>
+        <p class="project-paragraph">
+          IMET, the Immersive Media Entertainment Theatre, presents In*Human: volumetric holographic performers step
+          into the visitor's own home, where an AI vision model on the headset finds a real seat for them, and tell how
+          their senses and their hard work made them masters of their craft, with comedic interruptions from Humobox,
+          a cube made of human senses.
+        </p>
+      </div>
+
+      <figure class="media media--hero">
+        <!-- TODO: replace with a headset recording of the seat search into the interview -->
+        <video src="./images/imetinhuman/luke_interview_room.mp4" poster="./images/imetinhuman/luke_interview_room_poster.jpg"
+          controls playsinline preload="metadata"></video>
+        <figcaption>Luke's interview, seated on a real couch found by the seat finder, captured on Meta
+          Quest 3. The room is passthrough; Luke is a Gaussian splat sequence.</figcaption>
+      </figure>
+
+      <div class="text-left">
+        <h3>Story Structure</h3>
+        <p class="project-paragraph">
+          The piece is organised around the senses. The opening works as onboarding into a near-future humanity:
+          a voice-over title sequence gives way to a handheld "shorts" feed of art films (a sculptor, a perfumer,
+          a chef, a conductor and a painter) swiped like a phone held in front of you. Rain then closes in on a
+          glass capsule around the visitor, moss grows over it, and Humobox lands on a real table to talk.
+        </p>
+        <p class="project-paragraph">
+          The <strong>Ear</strong> chapter, built around musician <a href="https://lukeazariah.com/" target="_blank" rel="noopener">Luke Azariah</a>, is the vertical slice I am currently
+          pitching. It runs end to end: the intro above, then Luke's interview seated in a real chair in the
+          visitor's room, then his performance as the room opens into a concert stage. The Eye, Nose, Mouth and Skin
+          chapters are designed and waiting for funding.
+        </p>
+      </div>
+
+      <div class="flow" aria-label="Vertical slice sequence">
+        <div class="flow-group">
+          <p class="flow-label">Intro · onboarding</p>
+          <div class="flow-row" style="--cols: 5">
+            <div class="flow-step"><b>Title</b><span>Voice-over, live text cards</span></div>
+            <div class="flow-step"><b>Shorts</b><span>Handheld feed of five art films</span></div>
+            <div class="flow-step"><b>Rain</b><span>Rain shader reflecting the real-time camera feed</span></div>
+            <div class="flow-step"><b>Moss</b><span>Grows up the capsule after the rain</span></div>
+            <div class="flow-step"><b>Humobox</b><span>Lands on your table and talks</span></div>
+          </div>
+        </div>
+        <div class="flow-group flow-group--accent">
+          <p class="flow-label">Ear chapter · Luke Azariah</p>
+          <div class="flow-row" style="--cols: 2">
+            <div class="flow-step"><b>Interview</b><span>Seated in a chair found by the vision model</span></div>
+            <div class="flow-step"><b>Performance</b><span>Room dissolves into a concert stage</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="project-paragraph diagram-note">Built: the vertical slice above. In development: Eye, Nose, Mouth and
+        Skin chapters.</p>
+
+      <div class="text-left">
+        <h3>Where It Started: Herald Examiner MR</h3>
+        <p class="project-paragraph">
+          In*Human grows directly out of <a href="project-herald.html">Herald Examiner MR</a> (2024), my first mixed
+          reality prototype driven by vision AI models. There, on-device object detection turned a laptop into a 1926
+          typewriter and a book into a newspaper, and the key lesson was that content pinned to a jittering bounding
+          box breaks presence, while content anchored once to a stable surface holds. In*Human takes that lesson and
+          scales it into a full narrative: vision models no longer decorate objects, they decide <em>where the story
+          can happen</em>. A detector finds a real chair the performer can sit in, depth raycasts find a real table
+          for Humobox to land on, and the passthrough camera feed becomes the material the shaders bend.
+        </p>
+      </div>
+
+      <div class="text-left">
+        <h3>How It Works</h3>
+        <p class="project-paragraph">
+          Everything runs standalone on Meta Quest 3. The headset senses the room, on-device systems interpret it,
+          and the characters and effects perform inside it.
+        </p>
+      </div>
+
+      <div class="arch" aria-label="System overview">
+        <div class="arch-col">
+          <p class="flow-label">Sense</p>
+          <div class="flow-step"><b>Passthrough camera</b><span>RGB frames, pose and intrinsics</span></div>
+          <div class="flow-step"><b>Depth</b><span>Environment depth for raycasts</span></div>
+          <div class="flow-step"><b>Hands</b><span>XR Hands joints</span></div>
+        </div>
+        <div class="arch-col">
+          <p class="flow-label">Understand</p>
+          <div class="flow-step"><b>Seat finder</b><span>YOLOv9 via Unity Inference Engine on camera frames, confirmed by depth</span></div>
+          <div class="flow-step"><b>Surface finder</b><span>Tables, floor and walls from depth raycasts</span></div>
+          <div class="flow-step"><b>Room panorama</b><span>Equirectangular map painted from the feed</span></div>
+          <div class="flow-step"><b>Hand occluder</b><span>Capsule mesh per joint, writes depth</span></div>
+        </div>
+        <div class="arch-col">
+          <p class="flow-label">Perform</p>
+          <div class="flow-step"><b>Luke</b><span>Splat sequence seated on the detected chair</span></div>
+          <div class="flow-step"><b>Humobox</b><span>Lands on the table, reacts to touch</span></div>
+          <div class="flow-step"><b>Rain &amp; moss</b><span>PBR shaders lit and refracted by the room</span></div>
+        </div>
+      </div>
+
+      <div class="text-left">
+        <h3>The Room as a Lens: Shaders Adaptive to the Camera Feed</h3>
+        <p class="project-paragraph">
+          The first prototype layered effects over passthrough, and it felt like a sticker on glass. The piece was
+          rebuilt around the Quest passthrough camera: the camera image, its pose and its intrinsics are fed into the
+          shaders every frame, and an equirectangular panorama of the room is painted from the feed as the visitor
+          looks around. Raindrops refract the actual camera image behind them and reflect the panorama in the true
+          reflection direction; drops merge, grow and run, leaving trails that clear the condensation. The moss is a
+          physically based carpet with parallax depth and translucency, lit by the same room panorama. The result is
+          an effect that cannot exist without the room it runs in.
+        </p>
+      </div>
+
+      <figure class="media">
+        <video src="./images/imetinhuman/rain_room.mp4" poster="./images/imetinhuman/rain_room_poster.jpg"
+          controls muted playsinline preload="metadata"></video>
+        <figcaption>The rain shader in the Meta XR Simulator, with a virtual living room standing in for the camera
+          feed: drops refract and reflect the room behind them, merge and run.</figcaption>
+      </figure>
+
+      <div class="text-left">
+        <h3>Two Menus: Visitor and Developer</h3>
+        <p class="project-paragraph">
+          The piece opens on one of two menus. Visitors meet Humobox floating in the dark, with the five senses laid out
+          beneath it: pinch Humobox to begin the full experience, or pinch a sense to open its chapter. Behind it sits a
+          developer menu, a plain list of every chapter and test: the pilot sequence from any step, each intro effect on
+          its own, Luke's stage jump and seat finder, and raw PLY and stereo playback. Holding both thumbs up, or pinching
+          and holding the title, switches between the two, so the same build serves an audience and a working session.
+          Playback is never stopped by a pinch or a glance; a held thumbs up ends the chapter and brings the menu back.
+        </p>
+      </div>
+
+      <div class="media-pair">
+        <figure class="media">
+          <video src="./images/imetinhuman/menu_visitor.mp4" poster="./images/imetinhuman/menu_visitor_poster.jpg"
+            controls muted playsinline preload="metadata"></video>
+          <figcaption>Visitor menu: Humobox and the five senses.</figcaption>
+        </figure>
+        <figure class="media">
+          <video src="./images/imetinhuman/menu_dev.mp4" poster="./images/imetinhuman/menu_dev_poster.jpg"
+            controls muted playsinline preload="metadata"></video>
+          <figcaption>Developer menu: every chapter and test, over a virtual living room in the simulator.</figcaption>
+        </figure>
+      </div>
+
+      <div class="text-left">
+        <h3>Luke Azariah: a Volumetric Performer in Your Chair</h3>
+        <p class="project-paragraph">
+          When the Ear chapter begins, the seat finder runs YOLOv9 on passthrough frames, filtered to chairs, sofas and
+          benches, and confirms every candidate with depth: the seat must face the visitor, sit at a plausible height
+          above the measured floor and agree across several detections before Luke is placed on it, scaled life size
+          and aligned by the chair's backrest. If no seat is found, Luke brings his own.
+        </p>
+      </div>
+
+      <figure class="media">
+        <video src="./images/imetinhuman/luke_guitar_room.mp4" poster="./images/imetinhuman/luke_guitar_room_poster.jpg"
+          controls playsinline preload="metadata"></video>
+        <figcaption>Performance: the same splat sequence playing guitar, in sync with the soundtrack.</figcaption>
+      </figure>
+
+      <div class="text-left">
+        <h3>The Stage Jump</h3>
+        <p class="project-paragraph">
+          After the interview Luke picks up his guitar and the living room gives way to a concert stage. The camera
+          starts on an empty chair in a spotlight, pulls back over the crowd and returns to the stage edge, where Luke
+          is placed on that same chair and performs.
+        </p>
+        <p class="project-paragraph">
+          Getting him there took three layers. The dolly is a generated flat video, reconstructed frame by frame with
+          depth, stabilised over time and rendered as a stereo pair, so each eye sees its own view. When the camera
+          comes to rest, the piece cuts to a 3D stage rebuilt in Blender from the depth of that same frame: floor,
+          props and back wall are modelled where the depth says they are, and the lighting is baked into their
+          textures. Real volumetric fog is raymarched through the stage beams in Unity, so the haze moves around the
+          performer instead of being painted behind him. The chair's position is tracked through every frame of the
+          reconstruction, and Luke's splat sequence is anchored to it at life size, facing the visitor.
+        </p>
+      </div>
+
+      <figure class="media">
+        <video src="./images/imetinhuman/luke_stage_centered.mp4" poster="./images/imetinhuman/luke_stage_centered_poster.jpg"
+          controls playsinline preload="metadata"></video>
+        <figcaption>The stage jump, recorded in the Meta XR Simulator: Luke on the spotlit chair, the dolly out over
+          the crowd and back, then the cut to the 3D stage with Luke seated on its chair and volumetric fog moving
+          through the beams.</figcaption>
+      </figure>
+
+      <figure class="media">
+        <video src="./images/imetinhuman/stage_dolly.mp4" poster="./images/imetinhuman/stage_dolly_poster.jpg"
+          controls muted playsinline preload="metadata"></video>
+        <figcaption>The stage dolly (left eye): chair close-up, out over the crowd, back to the stage edge.</figcaption>
+      </figure>
+
+      <div class="media-pair">
+        <figure class="media media--image">
+          <img src="./images/imetinhuman/stage_rgbd.jpg" alt="A stage frame next to its reconstructed depth map" loading="lazy">
+          <figcaption>One frame and its reconstructed depth: speakers near (red), back wall far (blue).</figcaption>
+        </figure>
+        <figure class="media media--image">
+          <img src="./images/imetinhuman/stage_stereo_pair.jpg" alt="Left and right eye views of the stage" loading="lazy">
+          <figcaption>The same frame as a stereo pair, rendered from depth for the left and right eye.</figcaption>
+        </figure>
+      </div>
+
+      <div class="text-left">
+        <h3>The PLY Sequence Pipeline</h3>
+        <p class="project-paragraph">
+          Luke exists as thousands of Gaussian splat frames: every frame of a mono video recorded with an iPhone 12 Pro
+          is reconstructed into its own 3D scene and saved as a PLY file. A raw sequence like that is far too heavy for
+          a standalone headset, so I built a pipeline that turns it into something Quest 3 can stream.
+        </p>
+        <p class="project-paragraph">
+          Before reconstruction, Luke is separated from the background with the SAM2 segmentation model. The first
+          test failed in an instructive way: the prompt asked for a guitar player, and SAM2 delivered exactly that, the
+          player without the guitar, so the rendered Luke strummed thin air. In the second version the guitar was
+          prompted together with the player, and both came through intact. Rendering the whole sequence from video to
+          PLY files took about 1 hour 20 minutes.
+        </p>
+        <p class="project-paragraph">
+          As an alternative to the PLY sequence I also tested top-bottom stereo video of Luke. It was much lighter, but
+          the results were poor: a stereo video reads as a screen floating in the room rather than a person in it, and
+          without real 3D geometry the seat found by the vision model could not physically hold him. The splat sequence
+          won on both immersion and placement.
+        </p>
+      </div>
+
+      <div class="flow flow--steps" aria-label="PLY sequence pipeline">
+        <div class="flow-row">
+          <div class="flow-step"><b>1 · Capture</b><span>Phone video and audio of the performer</span></div>
+          <div class="flow-step"><b>2 · Reconstruct</b><span>One Gaussian splat PLY per video frame</span></div>
+          <div class="flow-step"><b>3 · Convert</b><span>Decode, build covariances, pack to half precision</span></div>
+          <div class="flow-step"><b>4 · Budget</b><span>Keep the most visible splats per frame</span></div>
+          <div class="flow-step"><b>5 · Stream</b><span>Read ahead, GPU sort, audio-locked playback</span></div>
+          <div class="flow-step"><b>6 · Place</b><span>Anchor to the detected seat</span></div>
+        </div>
+      </div>
+
+      <div class="media-pair">
+        <figure class="media">
+          <video src="./images/imetinhuman/luke_splat_orbit.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          <figcaption>One real frame of the sequence, about 120,000 splats, viewed up to 40&deg; away from the
+            original camera: every frame is a full 3D reconstruction, not a flat video.</figcaption>
+        </figure>
+        <figure class="media media--image">
+          <img src="./images/imetinhuman/stage_correction_chart.png" alt="Chart of per-frame depth scale corrections along the stage dolly" loading="lazy">
+          <figcaption>Temporal stabilisation on the stage: the scale correction each frame needed to agree with its
+            neighbours. Without it, the stage would visibly breathe.</figcaption>
+        </figure>
+      </div>
+
+      <div class="text-left">
+        <p class="project-paragraph">
+          <strong>Convert.</strong> Each frame is decoded independently; nothing is interpolated or invented between
+          frames. Position, rotation and scale are folded into a single 3D covariance, colour and opacity are packed into
+          four bytes, and every splat becomes one compact, GPU-aligned half-precision record.
+        </p>
+        <p class="project-paragraph">
+          <strong>Budget.</strong> When a frame holds more splats than the headset can draw, splats are ranked by how
+          much they contribute on screen rather than by how much volume they fill, so faces and hands keep their detail
+          while invisible interior splats are dropped.
+        </p>
+        <p class="project-paragraph">
+          <strong>Stream.</strong> Frames are loaded ahead of the playhead in the direction of play, sorted back to front
+          on the GPU every frame, and double-buffered so rendering never reads a frame that is still being written; an
+          early version flickered with cyan and magenta panels until those races were removed. Playback is clocked by the
+          audio, not the frame rate, so speech and guitar stay in sync.
+        </p>
+        <p class="project-paragraph">
+          <strong>Place.</strong> The converter also measures where the performer stands or sits in every frame (feet,
+          centre and typical height), which the player uses to ground him on the detected chair and keep him there as the
+          capture moves.
+        </p>
+        <p class="project-paragraph">
+          <strong>Temporal stability.</strong> The concert stage is reconstructed the same way from flat video, and that
+          exposes the weakness of per-frame reconstruction: a model that sees one image at a time has no memory, so the
+          depth of a perfectly still scene breathes and rescales from frame to frame. I treat this as a registration
+          problem. Each frame's depth is aligned to the frame before it with a small scale-and-offset correction, and a
+          gate refuses corrections that look unreliable (fast motion, occlusion, a cut), holding the last good one instead
+          of reacting to a single bad frame. Corrections are applied along each pixel's own viewing ray, so the picture
+          the camera saw never changes; only its depth becomes consistent. For the headset, the stabilised stage is turned
+          into depth-mapped stereo with a comfort limit on how far apart the two eyes are pushed.
+        </p>
+      </div>
+
+      <div class="text-left">
+        <h3>Humobox FaceCap: Puppeteering a Cube of Senses</h3>
+        <p class="project-paragraph">
+          To give Humobox a believable performance without a motion-capture stage, I built a webcam and microphone
+          puppeteering tool for Blender. Every take is my own face and voice driving a character that has no human face
+          at all.
+        </p>
+      </div>
+
+      <div class="flow flow--steps" aria-label="FaceCap pipeline">
+        <div class="flow-row">
+          <div class="flow-step"><b>Webcam + mic</b><span>30 fps face video, voice recorded per take</span></div>
+          <div class="flow-step"><b>Tracker</b><span>MediaPipe Face Landmarker, One Euro filtering, audio cues</span></div>
+          <div class="flow-step"><b>UDP stream</b><span>~30 control channels to Blender</span></div>
+          <div class="flow-step"><b>Rig</b><span>Custom properties drive bones and shape keys</span></div>
+          <div class="flow-step"><b>Takes</b><span>Animation action + WAV strip</span></div>
+          <div class="flow-step"><b>Unity</b><span>Baked low-poly FBX, head motion relative to viewer</span></div>
+        </div>
+      </div>
+
+      <div class="media-pair">
+        <figure class="media">
+          <video src="./images/imetinhuman/facecap_live_blender.mp4" poster="./images/imetinhuman/facecap_live_blender_poster.jpg"
+            controls playsinline preload="metadata"></video>
+          <figcaption>Live: the tracker preview (bottom) driving Humobox in Blender in real time.</figcaption>
+        </figure>
+        <figure class="media">
+          <video src="./images/imetinhuman/humobox_facecap_demo.mp4" poster="./images/imetinhuman/humobox_facecap_poster.jpg"
+            controls playsinline preload="metadata"></video>
+          <figcaption>Playback: a recorded take with voice, seen from two sides of the cube.</figcaption>
+        </figure>
+      </div>
+
+      <div class="text-left">
+        <p class="project-paragraph">
+          Because Humobox is not a human face, the mapping is the design work. Raised brows flap and lift the ear. A nose
+          scrunch, measured from facial proportions, wrinkles the nose, while nostril flare and a sniff heard by the
+          microphone widen the nostrils. A fast head flick spins the whole cube a quarter turn. The tongue, which face
+          models cannot see, is played live from a held key, and an offline phoneme pass adds tongue-tip peeks on "th" and
+          "l" sounds after each take. Every channel lands on a custom property of the rig and simple drivers turn it into
+          motion, so the face can be re-rigged without recapturing.
+        </p>
+      </div>
+
+      <div class="text-left">
+        <h3>Key Innovation</h3>
+        <ul class="project-paragraph project-list">
+          <li>Virtual actors anchored into the visitor's own home by an on-device vision model</li>
+          <li>PBR shaders that refract, reflect and light themselves from the live camera feed</li>
+          <li>A streamed 4D Gaussian splat performer on standalone hardware</li>
+          <li>Temporally stable depth from per-frame 3D reconstruction</li>
+          <li>Webcam-and-voice puppeteering for a non-human character</li>
+        </ul>
+      </div>
+
+      <div class="text-left">
+        <h3>Technical Highlights</h3>
+        <p class="project-paragraph">
+          Unity 6, URP and OpenXR on standalone Meta Quest 3, with a PC VR build of the same piece. Passthrough Camera API
+          feed in custom HLSL shaders: procedural rain with merging drops and runner trails, live room panorama,
+          condensation fog and a PBR moss carpet. YOLOv9 seat detection with Unity Inference Engine on camera frames, plus
+          environment depth raycasts for tables, floors and walls. Hand occlusion meshes built from XR Hands joints.
+          Streamed Gaussian splat playback with GPU sorting. A Python tracker and Blender add-on for face and voice capture,
+          with FBX export of baked takes. Profiled against the headset's 72 Hz frame budget with on-device session logs.
+        </p>
+      </div>
+
+      <div class="text-left">
+        <h3>AI-Assisted Workflow</h3>
+        <p class="project-paragraph">
+          Herald Examiner MR ended with a goal: a fully automated iteration loop between AI and engine. In*Human is that
+          loop. Claude Code worked directly inside Unity and Blender through MCP servers and headless scripts, compiled
+          shaders offline before every build, ported shaders to Python to preview them without the engine, built and
+          installed APKs, and read the headset's own logs to diagnose what happened on device. My role moved from writing
+          code to directing: setting the artistic intent, testing on the headset, and deciding what stays.
+        </p>
+        <div class="callout">
+          <p class="project-paragraph">
+            <strong>Key finding: the agent can close the loop on the headset itself.</strong> From the command line,
+            Claude Code builds the app and installs it on Meta Quest 3 automatically, tests the software by remoting
+            into the headset and reading its camera feed, and built its own tool for streaming the headset view,
+            with audio, straight to the computer.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-left">
+        <h3>Reflection</h3>
+        <p class="project-paragraph">
+          I had a lot of fun building this project and learning to work with AI as a co-creator. The vertical slice is
+          built on many hypotheses planted in the idea of the experience, and now I wonder how the story would feel
+          different depending on where it is watched: a studio apartment, a flat or a house. Which emotions would it
+          trigger in other people, and would they be the same as mine? I intend to continue my research into agentic
+          holograms that communicate with, and act upon, the physical spaces we live in.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <div class="project-nav">
+    <a class="project-nav-next" href="project-synesthesia.html">Spatial Synesthesia →</a>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-copyright">
+        <p>© 2026. All Rights Reserved.</p>
+        <p>Website developed by Leo Danenkov.</p>
+        <p>Email with inquiries to ledanenkov@gmail.com</p>
+        <p>spatialme.xyz</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="site-brand.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

@@ -6,6 +6,8 @@
   <link rel="icon" type="image/png" href="/faviconbw.png" />
   <title>About · Leo Danenkov</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://sparkjs.dev" crossorigin>
   <script defer src="site-brand.js"></script>
   <script>
     window.addEventListener('scroll', () => {
@@ -301,7 +303,7 @@
     }
 
     const splat = new SplatMesh({
-      url: './splats/LeoCanyon.compressed.ply',
+      url: './splats/LeoCanyon.web.compressed.ply',
       splatAlphaRemovalThreshold: 10,
       onLoad: hideSplatLoading
     });
