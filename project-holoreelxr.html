@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/faviconbw.png" />
+  <title>Holoreel · Leo Danenkov</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="project-style.css?v=20261024">
+</head>
+
+<body class="project-detail-page project-page">
+  <!-- Navigation -->
+  <nav class="nav-pill">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="contact.html">Resume</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="page-label">WEBXR · MOBILE</span>
+      <p class="title">2025–2026</p>
+      <div class="skills-overview-projects skills-tags">
+        <span>META XR HACKATHON</span> | <span>THREE.JS</span> | <span>WEBXR</span> | <span>HAND TRACKING</span> |
+        <span>GAUSSIAN SPLATTING</span> | <span>MOBILE WEB</span> | <span>AI-ASSISTED WORKFLOW</span>
+      </div>
+      <h1>Holoreel</h1>
+      <h2>One idea, three prototypes: a social feed where every post is a 3D object, built for the web, for a headset
+        and for a phone</h2>
+    </div>
+  </header>
+
+  <!-- Main Project Content -->
+  <main class="project-content project-page-content">
+    <section class="project-section">
+
+      <div class="text-left">
+        <h3>Overview</h3>
+        <p class="project-paragraph">
+          Holoreel asks what happens to the gestures of a phone feed when the posts become 3D objects. I explored it
+          three times in five months: a concept site (September 2025); <strong>HoloreelXR</strong>, a WebXR prototype I
+          built in about one month during the Meta XR Hackathon (November 2025) with three.js and WebXR; and
+          <strong>Splatemō</strong>, a phone feed of Gaussian splats (January 2026).
+        </p>
+      </div>
+
+      <div class="tri" aria-label="Three prototypes">
+        <figure class="tri-card">
+          <video src="./images/holoreelxr/tri_holoreel.mp4" poster="./images/holoreelxr/tri_holoreel.jpg"
+            muted loop autoplay playsinline preload="metadata"></video>
+          <figcaption><span class="tri-date">Sep 2025 · Web</span><b>Holoreel</b>
+            <span>Concept site for a spatial viewer on Meta Quest 3/S</span></figcaption>
+        </figure>
+        <figure class="tri-card">
+          <video src="./images/holoreelxr/tri_holoreelxr.mp4" poster="./images/holoreelxr/tri_holoreelxr.jpg"
+            muted loop autoplay playsinline preload="metadata"></video>
+          <figcaption><span class="tri-date">Nov 2025 · Headset</span><b>HoloreelXR</b>
+            <span>Hand-gesture feed in mixed reality, Meta XR Hackathon</span></figcaption>
+        </figure>
+        <figure class="tri-card">
+          <video src="./images/holoreelxr/tri_splatemo.mp4" poster="./images/holoreelxr/tri_splatemo.jpg"
+            muted loop autoplay playsinline preload="metadata"></video>
+          <figcaption><span class="tri-date">Jan 2026 · Phone</span><b>Splatemō</b>
+            <span>Vertical feed of Gaussian-splat posts</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="video-wrapper">
+        <button type="button" class="youtube-facade" data-embed-src="https://www.youtube.com/embed/Jm3v7_WokEA?rel=0&amp;modestbranding=1" data-title="Holoreel video demo, WebXR" aria-label="Play YouTube video">
+          <img class="youtube-facade__thumb" src="./images/holoreelxr/demo_poster.jpg" alt="" loading="lazy" width="1280" height="720">
+          <span class="youtube-facade__play" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path fill="#fff" d="M9 7v10l8-5-8-5z"/></svg></span>
+        </button>
+      </div>
+      <p class="project-paragraph diagram-note">HoloreelXR demo, recorded in mixed reality in a café: the gesture
+        tutorial, multiplayer, 3D models and Gaussian splats.</p>
+
+      <div class="text-left">
+        <h3>One Feed, Two Bodies</h3>
+        <p class="project-paragraph">
+          The same six actions, side by side: in the headset each one is a hand pose, on the phone it is a tap or a
+          swipe.
+        </p>
+      </div>
+
+      <p class="act-legend"><span>Headset · HoloreelXR</span><span>Phone · Splatemō</span></p>
+
+      <div class="act-grid">
+        <div class="act-card">
+          <p class="flow-label">Like</p>
+          <div class="act-media">
+            <video src="./images/holoreelxr/act_like_headset.mp4" muted loop autoplay playsinline preload="metadata"></video>
+            <video src="./images/holoreelxr/act_like_phone.mp4" muted loop autoplay playsinline preload="metadata"></video>
+          </div>
+          <p class="act-label"><span>Thumbs up</span><span>Tap ♥</span></p>
+        </div>
+        <div class="act-card">
+          <p class="flow-label">Repost</p>
+          <div class="act-media">
+            <video src="./images/holoreelxr/act_repost_headset.mp4" muted loop autoplay playsinline preload="metadata"></video>
+            <video src="./images/holoreelxr/act_repost_phone.mp4" muted loop autoplay playsinline preload="metadata"></video>
+          </div>
+          <p class="act-label"><span>Peace sign</span><span>Tap ↻</span></p>
+        </div>
+        <div class="act-card">
+          <p class="flow-label">Save</p>
+          <div class="act-media">
+            <video src="./images/holoreelxr/act_save_headset.mp4" muted loop autoplay playsinline preload="metadata"></video>
+            <video src="./images/holoreelxr/act_save_phone.mp4" muted loop autoplay playsinline preload="metadata"></video>
+          </div>
+          <p class="act-label"><span>Two-hand heart</span><span>Tap bookmark</span></p>
+        </div>
+        <div class="act-card">
+          <p class="flow-label">Browse</p>
+          <div class="act-media">
+            <video src="./images/holoreelxr/act_browse_headset.mp4" muted loop autoplay playsinline preload="metadata"></video>
+            <video src="./images/holoreelxr/act_browse_phone.mp4" muted loop autoplay playsinline preload="metadata"></video>
+          </div>
+          <p class="act-label"><span>Pinch and lift</span><span>Scroll to next</span></p>
+        </div>
+        <div class="act-card">
+          <p class="flow-label">Rotate</p>
+          <div class="act-media">
+            <video src="./images/holoreelxr/act_rotate_headset.mp4" muted loop autoplay playsinline preload="metadata"></video>
+            <video src="./images/holoreelxr/act_rotate_phone.mp4" muted loop autoplay playsinline preload="metadata"></video>
+          </div>
+          <p class="act-label"><span>Two-hand rotate</span><span>Swipe</span></p>
+        </div>
+        <div class="act-card">
+          <p class="flow-label">Scale</p>
+          <div class="act-media">
+            <video src="./images/holoreelxr/act_scale_headset.mp4" muted loop autoplay playsinline preload="metadata"></video>
+            <video src="./images/holoreelxr/act_scale_phone.mp4" muted loop autoplay playsinline preload="metadata"></video>
+          </div>
+          <p class="act-label"><span>Two-hand pinch</span><span>Pinch zoom</span></p>
+        </div>
+      </div>
+
+      <div class="text-left">
+        <p class="chapter-label">01 · September 2025</p>
+        <h3>Holoreel: the Pitch</h3>
+        <p class="project-paragraph">
+          Holoreel started as a three.js landing site for a "futuristic spatial viewer" on Meta Quest 3/S. It promised
+          a home for 3D models, animated models, Gaussian splats ("HoloPhotos"), 4D volumetric splats ("HoloVideos"),
+          spatial photos, panoramas and spatial videos, and announced a launch for 27 November 2025.
+        </p>
+      </div>
+
+      <div class="media-pair media-pair--portrait">
+        <figure class="media">
+          <img src="./images/holoreelxr/holoreel_splash.jpg" alt="Holoreel site intro: a point-cloud hand logo" loading="lazy">
+          <figcaption>Point-cloud logo intro, phone layout.</figcaption>
+        </figure>
+        <figure class="media">
+          <img src="./images/holoreelxr/holoreel_pitch.jpg" alt="Holoreel site text: futuristic spatial viewer, launching 11/27/2025 on Meta Quest 3/S" loading="lazy">
+          <figcaption>The pitch and the launch date.</figcaption>
+        </figure>
+      </div>
+
+      <div class="text-left">
+        <p class="chapter-label">02 · November 2025 · Meta XR Hackathon</p>
+        <h3>HoloreelXR: the Feed in Your Room</h3>
+        <p class="project-paragraph">
+          HoloreelXR is the hackathon build: a WebXR feed in mixed reality where each post floats in the room and each
+          reaction is a hand pose, recognized from WebXR hand-tracking joints. Because none of these gestures exist on
+          a phone, the experience opens with a seven-step tutorial (rotate, scale, grab, scroll, like, heart, repost)
+          with a short clip of each gesture on the panel. A single pinch also grabs a post and moves it. In
+          multiplayer, other people's hands appear in your space over a peer-to-peer connection (PeerJS).
+        </p>
+        <p class="project-paragraph">
+          The original idea was a feed of animated Gaussian-splat holograms. I dropped it: the pipeline for producing
+          that content was complex and expensive. The prototype focused on the interactions instead, with simple
+          shapes, 3D models and static Gaussian splats as posts.
+        </p>
+      </div>
+
+      <div class="strip">
+        <figure class="media">
+          <video src="./images/holoreelxr/xr_multiplayer.mp4" poster="./images/holoreelxr/xr_multiplayer.jpg"
+            muted loop autoplay playsinline preload="metadata"></video>
+          <figcaption>Multiplayer</figcaption>
+        </figure>
+        <figure class="media">
+          <video src="./images/holoreelxr/xr_models.mp4" poster="./images/holoreelxr/xr_models.jpg"
+            muted loop autoplay playsinline preload="metadata"></video>
+          <figcaption>3D models</figcaption>
+        </figure>
+        <figure class="media">
+          <video src="./images/holoreelxr/xr_splats.mp4" poster="./images/holoreelxr/xr_splats.jpg"
+            muted loop autoplay playsinline preload="metadata"></video>
+          <figcaption>Gaussian splats</figcaption>
+        </figure>
+        <figure class="media">
+          <video src="./images/holoreelxr/xr_mountains.mp4" poster="./images/holoreelxr/xr_mountains.jpg"
+            muted loop autoplay playsinline preload="metadata"></video>
+          <figcaption>A splat you stand inside</figcaption>
+        </figure>
+      </div>
+
+      <div class="text-left">
+        <p class="chapter-label">03 · January 2026</p>
+        <h3>Splatemō: Back to the Phone</h3>
+        <p class="project-paragraph">
+          Splatemō takes the feed back to the phone as a mobile-first Gaussian splatting prototype (three.js, Vite,
+          TypeScript): a vertical feed of splat posts that you swipe to rotate and pinch to zoom, with like, comment,
+          repost and bookmark buttons, a playground of volumetric effects and an off-axis camera mode. Its posts are
+          the same splat scenes that run in the headset build: the neon alley, the haunted house and the candlelit room.
+        </p>
+      </div>
+
+      <div class="media-pair media-pair--portrait media-pair--single">
+        <figure class="media">
+          <video src="./images/holoreelxr/splatemo_feed.mp4" poster="./images/holoreelxr/splatemo_feed.jpg"
+            controls muted loop playsinline preload="metadata"></video>
+          <figcaption>Rotate, zoom, like, repost, bookmark, then the next two posts.</figcaption>
+        </figure>
+      </div>
+
+      <div class="text-left">
+        <h3>Findings</h3>
+        <p class="project-paragraph">
+          Mid-air hand gestures are tiring. Holding your arms up to react and scroll quickly leads to "gorilla arm",
+          and the ergonomics of the headset itself limit how long a session can last. Side by side, the difference is
+          plain: on the phone every action is a tap in the same column, in the headset each one is a held pose.
+        </p>
+        <div class="callout">
+          <p class="project-paragraph">
+            <strong>Takeaway: the project confirmed that phone patterns do not translate directly into 3D.</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="text-left">
+        <h3>AI-Assisted Workflow</h3>
+        <p class="project-paragraph">
+          I built all three prototypes with an AI-assisted workflow, using AI coding tools for implementation while I
+          directed the interaction design and tested on the device.
+        </p>
+      </div>
+
+      <div class="text-left">
+        <h3>Source</h3>
+        <p class="project-paragraph">
+          All three repositories are public on GitHub:
+          <a href="https://github.com/arttechleo/Holoreel" target="_blank" rel="noopener">Holoreel</a>,
+          <a href="https://github.com/arttechleo/Holoreelxr" target="_blank" rel="noopener">HoloreelXR</a>
+          (the README and package.json state the ISC license) and
+          <a href="https://github.com/arttechleo/splatemo" target="_blank" rel="noopener">Splatemō</a>.
+          The Holoreel and Splatemō clips are screen recordings of local runs of those repositories.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <div class="project-nav">
+    <a class="project-nav-prev" href="project-worldlabs.html">← World Labs → UE Pipeline</a>
+    <a class="project-nav-next" href="project3.html">Molecules WebXR →</a>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-copyright">
+        <p>© 2026. All Rights Reserved.</p>
+        <p>Website developed by Leo Danenkov.</p>
+        <p>Email with inquiries to ledanenkov@gmail.com</p>
+        <p>spatialme.xyz</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="site-brand.js"></script>
+  <script defer src="youtube-facade.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

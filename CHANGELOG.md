@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-10-24
+
+- World Labs (`project-worldlabs.html`, `app.js`): project year 2024 -> 2026.
+- Soundscapes VR (`project8.html`, `app.js`, `project4.html`, `project9.html`): official title "Soundscapes VR", subtitle "after John Cage's 4'33''". Tab title `Soundscapes VR · Leo Danenkov`, new `<h1>`/`<h2>` in the hero, nav labels and both homepage titles unified; "Wizard of Oz VR" (used as a project name, not as the prototyping method) replaced with "Soundscapes VR" (6x); 4’33” normalized to 4'33''. Process section left untouched (open question).
+- Resume (`contact.html`): "Suplat Editor" -> "SuperSplat editor".
+- New project page `project-holoreelxr.html`, titled **Holoreel**: one page for three prototypes (Holoreel concept site, Sep 2025; HoloreelXR, Meta XR Hackathon, Nov 2025; Splatemo phone feed, Jan 2026). Homepage entry 05 right after World Labs in `PROJECT_DISPLAY` (later entries shifted +1, new `#section-project-16` in `index.html`); nav chain World Labs -> Holoreel -> Molecules WebXR.
+- Holoreel media in `images/holoreelxr/` (5.4 MB): short clips cut from Leo's HoloreelXR demo (YouTube Short `Jm3v7_WokEA`, embedded via `youtube-facade`), Splatemo clips recorded from a local run of the repo, Holoreel landing captures from a local run. New CSS in `project-style.css` (`.tri`, `.act-grid`/`.act-card`/`.act-media`, `.strip`, `.chapter-label`, `.media-pair--portrait`); the page links `project-style.css?v=20261024` to bust the cache.
+- Metrics audit (see `METRICS_AUDIT.md`). Numbers removed because no evidence could back them:
+  - `contact.html` intro: "reducing iteration time by 50%"
+  - `contact.html` metric card: "50% / Faster iteration via AI workflows" (now "AI / Augmented prototyping workflows")
+  - `contact.html` Structural Color Gallery: "(20 artworks)", "Cut load times by 50%", "Conducted 20+ usability sessions"
+  - `contact.html` Music Centre of LA: "by 70%" (SuperSplat dataset size), "achieving 90% usable scan captures"
+  - `contact.html` ACM SIGGRAPH: "25-person team"
+  - `research.html`: "50%+ faster iteration"; "cut WebGL exhibition load times by 50% across 20 artworks; 20+ usability sessions"
+  - `app.js` SCG homepage entry: "with twenty artworks", "usability sessions with 20+ participants"
+  - Kept: "5+ years in VR/AR" (site lists dated VR work back to 2018). Flagged, not edited (employer claims): ASU bullets "25 students", "15%", "25%", "30+" and the homepage line "25% optimization · LED VP stages".
+
 ## 2026-04-08
 
 - Home / About loading hero: `#canvas-loading` / `#splat-loading` — `font-size: clamp(3rem, min(10vw, 20vh), min(8.75rem, 22vh))` (~48–140px intent, vw+vh so short/half-height viewports fit both lines); `line-height: 0.92`, generous `padding` in `vmin`; fade-out unchanged.

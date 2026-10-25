@@ -555,6 +555,112 @@ body.project-detail-page .callout p {
   color: var(--text-primary);
 }
 
+/* Holoreel: one card system for every clip (triptych, action pairs, strip) */
+body.project-detail-page .tri,
+body.project-detail-page .strip,
+body.project-detail-page .act-grid {
+  display: grid;
+  gap: 16px;
+  margin: 8px 0 28px;
+}
+
+body.project-detail-page .tri { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+body.project-detail-page .strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+body.project-detail-page .act-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+body.project-detail-page .tri video,
+body.project-detail-page .strip video,
+body.project-detail-page .act-media video,
+body.project-detail-page .media-pair--portrait img,
+body.project-detail-page .media-pair--portrait video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #121316;
+}
+
+body.project-detail-page .tri-card { margin: 0; min-width: 0; }
+body.project-detail-page .tri video { aspect-ratio: 3 / 4; }
+
+body.project-detail-page .tri figcaption {
+  margin-top: 10px;
+  font-size: 0.85em;
+  line-height: 1.45;
+}
+
+body.project-detail-page .tri figcaption b,
+body.project-detail-page .tri figcaption span { display: block; }
+body.project-detail-page .tri figcaption span { opacity: 0.7; }
+
+body.project-detail-page .tri-date,
+body.project-detail-page .chapter-label {
+  font-size: 0.75em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+body.project-detail-page .chapter-label { margin: 0 0 4px; }
+
+body.project-detail-page .strip .media { margin: 0; }
+body.project-detail-page .strip video { aspect-ratio: 1 / 1; }
+
+body.project-detail-page .act-card {
+  min-width: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+/* headset clip is square, phone clip is 390:844; 1 : 0.462 columns give both the same height */
+body.project-detail-page .act-media {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.462fr);
+  gap: 10px;
+}
+
+body.project-detail-page .act-media video:first-child { aspect-ratio: 1 / 1; }
+body.project-detail-page .act-media video:last-child { aspect-ratio: 390 / 844; }
+
+body.project-detail-page .act-legend {
+  display: flex;
+  gap: 18px;
+  margin: 0 0 10px;
+  font-size: 0.75em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+body.project-detail-page .act-label {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.462fr);
+  gap: 10px;
+  margin: 8px 0 0;
+  font-size: 0.78em;
+  line-height: 1.35;
+  opacity: 0.72;
+}
+
+body.project-detail-page .media-pair--portrait {
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.project-detail-page .media-pair--portrait img,
+body.project-detail-page .media-pair--portrait video { aspect-ratio: 390 / 844; }
+
+body.project-detail-page .media-pair--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 300px;
+}
+
 @media (max-width: 720px) {
   body.project-detail-page .media-pair,
   body.project-detail-page .arch {
@@ -564,4 +670,13 @@ body.project-detail-page .callout p {
   body.project-detail-page .flow-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  body.project-detail-page .media-pair.media-pair--portrait {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  body.project-detail-page .act-grid { grid-template-columns: minmax(0, 1fr); }
+  body.project-detail-page .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body.project-detail-page .tri { gap: 10px; }
+  body.project-detail-page .media-pair.media-pair--single { grid-template-columns: minmax(0, 1fr); }
 }

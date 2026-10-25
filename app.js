@@ -253,7 +253,7 @@ class MultiVideoScene {
             {
                 id: 'screen4',
                 src: './videos/screens/WizardofOzVRSoundscapeProject.mp4',
-                title: "4'33'' - Soundscapes in VR",
+                title: "Soundscapes VR",
                 about: "What if silence wasn't empty but full of hidden stories? Inspired by John Cage's 4'33'', this VR experience lets you explore soundscapes from everyday life—your apartment, your city, maybe even the weird noise your fridge makes at night. It's a concert, but the world is the composer.",
                 url: "./project8.html"
             },
@@ -750,7 +750,7 @@ const PROJECT_DISPLAY = [
     },
     {
         index: 3,
-        year: '2024',
+        year: '2026',
         number: '04',
         platform: '3D',
         title: 'World Labs → UE Pipeline',
@@ -762,8 +762,20 @@ const PROJECT_DISPLAY = [
     },
     {
         index: 4,
-        year: '2025',
+        year: '2025–2026',
         number: '05',
+        platform: 'WEBXR',
+        title: 'Holoreel',
+        description:
+            'One idea, three prototypes: a social feed where every post is a 3D object. HoloreelXR, built in about a month at the Meta XR Hackathon with three.js and WebXR, turns likes, reposts and saves into hand gestures; Splatemō brings the same splat feed back to the phone. It confirmed that phone patterns do not translate directly into 3D.',
+        videoUrl: './images/holoreelxr/card_loop.mp4',
+        projectUrl: 'project-holoreelxr.html',
+        tags: ['WEBXR', 'Three.js', 'Hand Tracking', 'Gaussian Splatting']
+    },
+    {
+        index: 5,
+        year: '2025',
+        number: '06',
         platform: 'QUEST PRO',
         title: 'Molecules WebXR',
         description:
@@ -773,9 +785,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST PRO', 'WebXR', 'Education', 'Three.js']
     },
     {
-        index: 5,
+        index: 6,
         year: '2024',
-        number: '06',
+        number: '07',
         platform: 'QUEST 3',
         title: 'mr.js — WebXR library',
         description:
@@ -785,9 +797,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 3', 'WebXR', 'Open Source', 'JavaScript']
     },
     {
-        index: 6,
+        index: 7,
         year: '2021',
-        number: '07',
+        number: '08',
         platform: 'QUEST 1',
         title: 'Synesthesia VR',
         description:
@@ -797,9 +809,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 1', 'Unity', 'VR', 'UX Design']
     },
     {
-        index: 7,
+        index: 8,
         year: '2024',
-        number: '08',
+        number: '09',
         platform: 'QUEST 3',
         title: 'Classical Poem in MR / VR',
         description:
@@ -809,9 +821,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 3', 'MR', 'VR', 'Story']
     },
     {
-        index: 8,
+        index: 9,
         year: '2020',
-        number: '09',
+        number: '10',
         platform: 'INSTALLATION',
         title: 'Piano Bar — Cybernetics installation',
         description:
@@ -821,9 +833,9 @@ const PROJECT_DISPLAY = [
         tags: ['PHYSICAL COMPUTING', 'INTERACTIVE INSTALLATION', 'AI']
     },
     {
-        index: 9,
+        index: 10,
         year: '2025',
-        number: '10',
+        number: '11',
         platform: 'WEBXR',
         title: 'Memory Game WebXR',
         description:
@@ -833,21 +845,21 @@ const PROJECT_DISPLAY = [
         tags: ['WEBXR', 'WebXR', 'Hand Tracking', 'Health']
     },
     {
-        index: 10,
+        index: 11,
         year: '2024',
-        number: '11',
+        number: '12',
         platform: '3D',
         title: 'SCG Archival 3D Website',
         description:
-            'WebGL archive of Structural Color Gallery: a navigable 3D scan of the exhibition with twenty artworks. Performance-tuned delivery and usability sessions with 20+ participants.',
+            'WebGL archive of Structural Color Gallery: a navigable 3D scan of the Night Trees exhibition, with meshes optimized for web delivery and navigation refined through usability sessions.',
         videoUrl: './images/scg/scg_scan.mp4',
         projectUrl: 'project2.html',
         tags: ['3D', 'Three.js', 'WebGL', 'UX Research']
     },
     {
-        index: 11,
+        index: 12,
         year: '2024',
-        number: '12',
+        number: '13',
         platform: 'QUEST 2',
         title: 'Invisible Labour MR',
         description:
@@ -857,9 +869,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 2', 'MR', 'Art', 'Social']
     },
     {
-        index: 12,
+        index: 13,
         year: '2023',
-        number: '13',
+        number: '14',
         platform: 'QUEST 2',
         title: 'Scholarly VR',
         description:
@@ -869,9 +881,9 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 2', 'VR', 'EdTech', 'Research']
     },
     {
-        index: 13,
+        index: 14,
         year: '2023',
-        number: '14',
+        number: '15',
         platform: 'QUEST 2',
         title: 'Blown Away VR',
         description:
@@ -881,21 +893,21 @@ const PROJECT_DISPLAY = [
         tags: ['QUEST 2', 'VR', 'Gameplay', 'Experiment']
     },
     {
-        index: 14,
+        index: 15,
         year: '2023',
-        number: '15',
+        number: '16',
         platform: 'QUEST 1',
-        title: "4'33'' — Soundscapes in VR",
+        title: 'Soundscapes VR',
         description:
-            'A Cage-inspired VR study of everyday soundscapes—from home to city—treating silence and ambience as compositional material.',
+            "After John Cage's 4'33'': a VR study of everyday soundscapes—from home to city—treating silence and ambience as compositional material.",
         videoUrl: 'https://www.youtube.com/embed/Zp0g3Y7vn_8',
         projectUrl: 'project8.html',
         tags: ['QUEST 1', 'VR', 'Audio', 'Installation']
     },
     {
-        index: 15,
+        index: 16,
         year: '2018',
-        number: '16',
+        number: '17',
         platform: 'OCULUS GO',
         title: 'Futuristic Metaverse Trailer (2018)',
         description:
