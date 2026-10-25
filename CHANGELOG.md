@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-24 (later)
+
+- Herald Examiner MR and Spatial Synesthesia (Vision Pro) dated 2026 (`project-herald.html`, `project-synesthesia.html`, `app.js`, Herald mention in `project-imetinhuman.html`).
+- Resume (`contact.html`): badge "Available for Summer 2026 Internships" -> "Applying for PhD Programs"; label "Resume · Available 2026" -> "Resume · Applying for PhDs".
+- Structural Color Gallery (`project2.html`): removed the "Visit Gallery" link (domain now serves an unrelated site) and the sentence pointing to it.
+- Spelling: project2 (Additionally, colleague, exhibition x2, inconsistencies, optimization), project5 (communities, support, opportunity, overlaid, mind-blowing), project9 (environments, journey, opportunities x2, unsuccessful), project1 (synesthetes, Wassily).
+- Confirmed unchanged: ASU resume numbers, contact email ledanenkov@gmail.com, footer on every page.
+
 ## 2026-10-24
 
 - World Labs (`project-worldlabs.html`, `app.js`): project year 2024 -> 2026.

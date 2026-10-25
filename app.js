@@ -726,7 +726,7 @@ const PROJECT_DISPLAY = [
     },
     {
         index: 1,
-        year: '2025',
+        year: '2026',
         number: '02',
         platform: 'VISION PRO',
         title: 'Spatial Synesthesia',
@@ -738,7 +738,7 @@ const PROJECT_DISPLAY = [
     },
     {
         index: 2,
-        year: '2024',
+        year: '2026',
         number: '03',
         platform: 'QUEST 3',
         title: 'Herald Examiner MR',
